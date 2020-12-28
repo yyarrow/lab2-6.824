@@ -1,0 +1,810 @@
+Test (2A): initial election ...
+2: Commit log
+0: Commit log
+1: Commit log
+0: GetState result, term is 0, isLeader is false
+1: GetState result, term is 0, isLeader is false
+2: GetState result, term is 0, isLeader is false
+0: GetState result, term is 0, isLeader is false
+1: GetState result, term is 0, isLeader is false
+2: GetState result, term is 0, isLeader is false
+1: curtime: 1608895580679, time out after 924 ms
+1: update timestamp to 1608895580679 ms
+1: start poll 
+1: request vote {"CurrentTerm":1,"Whoimi":1,"LastLogIndex":-1,"LastLogTerm":-1} to 2
+2: receive vote request {"CurrentTerm":1,"Whoimi":1,"LastLogIndex":-1,"LastLogTerm":-1} from 1
+2: update timestamp to 1608895580683 ms
+2: accept and vote for 1!
+2: send vote reply {"CurrentTerm":1,"VoteFor":1} to 1
+1: reply vote {"CurrentTerm":1,"VoteFor":1} from 2
+1: true to channel
+1: get one result (true) 
+1: Get marjority vote
+1: Declare election win to all
+1: request vote {"CurrentTerm":1,"Whoimi":1,"LastLogIndex":-1,"LastLogTerm":-1} to 0
+0: receive vote request {"CurrentTerm":1,"Whoimi":1,"LastLogIndex":-1,"LastLogTerm":-1} from 1
+0: update timestamp to 1608895580683 ms
+0: accept and vote for 1!
+0: send vote reply {"CurrentTerm":1,"VoteFor":1} to 1
+labgob warning: Decoding into a non-default variable/field CurrentTerm may not work
+1: reply vote {"CurrentTerm":1,"VoteFor":1} from 0
+1: true to channel
+Recovered in f send on closed channel
+1: send entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 1
+0: term jump from 1 to 1, leader id is 1
+0: update timestamp to 1608895580684 ms
+0: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 0
+1: send entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+2: recieve entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 1
+2: term jump from 1 to 1, leader id is 1
+2: update timestamp to 1608895580684 ms
+2: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+1: Start Send heartBeat
+1: Send heartBeat
+1: send entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+2: recieve entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 1
+2: term jump from 1 to 1, leader id is 1
+2: update timestamp to 1608895580684 ms
+2: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+1: send entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 1
+0: term jump from 1 to 1, leader id is 1
+0: update timestamp to 1608895580687 ms
+0: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 0
+1: Send heartBeat
+1: send entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+2: recieve entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 1
+2: term jump from 1 to 1, leader id is 1
+2: update timestamp to 1608895580892 ms
+2: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+1: send entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 1
+0: term jump from 1 to 1, leader id is 1
+0: update timestamp to 1608895580892 ms
+0: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 0
+1: Send heartBeat
+1: send entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+2: recieve entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 1
+2: term jump from 1 to 1, leader id is 1
+2: update timestamp to 1608895581096 ms
+2: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+1: send entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 1
+0: term jump from 1 to 1, leader id is 1
+0: update timestamp to 1608895581096 ms
+0: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 0
+0: GetState result, term is 1, isLeader is false
+1: GetState result, term is 1, isLeader is true
+2: GetState result, term is 1, isLeader is false
+0: GetState result, term is 1, isLeader is false
+1: GetState result, term is 1, isLeader is true
+2: GetState result, term is 1, isLeader is false
+1: Send heartBeat
+1: send entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+2: recieve entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 1
+2: term jump from 1 to 1, leader id is 1
+2: update timestamp to 1608895581309 ms
+2: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+1: send entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 1
+0: term jump from 1 to 1, leader id is 1
+0: update timestamp to 1608895581310 ms
+0: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 0
+1: Send heartBeat
+1: send entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+2: recieve entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 1
+2: term jump from 1 to 1, leader id is 1
+2: update timestamp to 1608895581533 ms
+2: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+1: send entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 1
+0: term jump from 1 to 1, leader id is 1
+0: update timestamp to 1608895581533 ms
+0: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 0
+1: Send heartBeat
+1: send entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+2: recieve entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 1
+2: term jump from 1 to 1, leader id is 1
+2: update timestamp to 1608895581734 ms
+2: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+1: send entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 1
+0: term jump from 1 to 1, leader id is 1
+0: update timestamp to 1608895581739 ms
+0: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 0
+1: Send heartBeat
+1: send entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+2: recieve entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 1
+2: term jump from 1 to 1, leader id is 1
+2: update timestamp to 1608895581949 ms
+2: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+1: send entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 1
+0: term jump from 1 to 1, leader id is 1
+0: update timestamp to 1608895581949 ms
+0: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 0
+1: Send heartBeat
+1: send entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+2: recieve entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 1
+2: term jump from 1 to 1, leader id is 1
+2: update timestamp to 1608895582154 ms
+2: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+1: send entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 1
+0: term jump from 1 to 1, leader id is 1
+0: update timestamp to 1608895582155 ms
+0: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 0
+1: Send heartBeat
+1: send entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+2: recieve entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 1
+2: term jump from 1 to 1, leader id is 1
+2: update timestamp to 1608895582363 ms
+2: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+1: send entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 1
+0: term jump from 1 to 1, leader id is 1
+0: update timestamp to 1608895582364 ms
+0: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 0
+1: Send heartBeat
+1: send entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+2: recieve entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 1
+2: term jump from 1 to 1, leader id is 1
+2: update timestamp to 1608895582567 ms
+2: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+1: send entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 1
+0: term jump from 1 to 1, leader id is 1
+0: update timestamp to 1608895582567 ms
+0: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 0
+1: Send heartBeat
+1: send entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+2: recieve entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 1
+2: term jump from 1 to 1, leader id is 1
+2: update timestamp to 1608895582779 ms
+2: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+1: send entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 1
+0: term jump from 1 to 1, leader id is 1
+0: update timestamp to 1608895582779 ms
+0: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 0
+1: Send heartBeat
+1: send entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+2: recieve entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 1
+2: term jump from 1 to 1, leader id is 1
+2: update timestamp to 1608895582995 ms
+2: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+1: send entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 1
+0: term jump from 1 to 1, leader id is 1
+0: update timestamp to 1608895582996 ms
+0: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 0
+0: GetState result, term is 1, isLeader is false
+1: GetState result, term is 1, isLeader is true
+2: GetState result, term is 1, isLeader is false
+1: Send heartBeat
+1: send entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+2: recieve entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 1
+2: term jump from 1 to 1, leader id is 1
+2: update timestamp to 1608895583206 ms
+2: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+1: send entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 1
+0: term jump from 1 to 1, leader id is 1
+0: update timestamp to 1608895583209 ms
+0: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 0
+1: Send heartBeat
+1: send entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+2: recieve entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 1
+2: term jump from 1 to 1, leader id is 1
+2: update timestamp to 1608895583413 ms
+2: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+1: send entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 1
+0: term jump from 1 to 1, leader id is 1
+0: update timestamp to 1608895583413 ms
+0: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 0
+1: Send heartBeat
+1: send entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+2: recieve entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 1
+2: term jump from 1 to 1, leader id is 1
+2: update timestamp to 1608895583613 ms
+2: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+1: send entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 1
+0: term jump from 1 to 1, leader id is 1
+0: update timestamp to 1608895583614 ms
+0: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 0
+0: GetState result, term is 1, isLeader is false
+1: GetState result, term is 1, isLeader is true
+2: GetState result, term is 1, isLeader is false
+  ... Passed --   4.1  3   34   11282    0
+Test (2A): election after network failure ...
+2: Commit log
+0: Commit log
+1: Commit log
+0: GetState result, term is 0, isLeader is false
+1: GetState result, term is 0, isLeader is false
+2: GetState result, term is 0, isLeader is false
+0: GetState result, term is 0, isLeader is false
+1: GetState result, term is 0, isLeader is false
+2: GetState result, term is 0, isLeader is false
+0: curtime: 1608895584727, time out after 886 ms
+0: update timestamp to 1608895584728 ms
+0: start poll 
+0: request vote {"CurrentTerm":1,"Whoimi":0,"LastLogIndex":-1,"LastLogTerm":-1} to 2
+2: receive vote request {"CurrentTerm":1,"Whoimi":0,"LastLogIndex":-1,"LastLogTerm":-1} from 0
+2: update timestamp to 1608895584728 ms
+2: accept and vote for 0!
+2: send vote reply {"CurrentTerm":1,"VoteFor":0} to 0
+0: reply vote {"CurrentTerm":1,"VoteFor":0} from 2
+0: true to channel
+0: get one result (true) 
+0: Get marjority vote
+0: Declare election win to all
+0: request vote {"CurrentTerm":1,"Whoimi":0,"LastLogIndex":-1,"LastLogTerm":-1} to 1
+1: receive vote request {"CurrentTerm":1,"Whoimi":0,"LastLogIndex":-1,"LastLogTerm":-1} from 0
+1: update timestamp to 1608895584729 ms
+1: accept and vote for 0!
+1: send vote reply {"CurrentTerm":1,"VoteFor":0} to 0
+0: reply vote {"CurrentTerm":1,"VoteFor":0} from 1
+0: true to channel
+Recovered in f send on closed channel
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 0
+1: term jump from 1 to 1, leader id is 0
+1: update timestamp to 1608895584729 ms
+1: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 0
+0: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 1
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+2: recieve entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 0
+2: term jump from 1 to 1, leader id is 0
+2: update timestamp to 1608895584729 ms
+2: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 0
+0: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+0: Start Send heartBeat
+0: Send heartBeat
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+2: recieve entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 0
+2: term jump from 1 to 1, leader id is 0
+2: update timestamp to 1608895584730 ms
+2: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 0
+0: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 0
+1: term jump from 1 to 1, leader id is 0
+1: update timestamp to 1608895584730 ms
+1: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 0
+0: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 1
+2: curtime: 1608895584856, time out after 1232 ms
+2: update timestamp to 1608895584856 ms
+2: start poll 
+2: request vote {"CurrentTerm":2,"Whoimi":2,"LastLogIndex":-1,"LastLogTerm":-1} to 1
+2: reply vote {"CurrentTerm":0,"VoteFor":0} from 1
+2: false to channel
+2: get one result (false) 
+2: request vote {"CurrentTerm":2,"Whoimi":2,"LastLogIndex":-1,"LastLogTerm":-1} to 0
+2: reply vote {"CurrentTerm":0,"VoteFor":0} from 0
+2: false to channel
+2: get one result (false) 
+2: Already been return from all server
+0: Send heartBeat
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+2: recieve entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 0
+2: term jump from 1 to 1, leader id is 0
+2: update timestamp to 1608895584967 ms
+2: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 0
+0: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 0
+1: term jump from 1 to 1, leader id is 0
+1: update timestamp to 1608895584967 ms
+1: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 0
+0: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 1
+0: curtime: 1608895584998, time out after 1372 ms
+0: update timestamp to 1608895584998 ms
+0: start poll 
+0: request vote {"CurrentTerm":2,"Whoimi":0,"LastLogIndex":-1,"LastLogTerm":-1} to 2
+0: reply vote {"CurrentTerm":0,"VoteFor":0} from 2
+0: true to channel
+0: get one result (true) 
+0: Get marjority vote
+0: Declare election win to all
+0: request vote {"CurrentTerm":2,"Whoimi":0,"LastLogIndex":-1,"LastLogTerm":-1} to 1
+0: reply vote {"CurrentTerm":0,"VoteFor":0} from 1
+0: true to channel
+Recovered in f send on closed channel
+0: send entries {"CurrentTerm":2,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 1
+0: recieve entries reply {"CurrentTerm":0,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 1
+0: send entries {"CurrentTerm":2,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+0: recieve entries reply {"CurrentTerm":0,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+0: Start Send heartBeat
+0: Send heartBeat
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+2: recieve entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 0
+2: term jump from 1 to 1, leader id is 0
+2: update timestamp to 1608895585179 ms
+2: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 0
+0: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 0
+1: term jump from 1 to 1, leader id is 0
+1: update timestamp to 1608895585179 ms
+1: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 0
+0: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 1
+0: GetState result, term is 1, isLeader is true
+1: GetState result, term is 1, isLeader is false
+2: GetState result, term is 1, isLeader is false
+-----if the leader disconnects, a new one should be elected.-----
+0: Send heartBeat
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 1
+0: Send heartBeat
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 1
+1: GetState result, term is 1, isLeader is false
+2: GetState result, term is 1, isLeader is false
+0: Send heartBeat
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 1
+0: Send heartBeat
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 1
+1: curtime: 1608895586249, time out after 988 ms
+1: update timestamp to 1608895586249 ms
+1: start poll 
+1: request vote {"CurrentTerm":2,"Whoimi":1,"LastLogIndex":-1,"LastLogTerm":-1} to 2
+2: receive vote request {"CurrentTerm":2,"Whoimi":1,"LastLogIndex":-1,"LastLogTerm":-1} from 1
+2: update timestamp to 1608895586249 ms
+2: accept and vote for 1!
+2: send vote reply {"CurrentTerm":2,"VoteFor":1} to 1
+1: reply vote {"CurrentTerm":2,"VoteFor":1} from 2
+1: true to channel
+1: get one result (true) 
+1: Get marjority vote
+1: Declare election win to all
+1: request vote {"CurrentTerm":2,"Whoimi":1,"LastLogIndex":-1,"LastLogTerm":-1} to 0
+1: send entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 0
+1: send entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+2: recieve entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 1
+2: term jump from 2 to 2, leader id is 1
+2: update timestamp to 1608895586250 ms
+2: reply entries {"CurrentTerm":2,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":2,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+1: Start Send heartBeat
+1: Send heartBeat
+1: send entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+2: recieve entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 1
+2: term jump from 2 to 2, leader id is 1
+2: update timestamp to 1608895586250 ms
+2: reply entries {"CurrentTerm":2,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":2,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+1: send entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 0
+0: Send heartBeat
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 1
+1: GetState result, term is 2, isLeader is true
+2: GetState result, term is 2, isLeader is false
+-----if the old leader rejoins, that shouldn't disturb the new leader.-----
+1: Send heartBeat
+1: send entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+2: recieve entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 1
+2: term jump from 2 to 2, leader id is 1
+2: update timestamp to 1608895586471 ms
+2: reply entries {"CurrentTerm":2,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":2,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+1: send entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 0
+0: recieve entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 1
+0: term jump from 1 to 2, leader id is 1
+0: update timestamp to 1608895586471 ms
+0: reply entries {"CurrentTerm":2,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":2,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 0
+0: Send heartBeat
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+2: recieve entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 0
+2: reject because currentTerm 2 > 1
+0: recieve entries reply {"CurrentTerm":2,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 0
+1: reject because currentTerm 2 > 1
+0: recieve entries reply {"CurrentTerm":2,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 1
+1: Send heartBeat
+1: send entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+2: recieve entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 1
+2: term jump from 2 to 2, leader id is 1
+2: update timestamp to 1608895586706 ms
+2: reply entries {"CurrentTerm":2,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":2,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+1: send entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 0
+0: recieve entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 1
+0: term jump from 2 to 2, leader id is 1
+0: update timestamp to 1608895586709 ms
+0: reply entries {"CurrentTerm":2,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":2,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 0
+0: Send heartBeat
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+2: recieve entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 0
+2: reject because currentTerm 2 > 1
+0: recieve entries reply {"CurrentTerm":2,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 0
+1: reject because currentTerm 2 > 1
+0: recieve entries reply {"CurrentTerm":2,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 1
+0: GetState result, term is 2, isLeader is false
+1: GetState result, term is 2, isLeader is true
+2: GetState result, term is 2, isLeader is false
+-----if there's no quorum, no leader should be elected.-----
+1: Send heartBeat
+1: send entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+1: send entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 0
+0: Send heartBeat
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 1
+0: recieve entries reply {"CurrentTerm":2,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 1
+1: Send heartBeat
+1: send entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+1: send entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 0
+0: Send heartBeat
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 1
+1: Send heartBeat
+1: send entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+1: send entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 0
+0: recieve entries reply {"CurrentTerm":2,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+0: Send heartBeat
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 1
+1: Send heartBeat
+1: send entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+1: send entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 0
+0: curtime: 1608895587628, time out after 867 ms
+0: update timestamp to 1608895587628 ms
+0: start poll 
+0: request vote {"CurrentTerm":3,"Whoimi":0,"LastLogIndex":-1,"LastLogTerm":-1} to 2
+0: request vote {"CurrentTerm":3,"Whoimi":0,"LastLogIndex":-1,"LastLogTerm":-1} to 1
+0: Send heartBeat
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 1
+1: recieve entries reply {"CurrentTerm":2,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+1: Send heartBeat
+1: send entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+1: send entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 0
+1: recieve entries reply {"CurrentTerm":2,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 0
+0: Send heartBeat
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 1
+0: recieve entries reply {"CurrentTerm":2,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 1
+2: curtime: 1608895587939, time out after 1209 ms
+2: update timestamp to 1608895587939 ms
+2: start poll 
+2: request vote {"CurrentTerm":3,"Whoimi":2,"LastLogIndex":-1,"LastLogTerm":-1} to 1
+2: request vote {"CurrentTerm":3,"Whoimi":2,"LastLogIndex":-1,"LastLogTerm":-1} to 0
+1: Send heartBeat
+1: send entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+1: send entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 0
+1: recieve entries reply {"CurrentTerm":2,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 0
+0: Send heartBeat
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 1
+0: recieve entries reply {"CurrentTerm":2,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 1
+0: recieve entries reply {"CurrentTerm":2,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+1: Send heartBeat
+1: send entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+1: send entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 0
+0: Send heartBeat
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 1
+1: Send heartBeat
+1: send entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+1: send entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 0
+0: Send heartBeat
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 1
+0: recieve entries reply {"CurrentTerm":2,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+1: Send heartBeat
+1: send entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+1: send entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 0
+0: Send heartBeat
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 1
+0: recieve entries reply {"CurrentTerm":2,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 1
+0: curtime: 1608895588827, time out after 1099 ms
+0: update timestamp to 1608895588827 ms
+0: start poll 
+0: request vote {"CurrentTerm":4,"Whoimi":0,"LastLogIndex":-1,"LastLogTerm":-1} to 2
+0: request vote {"CurrentTerm":4,"Whoimi":0,"LastLogIndex":-1,"LastLogTerm":-1} to 1
+1: Send heartBeat
+1: send entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+1: send entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 0
+0: GetState result, term is 4, isLeader is false
+-----if a quorum arises, it should elect a leader.-----
+0: Send heartBeat
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+2: recieve entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 0
+2: reject because currentTerm 3 > 1
+0: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 1
+0: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 1
+2: reply vote {"CurrentTerm":0,"VoteFor":0} from 0
+2: false to channel
+2: get one result (false) 
+1: Send heartBeat
+1: send entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+1: send entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 0
+0: Send heartBeat
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+2: recieve entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 0
+2: reject because currentTerm 3 > 1
+0: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 1
+1: recieve entries reply {"CurrentTerm":2,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+1: Send heartBeat
+1: send entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+1: send entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 0
+0: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 1
+0: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+0: Send heartBeat
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+2: recieve entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 0
+2: reject because currentTerm 3 > 1
+0: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 1
+0: GetState result, term is 4, isLeader is false
+2: GetState result, term is 3, isLeader is false
+1: recieve entries reply {"CurrentTerm":2,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+2: curtime: 1608895589431, time out after 1489 ms
+2: update timestamp to 1608895589431 ms
+2: start poll 
+2: request vote {"CurrentTerm":4,"Whoimi":2,"LastLogIndex":-1,"LastLogTerm":-1} to 1
+2: request vote {"CurrentTerm":4,"Whoimi":2,"LastLogIndex":-1,"LastLogTerm":-1} to 0
+0: receive vote request {"CurrentTerm":4,"Whoimi":2,"LastLogIndex":-1,"LastLogTerm":-1} from 2
+0: update timestamp to 1608895589431 ms
+0: reject for this term because voted
+0: send vote reply {"CurrentTerm":4,"VoteFor":0} to 2
+2: reply vote {"CurrentTerm":4,"VoteFor":0} from 0
+2: false to channel
+2: get one result (false) 
+1: Send heartBeat
+1: send entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+1: send entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 0
+0: Send heartBeat
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+2: recieve entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 0
+2: reject because currentTerm 4 > 1
+0: recieve entries reply {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 1
+1: Send heartBeat
+1: send entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+1: send entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 0
+0: recieve entries reply {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+0: Send heartBeat
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+2: recieve entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 0
+2: reject because currentTerm 4 > 1
+0: recieve entries reply {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 1
+1: recieve entries reply {"CurrentTerm":2,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+1: Send heartBeat
+1: send entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+1: send entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 0
+1: recieve entries reply {"CurrentTerm":2,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 0
+0: GetState result, term is 4, isLeader is false
+2: GetState result, term is 4, isLeader is false
+0: Send heartBeat
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+2: recieve entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 0
+2: reject because currentTerm 4 > 1
+0: recieve entries reply {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 1
+0: recieve entries reply {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+1: recieve entries reply {"CurrentTerm":2,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+1: recieve entries reply {"CurrentTerm":2,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 0
+1: recieve entries reply {"CurrentTerm":2,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 0
+1: recieve entries reply {"CurrentTerm":2,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+1: Send heartBeat
+1: send entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+1: send entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 0
+0: recieve entries reply {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 1
+0: Send heartBeat
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+2: recieve entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 0
+2: reject because currentTerm 4 > 1
+0: recieve entries reply {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 1
+1: recieve entries reply {"CurrentTerm":2,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+1: Send heartBeat
+1: send entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+1: send entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 0
+0: Send heartBeat
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+2: recieve entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 0
+2: reject because currentTerm 4 > 1
+0: recieve entries reply {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 1
+0: GetState result, term is 4, isLeader is false
+2: GetState result, term is 4, isLeader is false
+0: recieve entries reply {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+0: reply vote {"CurrentTerm":0,"VoteFor":0} from 2
+0: true to channel
+0: get one result (true) 
+0: Get marjority vote
+0: Declare election win to all
+0: send entries {"CurrentTerm":4,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 1
+0: send entries {"CurrentTerm":4,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+2: recieve entries {"CurrentTerm":4,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 0
+2: warn: may be double leader in a term. my vote is: 2, leader id is: 0
+2: term jump from 4 to 4, leader id is 0
+2: update timestamp to 1608895590529 ms
+2: reply entries {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 0
+0: recieve entries reply {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+0: Start Send heartBeat
+0: Send heartBeat
+0: send entries {"CurrentTerm":4,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+2: recieve entries {"CurrentTerm":4,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 0
+2: term jump from 4 to 4, leader id is 0
+2: update timestamp to 1608895590529 ms
+2: reply entries {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 0
+0: recieve entries reply {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+0: send entries {"CurrentTerm":4,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 1
+1: Send heartBeat
+1: send entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+1: send entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 0
+0: Send heartBeat
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+2: recieve entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 0
+2: reject because currentTerm 4 > 1
+0: recieve entries reply {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 1
+0: recieve entries reply {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 1
+1: Send heartBeat
+1: send entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+0: Send heartBeat
+0: send entries {"CurrentTerm":4,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+2: recieve entries {"CurrentTerm":4,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 0
+2: term jump from 4 to 4, leader id is 0
+2: update timestamp to 1608895590751 ms
+2: reply entries {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 0
+0: recieve entries reply {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+1: send entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 0
+0: send entries {"CurrentTerm":4,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 1
+0: Send heartBeat
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+2: recieve entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 0
+2: reject because currentTerm 4 > 1
+0: recieve entries reply {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 1
+1: recieve entries reply {"CurrentTerm":2,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 0
+0: recieve entries reply {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 1
+1: Send heartBeat
+1: send entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+0: Send heartBeat
+0: send entries {"CurrentTerm":4,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+2: recieve entries {"CurrentTerm":4,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 0
+2: term jump from 4 to 4, leader id is 0
+2: update timestamp to 1608895590993 ms
+2: reply entries {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 0
+0: recieve entries reply {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+1: send entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 0
+0: send entries {"CurrentTerm":4,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 1
+0: recieve entries reply {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+0: Send heartBeat
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+2: recieve entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 0
+2: reject because currentTerm 4 > 1
+0: recieve entries reply {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 1
+0: GetState result, term is 4, isLeader is true
+2: GetState result, term is 4, isLeader is false
+-----re-join of last node shouldn't prevent leader from existing.-----
+0: recieve entries reply {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 1
+0: Send heartBeat
+0: send entries {"CurrentTerm":4,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+2: recieve entries {"CurrentTerm":4,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 0
+2: term jump from 4 to 4, leader id is 0
+2: update timestamp to 1608895591209 ms
+2: reply entries {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 0
+0: recieve entries reply {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+1: recieve entries reply {"CurrentTerm":2,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+1: Send heartBeat
+1: send entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+2: recieve entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 1
+2: reject because currentTerm 4 > 2
+1: recieve entries reply {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+0: send entries {"CurrentTerm":4,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 1
+1: recieve entries {"CurrentTerm":4,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 0
+1: term jump from 2 to 4, leader id is 0
+1: update timestamp to 1608895591210 ms
+1: reply entries {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 0
+0: recieve entries reply {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 1
+1: send entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 0
+0: recieve entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 1
+0: reject because currentTerm 4 > 2
+1: recieve entries reply {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 0
+1: recieve entries reply {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 0
+1: recieve entries reply {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 0
+0: Send heartBeat
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+2: recieve entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 0
+2: reject because currentTerm 4 > 1
+0: recieve entries reply {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 0
+1: reject because currentTerm 4 > 1
+0: recieve entries reply {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 1
+1: recieve entries reply {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 0
+1: recieve entries reply {"CurrentTerm":2,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 0
+1: recieve entries reply {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 0
+1: Send heartBeat
+1: send entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+2: recieve entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 1
+2: reject because currentTerm 4 > 2
+1: recieve entries reply {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+0: Send heartBeat
+0: send entries {"CurrentTerm":4,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+2: recieve entries {"CurrentTerm":4,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 0
+2: term jump from 4 to 4, leader id is 0
+2: update timestamp to 1608895591440 ms
+2: reply entries {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 0
+0: recieve entries reply {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+1: send entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 0
+0: recieve entries {"CurrentTerm":2,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 1
+0: reject because currentTerm 4 > 2
+1: recieve entries reply {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 0
+0: send entries {"CurrentTerm":4,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 1
+1: recieve entries {"CurrentTerm":4,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 0
+1: term jump from 4 to 4, leader id is 0
+1: update timestamp to 1608895591440 ms
+1: reply entries {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 0
+0: recieve entries reply {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 1
+1: reply vote {"CurrentTerm":2,"VoteFor":1} from 0
+1: true to channel
+Recovered in f send on closed channel
+0: Send heartBeat
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 2
+2: recieve entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 0
+2: reject because currentTerm 4 > 1
+0: recieve entries reply {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+1: recieve entries reply {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 0
+0: send entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":-1} from peer 0
+1: reject because currentTerm 4 > 1
+0: recieve entries reply {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 1
+0: recieve entries reply {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 1
+0: GetState result, term is 4, isLeader is true
+1: GetState result, term is 4, isLeader is false
+2: GetState result, term is 4, isLeader is false
+  ... Passed --   7.9  3  142   35022    0
+PASS
+ok  	_/mnt/e/Work/Go/lab2/6.824/src/raft	11.951s

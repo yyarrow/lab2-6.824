@@ -1,0 +1,569 @@
+Test (2B): RPC byte count ...
+1: GetState result, term is 0, isLeader is false
+2: GetState result, term is 0, isLeader is false
+0: GetState result, term is 0, isLeader is false
+sleep 50 ms to retry
+1: GetState result, term is 0, isLeader is false
+2: GetState result, term is 0, isLeader is false
+0: GetState result, term is 0, isLeader is false
+sleep 50 ms to retry
+1: GetState result, term is 0, isLeader is false
+2: GetState result, term is 0, isLeader is false
+0: GetState result, term is 0, isLeader is false
+sleep 50 ms to retry
+1: GetState result, term is 0, isLeader is false
+2: GetState result, term is 0, isLeader is false
+0: GetState result, term is 0, isLeader is false
+sleep 50 ms to retry
+1: GetState result, term is 0, isLeader is false
+2: GetState result, term is 0, isLeader is false
+0: GetState result, term is 0, isLeader is false
+sleep 50 ms to retry
+1: GetState result, term is 0, isLeader is false
+2: GetState result, term is 0, isLeader is false
+0: GetState result, term is 0, isLeader is false
+sleep 50 ms to retry
+1: GetState result, term is 0, isLeader is false
+2: GetState result, term is 0, isLeader is false
+0: GetState result, term is 0, isLeader is false
+sleep 50 ms to retry
+1: GetState result, term is 0, isLeader is false
+2: GetState result, term is 0, isLeader is false
+0: GetState result, term is 0, isLeader is false
+sleep 50 ms to retry
+1: curtime: 1609149325973, time out after 396 ms
+1: update timestamp to 1609149325973 ms
+1: start poll
+1: request vote {"CurrentTerm":1,"Whoimi":1,"LastLogIndex":0,"LastLogTerm":0} to 2
+2: receive vote request {"CurrentTerm":1,"Whoimi":1,"LastLogIndex":0,"LastLogTerm":0} from 1
+2: update timestamp to 1609149325980 ms
+2: accept and vote for 1!
+2: send vote reply {"CurrentTerm":1,"VoteFor":true} to 1
+1: reply vote {"CurrentTerm":1,"VoteFor":true} from 2
+1: true to channel
+1: get one result (true)
+1: Get marjority vote
+1: Declare election win to all
+1: current match index list [-1,0] (not include self)
+1: middle match index is 0
+1: request vote {"CurrentTerm":1,"Whoimi":1,"LastLogIndex":0,"LastLogTerm":0} to 0
+0: receive vote request {"CurrentTerm":1,"Whoimi":1,"LastLogIndex":0,"LastLogTerm":0} from 1
+0: update timestamp to 1609149325997 ms
+0: accept and vote for 1!
+0: send vote reply {"CurrentTerm":1,"VoteFor":true} to 1
+labgob warning: Decoding into a non-default variable/field CurrentTerm may not work
+1: reply vote {"CurrentTerm":1,"VoteFor":true} from 0
+1: true to channel
+Recovered in f send on closed channel
+1: send entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":0} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":0} from peer 1
+0: term jump from 1 to 1, leader id is 1, commitIndex is 0
+0: update timestamp to 1609149326002 ms
+0: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 0
+1: send entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":0} to peer 2
+2: recieve entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":0} from peer 1
+2: term jump from 1 to 1, leader id is 1, commitIndex is 0
+2: update timestamp to 1609149326013 ms
+2: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+1: Start Send heartBeat
+1: Send heartBeat with term 1, leader index 0, current go routine number 17
+1: send entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":0} to peer 2
+2: recieve entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":0} from peer 1
+2: term jump from 1 to 1, leader id is 1, commitIndex is 0
+2: update timestamp to 1609149326015 ms
+2: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+1: current match index list [-1,0] (not include self)
+1: middle match index is 0
+1: send entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":0} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":0} from peer 1
+0: term jump from 1 to 1, leader id is 1, commitIndex is 0
+0: update timestamp to 1609149326018 ms
+0: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 0
+1: GetState result, term is 1, isLeader is true
+1: append log request from client 99
+Some claimed to be the leader
+0 log value at index 1 is <nil>
+1 log value at index 1 is <nil>
+2 log value at index 1 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 1 is <nil>
+1 log value at index 1 is <nil>
+2 log value at index 1 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 1 is <nil>
+1 log value at index 1 is <nil>
+2 log value at index 1 is <nil>
+nd is 0, cmd1 is <nil>
+1: current match index list [-1,0] (not include self)
+1: middle match index is 0
+0 log value at index 1 is <nil>
+1 log value at index 1 is <nil>
+2 log value at index 1 is <nil>
+nd is 0, cmd1 is <nil>
+1: current match index list [-1,0] (not include self)
+1: middle match index is 0
+0 log value at index 1 is <nil>
+1 log value at index 1 is <nil>
+2 log value at index 1 is <nil>
+nd is 0, cmd1 is <nil>
+1: follower 0 last log index 1 < leader log index 1
+1: send entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":0,"PrevLogTerm":0,"Entries":[{"Command":99,"Term":1}],"LeaderCommit":0} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":0,"PrevLogTerm":0,"Entries":[{"Command":99,"Term":1}],"LeaderCommit":0} from peer 1
+0: term jump from 1 to 1, leader id is 1, commitIndex is 0
+0: append log [{"Command":99,"Term":1}] starting at 1
+0: update timestamp to 1609149326152 ms
+0: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 0
+1: append log to 0 sucessfully range [1:1]
+1: follower 2 last log index 1 < leader log index 1
+1: send entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":0,"PrevLogTerm":0,"Entries":[{"Command":99,"Term":1}],"LeaderCommit":0} to peer 2
+2: recieve entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":0,"PrevLogTerm":0,"Entries":[{"Command":99,"Term":1}],"LeaderCommit":0} from peer 1
+2: term jump from 1 to 1, leader id is 1, commitIndex is 0
+2: append log [{"Command":99,"Term":1}] starting at 1
+2: update timestamp to 1609149326169 ms
+2: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+1: append log to 2 sucessfully range [1:1]
+1: current match index list [-1,1] (not include self)
+1: middle match index is 1
+1: update current commitLogIndex from 0 to 1
+1: Send heartBeat with term 1, leader index 0, current go routine number 17
+1: commit msg {"CommandValid":true,"Command":99,"CommandIndex":1} at 1 log
+0 log value at index 1 is <nil>
+1 log value at index 1 is <nil>
+2 log value at index 1 is <nil>
+nd is 0, cmd1 is <nil>
+1: send entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":0} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":0} from peer 1
+0: term jump from 1 to 1, leader id is 1, commitIndex is 0
+0: update timestamp to 1609149326232 ms
+0: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 0
+1: send entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":0} to peer 2
+2: recieve entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":0} from peer 1
+2: term jump from 1 to 1, leader id is 1, commitIndex is 0
+2: update timestamp to 1609149326234 ms
+2: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+0 log value at index 1 is <nil>
+1 log value at index 1 is 99
+2 log value at index 1 is <nil>
+nd is 1, cmd1 is 99
+1: current match index list [1,1] (not include self)
+1: middle match index is 1
+0 log value at index 1 is <nil>
+1 log value at index 1 is 99
+2 log value at index 1 is <nil>
+nd is 1, cmd1 is 99
+0 log value at index 1 is <nil>
+1 log value at index 1 is 99
+2 log value at index 1 is <nil>
+nd is 1, cmd1 is 99
+1: current match index list [1,1] (not include self)
+1: middle match index is 1
+0 log value at index 1 is <nil>
+1 log value at index 1 is 99
+2 log value at index 1 is <nil>
+nd is 1, cmd1 is 99
+0 log value at index 1 is <nil>
+1 log value at index 1 is 99
+2 log value at index 1 is <nil>
+nd is 1, cmd1 is 99
+1: current match index list [1,1] (not include self)
+1: middle match index is 1
+0 log value at index 1 is <nil>
+1 log value at index 1 is 99
+2 log value at index 1 is <nil>
+nd is 1, cmd1 is 99
+0 log value at index 1 is <nil>
+1 log value at index 1 is 99
+2 log value at index 1 is <nil>
+nd is 1, cmd1 is 99
+1: current match index list [1,1] (not include self)
+1: middle match index is 1
+1: Send heartBeat with term 1, leader index 1, current go routine number 17
+1: send entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} to peer 2
+2: recieve entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} from peer 1
+2: term jump from 1 to 1, leader id is 1, commitIndex is 1
+2: update timestamp to 1609149326465 ms
+2: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+2: commit msg {"CommandValid":true,"Command":99,"CommandIndex":1} at 1 log
+1: current match index list [1,1] (not include self)
+1: middle match index is 1
+1: send entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} from peer 1
+0: term jump from 1 to 1, leader id is 1, commitIndex is 1
+0: update timestamp to 1609149326511 ms
+0: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 0
+0: commit msg {"CommandValid":true,"Command":99,"CommandIndex":1} at 1 log
+0 log value at index 1 is <nil>
+1 log value at index 1 is 99
+2 log value at index 1 is <nil>
+nd is 1, cmd1 is 99
+1: current match index list [1,1] (not include self)
+1: middle match index is 1
+1: current match index list [1,1] (not include self)
+1: middle match index is 1
+1: Send heartBeat with term 1, leader index 1, current go routine number 17
+1: send entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} to peer 2
+2: recieve entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} from peer 1
+2: term jump from 1 to 1, leader id is 1, commitIndex is 1
+2: update timestamp to 1609149326762 ms
+2: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+0 log value at index 1 is 99
+1 log value at index 1 is 99
+2 log value at index 1 is 99
+nd is 3, cmd1 is 99
+1: GetState result, term is 1, isLeader is true
+1: append log request from client "c9jTl3bJczvKZ7J_BV9J4uxPJHhsOg8oLJS-SoLh49uYMUfd8jsrEYhGct1qKETc0e06QfQ246X6_54LlxDeW6aczF0JAGgvLNA_9UbKn9DAsunEc064G7s_p1XGckZtZQtxM4ugnW4PFg6E17u6fAzVex1bPqDGH_yYRF2UMknfdQ2pGvaRNd4zEUnXEsgueHGqQFLUYrRJ_WfnKY8boM89BKxSUDvyV5B62OO7s8iEjI292m02RjAv8Ak-0kGFuLXxkpsDYGFEtTx1AbnDMoum4DCfyXc36lQ_1jtNiWUkWskfK7jQnPJbo8oxTA5bTtYP75V9W2NXLg14Nh27cw-GShTrQC2b2Ptlb-OdY8h61aQnDlNL4YQvYbtwRt04aa2F-v4dRwlQd1VlcYv3NKwG4gRY1vT3HUxg2js_OreuSlzIzAB-e-0im3NZI61WtF_nJI3t6AVw8Yx20Kn1vcon2O4iFLzsprelxKCZlRJ6ZSy3_X1BQ3nLDtWIE2sKCfBllDN4zR0q0EP594oxf5NKzpG4uKj3d7f9qwiBAYE89Yr18JpEVKWBY1C0itDU6fOgeTRghfEFKRSeoeFP9CGY9g1e95anhO8fHn3qYGE3uC6ttZetgcinoxO86Ho7R8suLV0sxgk_7Ggf-Gd1FRgD06GP1pilfU40blI0JErHIyXRgf4vvF-ur07uM9uVDOvYgK3uBhg_C4kFie2Nqafw61Q7RJGpqZ7Qz-zpWZqvaKy8VyBffg5Z5fP26z3mFvZA_kwlxiu1jmAAfw16ObXOkbHuI6dt6OAIAhdHarGfKyYov5CTVJJFGtGOXJh8sKq_FEaFA6t-RXDcxdA_LseIhWZK_RrAlij7QJ3v45XFLo2pkjYnL95q0gGSe97rJPpFJvkKF5P5I_Be3H04w9fM-t1SPBoIL5SDGE5UCo8tMkR1v_d2KhynejaGvc9uvKDhvsjE9kFC_N0hn-f0jc65nsKwvpWo8Ka5cGLGfps72-Yy1zkWO5xSH3UQ_F_mIzXNnpgu4DVwct-Tdjb14L4AL_fxHhPuRTs4UY4laA2tXlErMQJ5-gEcVmd9fN-QfaQVftTe8BE_l9eZ1q6kc8N5jYk3ZVU0238om8wfRPxozZsyWlRG3bx9Ex1jDoiEgEGvHgQSCTB8MjzlWIojzlXWpX4SNXLdyGFcConkf6yvBuv4qjF3dXBaku0QAZrcZ6ZFJ4gg-evld4AYqY50nZEFFxfi5B7CQEvgALLAJnZ5It4JbxQL48fjkiokZQzpNGguWL7mmzUamAuHiALnZYN3HND6-0Yuib7S5DoO1FVoVGsyGohVXdWt-9RZX4FsfK5ody90GDAZsiB_GNqc9wAb_nIJa1DEMSBmuo4sjTOBn9fkV_HrtwIZmTrkndSbPsrm_LZ3pRcrvwww7urcKospdBHuHKY-Il6m0zHegStgJeJZP-e3m6nRiica2WORqKk3fkZrnN1tDpyiWjQkWc-MCua5ax0m7VjByX4F6aK67jZDXzrJMztYCNucQKzpBSxdo4ygDcvw_T_9JJ4fC0VxKEqYxFfnj-rHz3P7XEhc1FRh3wRHtnGF6CkstcdaGHxQNXT5ykJcmQeZxXC_kxVoOKITmHl2Qp4GloQqixjL0wgGrhOTLPT8hJJ38QE6l3RYNMhUILByFzEvxFEIapvJQWZYYE43Yp_kaNVqQIlGM64UrssispnFzuhlbKaVGEUoTCEXyhFTbBePql4cBEXpVWxIpKbovYuN5EUalsyUwXLrrr98dcRqEHwwRm451YLWtJBnqtskEhTYsUTT2LXVdsW5wvYhrB1JxnY2tb95YLWLq55A3ut9bmVwQeh7LS_63hRu3eWuxbiUWL1VG2RdARP04gyf8W5kVhPLn2DnBI3yUPQuppRK3qE8qNdQnpWnOTzSMDR2cG5hFA_sBXD_dGiJ8TBTzVXtJBTSs1AcP3cxXeivYj0wtRQ8aRpyfMjWXWKOjO2tY4sPgZ85W955pGo51aLKyzU5q1DbZUyNFToMHST0gbXsbPwNacFGEQgjPXfjxlqOgjN8cSlT0HkHYGua8S1msIh8z4jAjTzuku7k8BkCMtA5fCv8xEgkGgkevPSQQEnQEyf6y8rZexXLn9lIVLbe935iQWrAAqQ54YafTd0fKm8Pab6r4ah4KZz0KzkCvYw6uugN1YvaWfvaJT94qAmWGpRQAHw7ZkSO5sZsF7_Dujz9JZPFhyPKgIvGLeWj9pOTrORy108iQ-ir43QczMcPAb9dKKiQseVj_uBz3IjkcnPdPzqSPoa_r75lIMjxqH2-cRPZ_jpRK-jvsArfO9dhGxJoFUbW8B5roHWxCeYukCJUnI3M3QtNNSmxImpSOpJrv6YaoNXtvIPWagJWyTAbNjXc2NatlC56ykhLUIKOvOX8A3Apg4Z0fRnsT2M0ZS2-JwyTk8l4LzyjjeaL6saWJ83t1JAf6BlitQ8DTunRoTg8YxpUaiEeRruqZTWtfbj127hRoZijCsC2KsONr3avyGd9Sb8qYuJ9uavAI-cJZFlFr1wLN5teux9t1y6He5Ts11RgFWAo6KQKDxfQq87j1teS1w7eilz03620DoPRdv5ujGeNSUxDS6ThCt2w_OcY6k-MtdTTclkzthmswbmRgFJKxWld8LCEuZXZJKX0kHtIPwnW9ln2G_1J0TZKhQDAXhUiD7OMG_ANWO6oX8UFjAw260i0MuFjb-19hsPdN_8JDn3P02Bi1HDiMRaE6nOz_68d5mOP5LAIuRX_sxn51KLeuFzMUwTp2HnZJEIoiYzwAPR_ePH1Bo0zyHuseudqK5ZQ0sybg77ioreaq7jB0Q7PPTFpeuYN0kypcWUUyZtceOTPqxfe_ah728yo4PUCXzpVapQImlYqie9mfhGqdWoFH5fM_ViN3irpmfv1N6l8Y2bB3kF3T9RNfufoog0EIahTn0IidgMXQhsqIfpSc_y3twgkfVy6FtyM-FhpeJ8UQXnslvDr_aEQdaqVMCyh9-cjJOPHKljwoBKIlo6D6Op3rjvRZDd7bp7XolYlooBzyaCzZ8FDeDjZ8ivDQ4bFdIDHBMVDIODrH4B-h3XfjIYVw_WpJPTDv0yWe2y8Y3qifIiNnTPZhyxriprRq95r7er0Mm2STYTmvZ4lwFvQOcKC9Q93N9YF2GMrG9WcAc1RMR6kZms333QaY8IjUANRwUtwrnxyWF-WLdQ4i1S0R6_fbM3SHwHlakrikfTTb5fpnfreswFXVBHDbHcSUBf1E76dYGLEwdyKtmSvFd0uIVIVBEpF99rvCalWbjTqHfjBm86uiypwrUh0uLf770ja8UwMHI4xbt5381D4s_6HZSgitsMFwjyaN46kPYxxKdhzF9weJSOd3vq2K3Gm938KjF7wIqYwirSMjb9uS-BJWpIi5GZDGrIQo-h_AxDMsF2wWtHu567H7Tw-AJSyNyZOwk4OtpqxfMbsAHUEYiigChgcbk3HGr-S-1AdHQnqPdhfQAcd0sKtJ9-LJ7dk-2AfDXIaqumfWq_g7nr_erIGm92aEdVNlSyuNA8fVGWI6XAXgqHBQIHSoJESkjMCidEuVVh7irl_Ego569YRvvgIKzTjf2urmy2sYNrEgyH-dehhZveC8IZhZ9FduK4Zqx8ifdNPv8dS7JBBiNOvfEco7zRoShMq2kvYWFdVCJ0Z0JeH7a5A7yJzfbRG3sD12bByWzuQSY4S7oG8qWc-9pqBX04IK_Gh_qcBIcIpczcmriemc0YkHojbUvxvuYjPS7uTwRWghZNXjOZeJZN2s4DUFsUytm4WjMW6rPhC3UHLHMh1SHE2ir5u3XNaZMa-XEHfWt1fTUz51C_53EsDTs1_6cvTeGKOsNaaBuQjZqyb-Se78rcedR4rezV3OxWVs1r-E2Yx9qxzK5zOcbAeYreLSBxtD-bf17Uw_K5Nam5U7lsWYrxBIthVjX5LauqRyK-OEVPJ-iLhO2aiw2BqSApc-H2FVzhc35OJ4w5Ddn2TkKheQBfWW6D1RFgH3MXJOm3IxknKe61yktH7Mp0BYxjvlssQL8GWbJrYzW-UAE-oNdkQ8KVHgCGAqtcD5UsyfP5s_MU4y6_4y_MOtd7jYtO4v2nSZsFomkEpXrL0o0x_kLfb-Jyi7l2SRI6BYVO1652VPNE3RbU6PzSXw0U7pPAKYj8K5dRGq60yBJBycTtfRmxFDWgMBF8dC6VJNesWPFDC3cnKAQXJ22byDKtfn5zHxHKS8RIpGbbz1-cSG1sJLPMjlSvJDMaXRAjk5AmE9pMAcouPRh2FGnQEC4GU09mxiHqoNVX02Uo_juXFhvgExVY-ZCyMJ5BwTm7SQpH8-YLosr15uQK3mOCpxM_hs0tSczFhbn0alFctV84AnablSsdYBOFPbuZxEv2dqgLgZH6szWZlpUPggBvaH06_OiT4ieC9eo6QjLKvzBK58trL6Eba5_FeEjX7Ldml-pWq-supuGWMrbBvI1OcGRYlWKMeJnhuofrXfJHKhBU12vY9perp-an_RKQT4aNNjqjxVAfoDtOw4wjEjrSiItuCyVbWIdVIHDLK9ftMXle3wwDV8ZTvYDTgVr6ZmqkmifKb4nfmOwgBWPOb_4VaE5WBr0UwUgJ8e3FC7BNslNVV5KiEoYeZFb6qqVgQPbK_yYjQhHi_WUthxSfr6TIrCx4O7LhbAvgDtA37mEwcTgYPcQ3lf750_eLaNjaD94KvBoF9FY4q3a7H9tVh_KSy3r2yb6pC4TjX3VFhsGIgwmaFpihipvelt4iRcLOJdeiO6SLT4xRQtfYwdpo4D2WuBrc3YXY4WwguEhD7CT4fG1PV8H3LS9VjegAvdy6Kd6LOnvIrpAsujVaJ6vqC0qSO9B3xjaWcJFRcVJG_O6Ejd8DXk0lXSrifM3jz8c-DUQEGOwunky4FQPexqcU8roClUzpcjlj_Y5i9UrV-ZMODgyjSU-TGLB1_5EZup90ZWYp-0PN1"
+Some claimed to be the leader
+0 log value at index 2 is <nil>
+1 log value at index 2 is <nil>
+2 log value at index 2 is <nil>
+nd is 0, cmd1 is <nil>
+1: current match index list [1,1] (not include self)
+1: middle match index is 1
+1: send entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} from peer 1
+0: term jump from 1 to 1, leader id is 1, commitIndex is 1
+0: update timestamp to 1609149327151 ms
+0: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 0
+0: curtime: 1609149327112, time out after 497 ms
+0: update timestamp to 1609149327239 ms
+0: start poll
+0: request vote {"CurrentTerm":2,"Whoimi":0,"LastLogIndex":1,"LastLogTerm":1} to 2
+2: receive vote request {"CurrentTerm":2,"Whoimi":0,"LastLogIndex":1,"LastLogTerm":1} from 0
+2: update timestamp to 1609149327283 ms
+2: accept and vote for 0!
+2: send vote reply {"CurrentTerm":2,"VoteFor":true} to 0
+0: reply vote {"CurrentTerm":2,"VoteFor":true} from 2
+0: true to channel
+0: get one result (true) 
+0: Get marjority vote
+0: Declare election win to all
+0: current match index list [-1,-1] (not include self)
+0: middle match index is -1
+2: curtime: 1609149327239, time out after 449 ms
+2: update timestamp to 1609149327396 ms
+2: start poll 
+2: request vote {"CurrentTerm":3,"Whoimi":2,"LastLogIndex":1,"LastLogTerm":1} to 1
+1: receive vote request {"CurrentTerm":3,"Whoimi":2,"LastLogIndex":1,"LastLogTerm":1} from 2
+1: update timestamp to 1609149327464 ms
+1: reject for log not latest
+1: send vote reply {"CurrentTerm":1,"VoteFor":false} to 2
+2: reply vote {"CurrentTerm":1,"VoteFor":false} from 1
+2: false to channel
+2: get one result (false) 
+1: follower 2 last log index 2 < leader log index 2
+1: send entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":1,"PrevLogTerm":1,"Entries":[{"Command":"c9jTl3bJczvKZ7J_BV9J4uxPJHhsOg8oLJS-SoLh49uYMUfd8jsrEYhGct1qKETc0e06QfQ246X6_54LlxDeW6aczF0JAGgvLNA_9UbKn9DAsunEc064G7s_p1XGckZtZQtxM4ugnW4PFg6E17u6fAzVex1bPqDGH_yYRF2UMknfdQ2pGvaRNd4zEUnXEsgueHGqQFLUYrRJ_WfnKY8boM89BKxSUDvyV5B62OO7s8iEjI292m02RjAv8Ak-0kGFuLXxkpsDYGFEtTx1AbnDMoum4DCfyXc36lQ_1jtNiWUkWskfK7jQnPJbo8oxTA5bTtYP75V9W2NXLg14Nh27cw-GShTrQC2b2Ptlb-OdY8h61aQnDlNL4YQvYbtwRt04aa2F-v4dRwlQd1VlcYv3NKwG4gRY1vT3HUxg2js_OreuSlzIzAB-e-0im3NZI61WtF_nJI3t6AVw8Yx20Kn1vcon2O4iFLzsprelxKCZlRJ6ZSy3_X1BQ3nLDtWIE2sKCfBllDN4zR0q0EP594oxf5NKzpG4uKj3d7f9qwiBAYE89Yr18JpEVKWBY1C0itDU6fOgeTRghfEFKRSeoeFP9CGY9g1e95anhO8fHn3qYGE3uC6ttZetgcinoxO86Ho7R8suLV0sxgk_7Ggf-Gd1FRgD06GP1pilfU40blI0JErHIyXRgf4vvF-ur07uM9uVDOvYgK3uBhg_C4kFie2Nqafw61Q7RJGpqZ7Qz-zpWZqvaKy8VyBffg5Z5fP26z3mFvZA_kwlxiu1jmAAfw16ObXOkbHuI6dt6OAIAhdHarGfKyYov5CTVJJFGtGOXJh8sKq_FEaFA6t-RXDcxdA_LseIhWZK_RrAlij7QJ3v45XFLo2pkjYnL95q0gGSe97rJPpFJvkKF5P5I_Be3H04w9fM-t1SPBoIL5SDGE5UCo8tMkR1v_d2KhynejaGvc9uvKDhvsjE9kFC_N0hn-f0jc65nsKwvpWo8Ka5cGLGfps72-Yy1zkWO5xSH3UQ_F_mIzXNnpgu4DVwct-Tdjb14L4AL_fxHhPuRTs4UY4laA2tXlErMQJ5-gEcVmd9fN-QfaQVftTe8BE_l9eZ1q6kc8N5jYk3ZVU0238om8wfRPxozZsyWlRG3bx9Ex1jDoiEgEGvHgQSCTB8MjzlWIojzlXWpX4SNXLdyGFcConkf6yvBuv4qjF3dXBaku0QAZrcZ6ZFJ4gg-evld4AYqY50nZEFFxfi5B7CQEvgALLAJnZ5It4JbxQL48fjkiokZQzpNGguWL7mmzUamAuHiALnZYN3HND6-0Yuib7S5DoO1FVoVGsyGohVXdWt-9RZX4FsfK5ody90GDAZsiB_GNqc9wAb_nIJa1DEMSBmuo4sjTOBn9fkV_HrtwIZmTrkndSbPsrm_LZ3pRcrvwww7urcKospdBHuHKY-Il6m0zHegStgJeJZP-e3m6nRiica2WORqKk3fkZrnN1tDpyiWjQkWc-MCua5ax0m7VjByX4F6aK67jZDXzrJMztYCNucQKzpBSxdo4ygDcvw_T_9JJ4fC0VxKEqYxFfnj-rHz3P7XEhc1FRh3wRHtnGF6CkstcdaGHxQNXT5ykJcmQeZxXC_kxVoOKITmHl2Qp4GloQqixjL0wgGrhOTLPT8hJJ38QE6l3RYNMhUILByFzEvxFEIapvJQWZYYE43Yp_kaNVqQIlGM64UrssispnFzuhlbKaVGEUoTCEXyhFTbBePql4cBEXpVWxIpKbovYuN5EUalsyUwXLrrr98dcRqEHwwRm451YLWtJBnqtskEhTYsUTT2LXVdsW5wvYhrB1JxnY2tb95YLWLq55A3ut9bmVwQeh7LS_63hRu3eWuxbiUWL1VG2RdARP04gyf8W5kVhPLn2DnBI3yUPQuppRK3qE8qNdQnpWnOTzSMDR2cG5hFA_sBXD_dGiJ8TBTzVXtJBTSs1AcP3cxXeivYj0wtRQ8aRpyfMjWXWKOjO2tY4sPgZ85W955pGo51aLKyzU5q1DbZUyNFToMHST0gbXsbPwNacFGEQgjPXfjxlqOgjN8cSlT0HkHYGua8S1msIh8z4jAjTzuku7k8BkCMtA5fCv8xEgkGgkevPSQQEnQEyf6y8rZexXLn9lIVLbe935iQWrAAqQ54YafTd0fKm8Pab6r4ah4KZz0KzkCvYw6uugN1YvaWfvaJT94qAmWGpRQAHw7ZkSO5sZsF7_Dujz9JZPFhyPKgIvGLeWj9pOTrORy108iQ-ir43QczMcPAb9dKKiQseVj_uBz3IjkcnPdPzqSPoa_r75lIMjxqH2-cRPZ_jpRK-jvsArfO9dhGxJoFUbW8B5roHWxCeYukCJUnI3M3QtNNSmxImpSOpJrv6YaoNXtvIPWagJWyTAbNjXc2NatlC56ykhLUIKOvOX8A3Apg4Z0fRnsT2M0ZS2-JwyTk8l4LzyjjeaL6saWJ83t1JAf6BlitQ8DTunRoTg8YxpUaiEeRruqZTWtfbj127hRoZijCsC2KsONr3avyGd9Sb8qYuJ9uavAI-cJZFlFr1wLN5teux9t1y6He5Ts11RgFWAo6KQKDxfQq87j1teS1w7eilz03620DoPRdv5ujGeNSUxDS6ThCt2w_OcY6k-MtdTTclkzthmswbmRgFJKxWld8LCEuZXZJKX0kHtIPwnW9ln2G_1J0TZKhQDAXhUiD7OMG_ANWO6oX8UFjAw260i0MuFjb-19hsPdN_8JDn3P02Bi1HDiMRaE6nOz_68d5mOP5LAIuRX_sxn51KLeuFzMUwTp2HnZJEIoiYzwAPR_ePH1Bo0zyHuseudqK5ZQ0sybg77ioreaq7jB0Q7PPTFpeuYN0kypcWUUyZtceOTPqxfe_ah728yo4PUCXzpVapQImlYqie9mfhGqdWoFH5fM_ViN3irpmfv1N6l8Y2bB3kF3T9RNfufoog0EIahTn0IidgMXQhsqIfpSc_y3twgkfVy6FtyM-FhpeJ8UQXnslvDr_aEQdaqVMCyh9-cjJOPHKljwoBKIlo6D6Op3rjvRZDd7bp7XolYlooBzyaCzZ8FDeDjZ8ivDQ4bFdIDHBMVDIODrH4B-h3XfjIYVw_WpJPTDv0yWe2y8Y3qifIiNnTPZhyxriprRq95r7er0Mm2STYTmvZ4lwFvQOcKC9Q93N9YF2GMrG9WcAc1RMR6kZms333QaY8IjUANRwUtwrnxyWF-WLdQ4i1S0R6_fbM3SHwHlakrikfTTb5fpnfreswFXVBHDbHcSUBf1E76dYGLEwdyKtmSvFd0uIVIVBEpF99rvCalWbjTqHfjBm86uiypwrUh0uLf770ja8UwMHI4xbt5381D4s_6HZSgitsMFwjyaN46kPYxxKdhzF9weJSOd3vq2K3Gm938KjF7wIqYwirSMjb9uS-BJWpIi5GZDGrIQo-h_AxDMsF2wWtHu567H7Tw-AJSyNyZOwk4OtpqxfMbsAHUEYiigChgcbk3HGr-S-1AdHQnqPdhfQAcd0sKtJ9-LJ7dk-2AfDXIaqumfWq_g7nr_erIGm92aEdVNlSyuNA8fVGWI6XAXgqHBQIHSoJESkjMCidEuVVh7irl_Ego569YRvvgIKzTjf2urmy2sYNrEgyH-dehhZveC8IZhZ9FduK4Zqx8ifdNPv8dS7JBBiNOvfEco7zRoShMq2kvYWFdVCJ0Z0JeH7a5A7yJzfbRG3sD12bByWzuQSY4S7oG8qWc-9pqBX04IK_Gh_qcBIcIpczcmriemc0YkHojbUvxvuYjPS7uTwRWghZNXjOZeJZN2s4DUFsUytm4WjMW6rPhC3UHLHMh1SHE2ir5u3XNaZMa-XEHfWt1fTUz51C_53EsDTs1_6cvTeGKOsNaaBuQjZqyb-Se78rcedR4rezV3OxWVs1r-E2Yx9qxzK5zOcbAeYreLSBxtD-bf17Uw_K5Nam5U7lsWYrxBIthVjX5LauqRyK-OEVPJ-iLhO2aiw2BqSApc-H2FVzhc35OJ4w5Ddn2TkKheQBfWW6D1RFgH3MXJOm3IxknKe61yktH7Mp0BYxjvlssQL8GWbJrYzW-UAE-oNdkQ8KVHgCGAqtcD5UsyfP5s_MU4y6_4y_MOtd7jYtO4v2nSZsFomkEpXrL0o0x_kLfb-Jyi7l2SRI6BYVO1652VPNE3RbU6PzSXw0U7pPAKYj8K5dRGq60yBJBycTtfRmxFDWgMBF8dC6VJNesWPFDC3cnKAQXJ22byDKtfn5zHxHKS8RIpGbbz1-cSG1sJLPMjlSvJDMaXRAjk5AmE9pMAcouPRh2FGnQEC4GU09mxiHqoNVX02Uo_juXFhvgExVY-ZCyMJ5BwTm7SQpH8-YLosr15uQK3mOCpxM_hs0tSczFhbn0alFctV84AnablSsdYBOFPbuZxEv2dqgLgZH6szWZlpUPggBvaH06_OiT4ieC9eo6QjLKvzBK58trL6Eba5_FeEjX7Ldml-pWq-supuGWMrbBvI1OcGRYlWKMeJnhuofrXfJHKhBU12vY9perp-an_RKQT4aNNjqjxVAfoDtOw4wjEjrSiItuCyVbWIdVIHDLK9ftMXle3wwDV8ZTvYDTgVr6ZmqkmifKb4nfmOwgBWPOb_4VaE5WBr0UwUgJ8e3FC7BNslNVV5KiEoYeZFb6qqVgQPbK_yYjQhHi_WUthxSfr6TIrCx4O7LhbAvgDtA37mEwcTgYPcQ3lf750_eLaNjaD94KvBoF9FY4q3a7H9tVh_KSy3r2yb6pC4TjX3VFhsGIgwmaFpihipvelt4iRcLOJdeiO6SLT4xRQtfYwdpo4D2WuBrc3YXY4WwguEhD7CT4fG1PV8H3LS9VjegAvdy6Kd6LOnvIrpAsujVaJ6vqC0qSO9B3xjaWcJFRcVJG_O6Ejd8DXk0lXSrifM3jz8c-DUQEGOwunky4FQPexqcU8roClUzpcjlj_Y5i9UrV-ZMODgyjSU-TGLB1_5EZup90ZWYp-0PN1","Term":1}],"LeaderCommit":1} to peer 2
+2: recieve entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":1,"PrevLogTerm":1,"Entries":[{"Command":"c9jTl3bJczvKZ7J_BV9J4uxPJHhsOg8oLJS-SoLh49uYMUfd8jsrEYhGct1qKETc0e06QfQ246X6_54LlxDeW6aczF0JAGgvLNA_9UbKn9DAsunEc064G7s_p1XGckZtZQtxM4ugnW4PFg6E17u6fAzVex1bPqDGH_yYRF2UMknfdQ2pGvaRNd4zEUnXEsgueHGqQFLUYrRJ_WfnKY8boM89BKxSUDvyV5B62OO7s8iEjI292m02RjAv8Ak-0kGFuLXxkpsDYGFEtTx1AbnDMoum4DCfyXc36lQ_1jtNiWUkWskfK7jQnPJbo8oxTA5bTtYP75V9W2NXLg14Nh27cw-GShTrQC2b2Ptlb-OdY8h61aQnDlNL4YQvYbtwRt04aa2F-v4dRwlQd1VlcYv3NKwG4gRY1vT3HUxg2js_OreuSlzIzAB-e-0im3NZI61WtF_nJI3t6AVw8Yx20Kn1vcon2O4iFLzsprelxKCZlRJ6ZSy3_X1BQ3nLDtWIE2sKCfBllDN4zR0q0EP594oxf5NKzpG4uKj3d7f9qwiBAYE89Yr18JpEVKWBY1C0itDU6fOgeTRghfEFKRSeoeFP9CGY9g1e95anhO8fHn3qYGE3uC6ttZetgcinoxO86Ho7R8suLV0sxgk_7Ggf-Gd1FRgD06GP1pilfU40blI0JErHIyXRgf4vvF-ur07uM9uVDOvYgK3uBhg_C4kFie2Nqafw61Q7RJGpqZ7Qz-zpWZqvaKy8VyBffg5Z5fP26z3mFvZA_kwlxiu1jmAAfw16ObXOkbHuI6dt6OAIAhdHarGfKyYov5CTVJJFGtGOXJh8sKq_FEaFA6t-RXDcxdA_LseIhWZK_RrAlij7QJ3v45XFLo2pkjYnL95q0gGSe97rJPpFJvkKF5P5I_Be3H04w9fM-t1SPBoIL5SDGE5UCo8tMkR1v_d2KhynejaGvc9uvKDhvsjE9kFC_N0hn-f0jc65nsKwvpWo8Ka5cGLGfps72-Yy1zkWO5xSH3UQ_F_mIzXNnpgu4DVwct-Tdjb14L4AL_fxHhPuRTs4UY4laA2tXlErMQJ5-gEcVmd9fN-QfaQVftTe8BE_l9eZ1q6kc8N5jYk3ZVU0238om8wfRPxozZsyWlRG3bx9Ex1jDoiEgEGvHgQSCTB8MjzlWIojzlXWpX4SNXLdyGFcConkf6yvBuv4qjF3dXBaku0QAZrcZ6ZFJ4gg-evld4AYqY50nZEFFxfi5B7CQEvgALLAJnZ5It4JbxQL48fjkiokZQzpNGguWL7mmzUamAuHiALnZYN3HND6-0Yuib7S5DoO1FVoVGsyGohVXdWt-9RZX4FsfK5ody90GDAZsiB_GNqc9wAb_nIJa1DEMSBmuo4sjTOBn9fkV_HrtwIZmTrkndSbPsrm_LZ3pRcrvwww7urcKospdBHuHKY-Il6m0zHegStgJeJZP-e3m6nRiica2WORqKk3fkZrnN1tDpyiWjQkWc-MCua5ax0m7VjByX4F6aK67jZDXzrJMztYCNucQKzpBSxdo4ygDcvw_T_9JJ4fC0VxKEqYxFfnj-rHz3P7XEhc1FRh3wRHtnGF6CkstcdaGHxQNXT5ykJcmQeZxXC_kxVoOKITmHl2Qp4GloQqixjL0wgGrhOTLPT8hJJ38QE6l3RYNMhUILByFzEvxFEIapvJQWZYYE43Yp_kaNVqQIlGM64UrssispnFzuhlbKaVGEUoTCEXyhFTbBePql4cBEXpVWxIpKbovYuN5EUalsyUwXLrrr98dcRqEHwwRm451YLWtJBnqtskEhTYsUTT2LXVdsW5wvYhrB1JxnY2tb95YLWLq55A3ut9bmVwQeh7LS_63hRu3eWuxbiUWL1VG2RdARP04gyf8W5kVhPLn2DnBI3yUPQuppRK3qE8qNdQnpWnOTzSMDR2cG5hFA_sBXD_dGiJ8TBTzVXtJBTSs1AcP3cxXeivYj0wtRQ8aRpyfMjWXWKOjO2tY4sPgZ85W955pGo51aLKyzU5q1DbZUyNFToMHST0gbXsbPwNacFGEQgjPXfjxlqOgjN8cSlT0HkHYGua8S1msIh8z4jAjTzuku7k8BkCMtA5fCv8xEgkGgkevPSQQEnQEyf6y8rZexXLn9lIVLbe935iQWrAAqQ54YafTd0fKm8Pab6r4ah4KZz0KzkCvYw6uugN1YvaWfvaJT94qAmWGpRQAHw7ZkSO5sZsF7_Dujz9JZPFhyPKgIvGLeWj9pOTrORy108iQ-ir43QczMcPAb9dKKiQseVj_uBz3IjkcnPdPzqSPoa_r75lIMjxqH2-cRPZ_jpRK-jvsArfO9dhGxJoFUbW8B5roHWxCeYukCJUnI3M3QtNNSmxImpSOpJrv6YaoNXtvIPWagJWyTAbNjXc2NatlC56ykhLUIKOvOX8A3Apg4Z0fRnsT2M0ZS2-JwyTk8l4LzyjjeaL6saWJ83t1JAf6BlitQ8DTunRoTg8YxpUaiEeRruqZTWtfbj127hRoZijCsC2KsONr3avyGd9Sb8qYuJ9uavAI-cJZFlFr1wLN5teux9t1y6He5Ts11RgFWAo6KQKDxfQq87j1teS1w7eilz03620DoPRdv5ujGeNSUxDS6ThCt2w_OcY6k-MtdTTclkzthmswbmRgFJKxWld8LCEuZXZJKX0kHtIPwnW9ln2G_1J0TZKhQDAXhUiD7OMG_ANWO6oX8UFjAw260i0MuFjb-19hsPdN_8JDn3P02Bi1HDiMRaE6nOz_68d5mOP5LAIuRX_sxn51KLeuFzMUwTp2HnZJEIoiYzwAPR_ePH1Bo0zyHuseudqK5ZQ0sybg77ioreaq7jB0Q7PPTFpeuYN0kypcWUUyZtceOTPqxfe_ah728yo4PUCXzpVapQImlYqie9mfhGqdWoFH5fM_ViN3irpmfv1N6l8Y2bB3kF3T9RNfufoog0EIahTn0IidgMXQhsqIfpSc_y3twgkfVy6FtyM-FhpeJ8UQXnslvDr_aEQdaqVMCyh9-cjJOPHKljwoBKIlo6D6Op3rjvRZDd7bp7XolYlooBzyaCzZ8FDeDjZ8ivDQ4bFdIDHBMVDIODrH4B-h3XfjIYVw_WpJPTDv0yWe2y8Y3qifIiNnTPZhyxriprRq95r7er0Mm2STYTmvZ4lwFvQOcKC9Q93N9YF2GMrG9WcAc1RMR6kZms333QaY8IjUANRwUtwrnxyWF-WLdQ4i1S0R6_fbM3SHwHlakrikfTTb5fpnfreswFXVBHDbHcSUBf1E76dYGLEwdyKtmSvFd0uIVIVBEpF99rvCalWbjTqHfjBm86uiypwrUh0uLf770ja8UwMHI4xbt5381D4s_6HZSgitsMFwjyaN46kPYxxKdhzF9weJSOd3vq2K3Gm938KjF7wIqYwirSMjb9uS-BJWpIi5GZDGrIQo-h_AxDMsF2wWtHu567H7Tw-AJSyNyZOwk4OtpqxfMbsAHUEYiigChgcbk3HGr-S-1AdHQnqPdhfQAcd0sKtJ9-LJ7dk-2AfDXIaqumfWq_g7nr_erIGm92aEdVNlSyuNA8fVGWI6XAXgqHBQIHSoJESkjMCidEuVVh7irl_Ego569YRvvgIKzTjf2urmy2sYNrEgyH-dehhZveC8IZhZ9FduK4Zqx8ifdNPv8dS7JBBiNOvfEco7zRoShMq2kvYWFdVCJ0Z0JeH7a5A7yJzfbRG3sD12bByWzuQSY4S7oG8qWc-9pqBX04IK_Gh_qcBIcIpczcmriemc0YkHojbUvxvuYjPS7uTwRWghZNXjOZeJZN2s4DUFsUytm4WjMW6rPhC3UHLHMh1SHE2ir5u3XNaZMa-XEHfWt1fTUz51C_53EsDTs1_6cvTeGKOsNaaBuQjZqyb-Se78rcedR4rezV3OxWVs1r-E2Yx9qxzK5zOcbAeYreLSBxtD-bf17Uw_K5Nam5U7lsWYrxBIthVjX5LauqRyK-OEVPJ-iLhO2aiw2BqSApc-H2FVzhc35OJ4w5Ddn2TkKheQBfWW6D1RFgH3MXJOm3IxknKe61yktH7Mp0BYxjvlssQL8GWbJrYzW-UAE-oNdkQ8KVHgCGAqtcD5UsyfP5s_MU4y6_4y_MOtd7jYtO4v2nSZsFomkEpXrL0o0x_kLfb-Jyi7l2SRI6BYVO1652VPNE3RbU6PzSXw0U7pPAKYj8K5dRGq60yBJBycTtfRmxFDWgMBF8dC6VJNesWPFDC3cnKAQXJ22byDKtfn5zHxHKS8RIpGbbz1-cSG1sJLPMjlSvJDMaXRAjk5AmE9pMAcouPRh2FGnQEC4GU09mxiHqoNVX02Uo_juXFhvgExVY-ZCyMJ5BwTm7SQpH8-YLosr15uQK3mOCpxM_hs0tSczFhbn0alFctV84AnablSsdYBOFPbuZxEv2dqgLgZH6szWZlpUPggBvaH06_OiT4ieC9eo6QjLKvzBK58trL6Eba5_FeEjX7Ldml-pWq-supuGWMrbBvI1OcGRYlWKMeJnhuofrXfJHKhBU12vY9perp-an_RKQT4aNNjqjxVAfoDtOw4wjEjrSiItuCyVbWIdVIHDLK9ftMXle3wwDV8ZTvYDTgVr6ZmqkmifKb4nfmOwgBWPOb_4VaE5WBr0UwUgJ8e3FC7BNslNVV5KiEoYeZFb6qqVgQPbK_yYjQhHi_WUthxSfr6TIrCx4O7LhbAvgDtA37mEwcTgYPcQ3lf750_eLaNjaD94KvBoF9FY4q3a7H9tVh_KSy3r2yb6pC4TjX3VFhsGIgwmaFpihipvelt4iRcLOJdeiO6SLT4xRQtfYwdpo4D2WuBrc3YXY4WwguEhD7CT4fG1PV8H3LS9VjegAvdy6Kd6LOnvIrpAsujVaJ6vqC0qSO9B3xjaWcJFRcVJG_O6Ejd8DXk0lXSrifM3jz8c-DUQEGOwunky4FQPexqcU8roClUzpcjlj_Y5i9UrV-ZMODgyjSU-TGLB1_5EZup90ZWYp-0PN1","Term":1}],"LeaderCommit":1} from peer 1     
+2: reject because currentTerm 3 > 1
+1: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+1: 2 return with new leader term 3, stop current leadership, back to follower!1: update timestamp to 1609149327750 ms
+1: follower 0 last log index 2 < leader log index 2
+1: send entries {"CurrentTerm":3,"LeaderId":1,"PrevLogIndex":1,"PrevLogTerm":1,"Entries":[{"Command":"c9jTl3bJczvKZ7J_BV9J4uxPJHhsOg8oLJS-SoLh49uYMUfd8jsrEYhGct1qKETc0e06QfQ246X6_54LlxDeW6aczF0JAGgvLNA_9UbKn9DAsunEc064G7s_p1XGckZtZQtxM4ugnW4PFg6E17u6fAzVex1bPqDGH_yYRF2UMknfdQ2pGvaRNd4zEUnXEsgueHGqQFLUYrRJ_WfnKY8boM89BKxSUDvyV5B62OO7s8iEjI292m02RjAv8Ak-0kGFuLXxkpsDYGFEtTx1AbnDMoum4DCfyXc36lQ_1jtNiWUkWskfK7jQnPJbo8oxTA5bTtYP75V9W2NXLg14Nh27cw-GShTrQC2b2Ptlb-OdY8h61aQnDlNL4YQvYbtwRt04aa2F-v4dRwlQd1VlcYv3NKwG4gRY1vT3HUxg2js_OreuSlzIzAB-e-0im3NZI61WtF_nJI3t6AVw8Yx20Kn1vcon2O4iFLzsprelxKCZlRJ6ZSy3_X1BQ3nLDtWIE2sKCfBllDN4zR0q0EP594oxf5NKzpG4uKj3d7f9qwiBAYE89Yr18JpEVKWBY1C0itDU6fOgeTRghfEFKRSeoeFP9CGY9g1e95anhO8fHn3qYGE3uC6ttZetgcinoxO86Ho7R8suLV0sxgk_7Ggf-Gd1FRgD06GP1pilfU40blI0JErHIyXRgf4vvF-ur07uM9uVDOvYgK3uBhg_C4kFie2Nqafw61Q7RJGpqZ7Qz-zpWZqvaKy8VyBffg5Z5fP26z3mFvZA_kwlxiu1jmAAfw16ObXOkbHuI6dt6OAIAhdHarGfKyYov5CTVJJFGtGOXJh8sKq_FEaFA6t-RXDcxdA_LseIhWZK_RrAlij7QJ3v45XFLo2pkjYnL95q0gGSe97rJPpFJvkKF5P5I_Be3H04w9fM-t1SPBoIL5SDGE5UCo8tMkR1v_d2KhynejaGvc9uvKDhvsjE9kFC_N0hn-f0jc65nsKwvpWo8Ka5cGLGfps72-Yy1zkWO5xSH3UQ_F_mIzXNnpgu4DVwct-Tdjb14L4AL_fxHhPuRTs4UY4laA2tXlErMQJ5-gEcVmd9fN-QfaQVftTe8BE_l9eZ1q6kc8N5jYk3ZVU0238om8wfRPxozZsyWlRG3bx9Ex1jDoiEgEGvHgQSCTB8MjzlWIojzlXWpX4SNXLdyGFcConkf6yvBuv4qjF3dXBaku0QAZrcZ6ZFJ4gg-evld4AYqY50nZEFFxfi5B7CQEvgALLAJnZ5It4JbxQL48fjkiokZQzpNGguWL7mmzUamAuHiALnZYN3HND6-0Yuib7S5DoO1FVoVGsyGohVXdWt-9RZX4FsfK5ody90GDAZsiB_GNqc9wAb_nIJa1DEMSBmuo4sjTOBn9fkV_HrtwIZmTrkndSbPsrm_LZ3pRcrvwww7urcKospdBHuHKY-Il6m0zHegStgJeJZP-e3m6nRiica2WORqKk3fkZrnN1tDpyiWjQkWc-MCua5ax0m7VjByX4F6aK67jZDXzrJMztYCNucQKzpBSxdo4ygDcvw_T_9JJ4fC0VxKEqYxFfnj-rHz3P7XEhc1FRh3wRHtnGF6CkstcdaGHxQNXT5ykJcmQeZxXC_kxVoOKITmHl2Qp4GloQqixjL0wgGrhOTLPT8hJJ38QE6l3RYNMhUILByFzEvxFEIapvJQWZYYE43Yp_kaNVqQIlGM64UrssispnFzuhlbKaVGEUoTCEXyhFTbBePql4cBEXpVWxIpKbovYuN5EUalsyUwXLrrr98dcRqEHwwRm451YLWtJBnqtskEhTYsUTT2LXVdsW5wvYhrB1JxnY2tb95YLWLq55A3ut9bmVwQeh7LS_63hRu3eWuxbiUWL1VG2RdARP04gyf8W5kVhPLn2DnBI3yUPQuppRK3qE8qNdQnpWnOTzSMDR2cG5hFA_sBXD_dGiJ8TBTzVXtJBTSs1AcP3cxXeivYj0wtRQ8aRpyfMjWXWKOjO2tY4sPgZ85W955pGo51aLKyzU5q1DbZUyNFToMHST0gbXsbPwNacFGEQgjPXfjxlqOgjN8cSlT0HkHYGua8S1msIh8z4jAjTzuku7k8BkCMtA5fCv8xEgkGgkevPSQQEnQEyf6y8rZexXLn9lIVLbe935iQWrAAqQ54YafTd0fKm8Pab6r4ah4KZz0KzkCvYw6uugN1YvaWfvaJT94qAmWGpRQAHw7ZkSO5sZsF7_Dujz9JZPFhyPKgIvGLeWj9pOTrORy108iQ-ir43QczMcPAb9dKKiQseVj_uBz3IjkcnPdPzqSPoa_r75lIMjxqH2-cRPZ_jpRK-jvsArfO9dhGxJoFUbW8B5roHWxCeYukCJUnI3M3QtNNSmxImpSOpJrv6YaoNXtvIPWagJWyTAbNjXc2NatlC56ykhLUIKOvOX8A3Apg4Z0fRnsT2M0ZS2-JwyTk8l4LzyjjeaL6saWJ83t1JAf6BlitQ8DTunRoTg8YxpUaiEeRruqZTWtfbj127hRoZijCsC2KsONr3avyGd9Sb8qYuJ9uavAI-cJZFlFr1wLN5teux9t1y6He5Ts11RgFWAo6KQKDxfQq87j1teS1w7eilz03620DoPRdv5ujGeNSUxDS6ThCt2w_OcY6k-MtdTTclkzthmswbmRgFJKxWld8LCEuZXZJKX0kHtIPwnW9ln2G_1J0TZKhQDAXhUiD7OMG_ANWO6oX8UFjAw260i0MuFjb-19hsPdN_8JDn3P02Bi1HDiMRaE6nOz_68d5mOP5LAIuRX_sxn51KLeuFzMUwTp2HnZJEIoiYzwAPR_ePH1Bo0zyHuseudqK5ZQ0sybg77ioreaq7jB0Q7PPTFpeuYN0kypcWUUyZtceOTPqxfe_ah728yo4PUCXzpVapQImlYqie9mfhGqdWoFH5fM_ViN3irpmfv1N6l8Y2bB3kF3T9RNfufoog0EIahTn0IidgMXQhsqIfpSc_y3twgkfVy6FtyM-FhpeJ8UQXnslvDr_aEQdaqVMCyh9-cjJOPHKljwoBKIlo6D6Op3rjvRZDd7bp7XolYlooBzyaCzZ8FDeDjZ8ivDQ4bFdIDHBMVDIODrH4B-h3XfjIYVw_WpJPTDv0yWe2y8Y3qifIiNnTPZhyxriprRq95r7er0Mm2STYTmvZ4lwFvQOcKC9Q93N9YF2GMrG9WcAc1RMR6kZms333QaY8IjUANRwUtwrnxyWF-WLdQ4i1S0R6_fbM3SHwHlakrikfTTb5fpnfreswFXVBHDbHcSUBf1E76dYGLEwdyKtmSvFd0uIVIVBEpF99rvCalWbjTqHfjBm86uiypwrUh0uLf770ja8UwMHI4xbt5381D4s_6HZSgitsMFwjyaN46kPYxxKdhzF9weJSOd3vq2K3Gm938KjF7wIqYwirSMjb9uS-BJWpIi5GZDGrIQo-h_AxDMsF2wWtHu567H7Tw-AJSyNyZOwk4OtpqxfMbsAHUEYiigChgcbk3HGr-S-1AdHQnqPdhfQAcd0sKtJ9-LJ7dk-2AfDXIaqumfWq_g7nr_erIGm92aEdVNlSyuNA8fVGWI6XAXgqHBQIHSoJESkjMCidEuVVh7irl_Ego569YRvvgIKzTjf2urmy2sYNrEgyH-dehhZveC8IZhZ9FduK4Zqx8ifdNPv8dS7JBBiNOvfEco7zRoShMq2kvYWFdVCJ0Z0JeH7a5A7yJzfbRG3sD12bByWzuQSY4S7oG8qWc-9pqBX04IK_Gh_qcBIcIpczcmriemc0YkHojbUvxvuYjPS7uTwRWghZNXjOZeJZN2s4DUFsUytm4WjMW6rPhC3UHLHMh1SHE2ir5u3XNaZMa-XEHfWt1fTUz51C_53EsDTs1_6cvTeGKOsNaaBuQjZqyb-Se78rcedR4rezV3OxWVs1r-E2Yx9qxzK5zOcbAeYreLSBxtD-bf17Uw_K5Nam5U7lsWYrxBIthVjX5LauqRyK-OEVPJ-iLhO2aiw2BqSApc-H2FVzhc35OJ4w5Ddn2TkKheQBfWW6D1RFgH3MXJOm3IxknKe61yktH7Mp0BYxjvlssQL8GWbJrYzW-UAE-oNdkQ8KVHgCGAqtcD5UsyfP5s_MU4y6_4y_MOtd7jYtO4v2nSZsFomkEpXrL0o0x_kLfb-Jyi7l2SRI6BYVO1652VPNE3RbU6PzSXw0U7pPAKYj8K5dRGq60yBJBycTtfRmxFDWgMBF8dC6VJNesWPFDC3cnKAQXJ22byDKtfn5zHxHKS8RIpGbbz1-cSG1sJLPMjlSvJDMaXRAjk5AmE9pMAcouPRh2FGnQEC4GU09mxiHqoNVX02Uo_juXFhvgExVY-ZCyMJ5BwTm7SQpH8-YLosr15uQK3mOCpxM_hs0tSczFhbn0alFctV84AnablSsdYBOFPbuZxEv2dqgLgZH6szWZlpUPggBvaH06_OiT4ieC9eo6QjLKvzBK58trL6Eba5_FeEjX7Ldml-pWq-supuGWMrbBvI1OcGRYlWKMeJnhuofrXfJHKhBU12vY9perp-an_RKQT4aNNjqjxVAfoDtOw4wjEjrSiItuCyVbWIdVIHDLK9ftMXle3wwDV8ZTvYDTgVr6ZmqkmifKb4nfmOwgBWPOb_4VaE5WBr0UwUgJ8e3FC7BNslNVV5KiEoYeZFb6qqVgQPbK_yYjQhHi_WUthxSfr6TIrCx4O7LhbAvgDtA37mEwcTgYPcQ3lf750_eLaNjaD94KvBoF9FY4q3a7H9tVh_KSy3r2yb6pC4TjX3VFhsGIgwmaFpihipvelt4iRcLOJdeiO6SLT4xRQtfYwdpo4D2WuBrc3YXY4WwguEhD7CT4fG1PV8H3LS9VjegAvdy6Kd6LOnvIrpAsujVaJ6vqC0qSO9B3xjaWcJFRcVJG_O6Ejd8DXk0lXSrifM3jz8c-DUQEGOwunky4FQPexqcU8roClUzpcjlj_Y5i9UrV-ZMODgyjSU-TGLB1_5EZup90ZWYp-0PN1","Term":1}],"LeaderCommit":1} to peer 0
+0: recieve entries {"CurrentTerm":3,"LeaderId":1,"PrevLogIndex":1,"PrevLogTerm":1,"Entries":[{"Command":"c9jTl3bJczvKZ7J_BV9J4uxPJHhsOg8oLJS-SoLh49uYMUfd8jsrEYhGct1qKETc0e06QfQ246X6_54LlxDeW6aczF0JAGgvLNA_9UbKn9DAsunEc064G7s_p1XGckZtZQtxM4ugnW4PFg6E17u6fAzVex1bPqDGH_yYRF2UMknfdQ2pGvaRNd4zEUnXEsgueHGqQFLUYrRJ_WfnKY8boM89BKxSUDvyV5B62OO7s8iEjI292m02RjAv8Ak-0kGFuLXxkpsDYGFEtTx1AbnDMoum4DCfyXc36lQ_1jtNiWUkWskfK7jQnPJbo8oxTA5bTtYP75V9W2NXLg14Nh27cw-GShTrQC2b2Ptlb-OdY8h61aQnDlNL4YQvYbtwRt04aa2F-v4dRwlQd1VlcYv3NKwG4gRY1vT3HUxg2js_OreuSlzIzAB-e-0im3NZI61WtF_nJI3t6AVw8Yx20Kn1vcon2O4iFLzsprelxKCZlRJ6ZSy3_X1BQ3nLDtWIE2sKCfBllDN4zR0q0EP594oxf5NKzpG4uKj3d7f9qwiBAYE89Yr18JpEVKWBY1C0itDU6fOgeTRghfEFKRSeoeFP9CGY9g1e95anhO8fHn3qYGE3uC6ttZetgcinoxO86Ho7R8suLV0sxgk_7Ggf-Gd1FRgD06GP1pilfU40blI0JErHIyXRgf4vvF-ur07uM9uVDOvYgK3uBhg_C4kFie2Nqafw61Q7RJGpqZ7Qz-zpWZqvaKy8VyBffg5Z5fP26z3mFvZA_kwlxiu1jmAAfw16ObXOkbHuI6dt6OAIAhdHarGfKyYov5CTVJJFGtGOXJh8sKq_FEaFA6t-RXDcxdA_LseIhWZK_RrAlij7QJ3v45XFLo2pkjYnL95q0gGSe97rJPpFJvkKF5P5I_Be3H04w9fM-t1SPBoIL5SDGE5UCo8tMkR1v_d2KhynejaGvc9uvKDhvsjE9kFC_N0hn-f0jc65nsKwvpWo8Ka5cGLGfps72-Yy1zkWO5xSH3UQ_F_mIzXNnpgu4DVwct-Tdjb14L4AL_fxHhPuRTs4UY4laA2tXlErMQJ5-gEcVmd9fN-QfaQVftTe8BE_l9eZ1q6kc8N5jYk3ZVU0238om8wfRPxozZsyWlRG3bx9Ex1jDoiEgEGvHgQSCTB8MjzlWIojzlXWpX4SNXLdyGFcConkf6yvBuv4qjF3dXBaku0QAZrcZ6ZFJ4gg-evld4AYqY50nZEFFxfi5B7CQEvgALLAJnZ5It4JbxQL48fjkiokZQzpNGguWL7mmzUamAuHiALnZYN3HND6-0Yuib7S5DoO1FVoVGsyGohVXdWt-9RZX4FsfK5ody90GDAZsiB_GNqc9wAb_nIJa1DEMSBmuo4sjTOBn9fkV_HrtwIZmTrkndSbPsrm_LZ3pRcrvwww7urcKospdBHuHKY-Il6m0zHegStgJeJZP-e3m6nRiica2WORqKk3fkZrnN1tDpyiWjQkWc-MCua5ax0m7VjByX4F6aK67jZDXzrJMztYCNucQKzpBSxdo4ygDcvw_T_9JJ4fC0VxKEqYxFfnj-rHz3P7XEhc1FRh3wRHtnGF6CkstcdaGHxQNXT5ykJcmQeZxXC_kxVoOKITmHl2Qp4GloQqixjL0wgGrhOTLPT8hJJ38QE6l3RYNMhUILByFzEvxFEIapvJQWZYYE43Yp_kaNVqQIlGM64UrssispnFzuhlbKaVGEUoTCEXyhFTbBePql4cBEXpVWxIpKbovYuN5EUalsyUwXLrrr98dcRqEHwwRm451YLWtJBnqtskEhTYsUTT2LXVdsW5wvYhrB1JxnY2tb95YLWLq55A3ut9bmVwQeh7LS_63hRu3eWuxbiUWL1VG2RdARP04gyf8W5kVhPLn2DnBI3yUPQuppRK3qE8qNdQnpWnOTzSMDR2cG5hFA_sBXD_dGiJ8TBTzVXtJBTSs1AcP3cxXeivYj0wtRQ8aRpyfMjWXWKOjO2tY4sPgZ85W955pGo51aLKyzU5q1DbZUyNFToMHST0gbXsbPwNacFGEQgjPXfjxlqOgjN8cSlT0HkHYGua8S1msIh8z4jAjTzuku7k8BkCMtA5fCv8xEgkGgkevPSQQEnQEyf6y8rZexXLn9lIVLbe935iQWrAAqQ54YafTd0fKm8Pab6r4ah4KZz0KzkCvYw6uugN1YvaWfvaJT94qAmWGpRQAHw7ZkSO5sZsF7_Dujz9JZPFhyPKgIvGLeWj9pOTrORy108iQ-ir43QczMcPAb9dKKiQseVj_uBz3IjkcnPdPzqSPoa_r75lIMjxqH2-cRPZ_jpRK-jvsArfO9dhGxJoFUbW8B5roHWxCeYukCJUnI3M3QtNNSmxImpSOpJrv6YaoNXtvIPWagJWyTAbNjXc2NatlC56ykhLUIKOvOX8A3Apg4Z0fRnsT2M0ZS2-JwyTk8l4LzyjjeaL6saWJ83t1JAf6BlitQ8DTunRoTg8YxpUaiEeRruqZTWtfbj127hRoZijCsC2KsONr3avyGd9Sb8qYuJ9uavAI-cJZFlFr1wLN5teux9t1y6He5Ts11RgFWAo6KQKDxfQq87j1teS1w7eilz03620DoPRdv5ujGeNSUxDS6ThCt2w_OcY6k-MtdTTclkzthmswbmRgFJKxWld8LCEuZXZJKX0kHtIPwnW9ln2G_1J0TZKhQDAXhUiD7OMG_ANWO6oX8UFjAw260i0MuFjb-19hsPdN_8JDn3P02Bi1HDiMRaE6nOz_68d5mOP5LAIuRX_sxn51KLeuFzMUwTp2HnZJEIoiYzwAPR_ePH1Bo0zyHuseudqK5ZQ0sybg77ioreaq7jB0Q7PPTFpeuYN0kypcWUUyZtceOTPqxfe_ah728yo4PUCXzpVapQImlYqie9mfhGqdWoFH5fM_ViN3irpmfv1N6l8Y2bB3kF3T9RNfufoog0EIahTn0IidgMXQhsqIfpSc_y3twgkfVy6FtyM-FhpeJ8UQXnslvDr_aEQdaqVMCyh9-cjJOPHKljwoBKIlo6D6Op3rjvRZDd7bp7XolYlooBzyaCzZ8FDeDjZ8ivDQ4bFdIDHBMVDIODrH4B-h3XfjIYVw_WpJPTDv0yWe2y8Y3qifIiNnTPZhyxriprRq95r7er0Mm2STYTmvZ4lwFvQOcKC9Q93N9YF2GMrG9WcAc1RMR6kZms333QaY8IjUANRwUtwrnxyWF-WLdQ4i1S0R6_fbM3SHwHlakrikfTTb5fpnfreswFXVBHDbHcSUBf1E76dYGLEwdyKtmSvFd0uIVIVBEpF99rvCalWbjTqHfjBm86uiypwrUh0uLf770ja8UwMHI4xbt5381D4s_6HZSgitsMFwjyaN46kPYxxKdhzF9weJSOd3vq2K3Gm938KjF7wIqYwirSMjb9uS-BJWpIi5GZDGrIQo-h_AxDMsF2wWtHu567H7Tw-AJSyNyZOwk4OtpqxfMbsAHUEYiigChgcbk3HGr-S-1AdHQnqPdhfQAcd0sKtJ9-LJ7dk-2AfDXIaqumfWq_g7nr_erIGm92aEdVNlSyuNA8fVGWI6XAXgqHBQIHSoJESkjMCidEuVVh7irl_Ego569YRvvgIKzTjf2urmy2sYNrEgyH-dehhZveC8IZhZ9FduK4Zqx8ifdNPv8dS7JBBiNOvfEco7zRoShMq2kvYWFdVCJ0Z0JeH7a5A7yJzfbRG3sD12bByWzuQSY4S7oG8qWc-9pqBX04IK_Gh_qcBIcIpczcmriemc0YkHojbUvxvuYjPS7uTwRWghZNXjOZeJZN2s4DUFsUytm4WjMW6rPhC3UHLHMh1SHE2ir5u3XNaZMa-XEHfWt1fTUz51C_53EsDTs1_6cvTeGKOsNaaBuQjZqyb-Se78rcedR4rezV3OxWVs1r-E2Yx9qxzK5zOcbAeYreLSBxtD-bf17Uw_K5Nam5U7lsWYrxBIthVjX5LauqRyK-OEVPJ-iLhO2aiw2BqSApc-H2FVzhc35OJ4w5Ddn2TkKheQBfWW6D1RFgH3MXJOm3IxknKe61yktH7Mp0BYxjvlssQL8GWbJrYzW-UAE-oNdkQ8KVHgCGAqtcD5UsyfP5s_MU4y6_4y_MOtd7jYtO4v2nSZsFomkEpXrL0o0x_kLfb-Jyi7l2SRI6BYVO1652VPNE3RbU6PzSXw0U7pPAKYj8K5dRGq60yBJBycTtfRmxFDWgMBF8dC6VJNesWPFDC3cnKAQXJ22byDKtfn5zHxHKS8RIpGbbz1-cSG1sJLPMjlSvJDMaXRAjk5AmE9pMAcouPRh2FGnQEC4GU09mxiHqoNVX02Uo_juXFhvgExVY-ZCyMJ5BwTm7SQpH8-YLosr15uQK3mOCpxM_hs0tSczFhbn0alFctV84AnablSsdYBOFPbuZxEv2dqgLgZH6szWZlpUPggBvaH06_OiT4ieC9eo6QjLKvzBK58trL6Eba5_FeEjX7Ldml-pWq-supuGWMrbBvI1OcGRYlWKMeJnhuofrXfJHKhBU12vY9perp-an_RKQT4aNNjqjxVAfoDtOw4wjEjrSiItuCyVbWIdVIHDLK9ftMXle3wwDV8ZTvYDTgVr6ZmqkmifKb4nfmOwgBWPOb_4VaE5WBr0UwUgJ8e3FC7BNslNVV5KiEoYeZFb6qqVgQPbK_yYjQhHi_WUthxSfr6TIrCx4O7LhbAvgDtA37mEwcTgYPcQ3lf750_eLaNjaD94KvBoF9FY4q3a7H9tVh_KSy3r2yb6pC4TjX3VFhsGIgwmaFpihipvelt4iRcLOJdeiO6SLT4xRQtfYwdpo4D2WuBrc3YXY4WwguEhD7CT4fG1PV8H3LS9VjegAvdy6Kd6LOnvIrpAsujVaJ6vqC0qSO9B3xjaWcJFRcVJG_O6Ejd8DXk0lXSrifM3jz8c-DUQEGOwunky4FQPexqcU8roClUzpcjlj_Y5i9UrV-ZMODgyjSU-TGLB1_5EZup90ZWYp-0PN1","Term":1}],"LeaderCommit":1} from peer 1     
+0: term jump from 2 to 3, leader id is 1, commitIndex is 1
+0: append log [{"Command":"c9jTl3bJczvKZ7J_BV9J4uxPJHhsOg8oLJS-SoLh49uYMUfd8jsrEYhGct1qKETc0e06QfQ246X6_54LlxDeW6aczF0JAGgvLNA_9UbKn9DAsunEc064G7s_p1XGckZtZQtxM4ugnW4PFg6E17u6fAzVex1bPqDGH_yYRF2UMknfdQ2pGvaRNd4zEUnXEsgueHGqQFLUYrRJ_WfnKY8boM89BKxSUDvyV5B62OO7s8iEjI292m02RjAv8Ak-0kGFuLXxkpsDYGFEtTx1AbnDMoum4DCfyXc36lQ_1jtNiWUkWskfK7jQnPJbo8oxTA5bTtYP75V9W2NXLg14Nh27cw-GShTrQC2b2Ptlb-OdY8h61aQnDlNL4YQvYbtwRt04aa2F-v4dRwlQd1VlcYv3NKwG4gRY1vT3HUxg2js_OreuSlzIzAB-e-0im3NZI61WtF_nJI3t6AVw8Yx20Kn1vcon2O4iFLzsprelxKCZlRJ6ZSy3_X1BQ3nLDtWIE2sKCfBllDN4zR0q0EP594oxf5NKzpG4uKj3d7f9qwiBAYE89Yr18JpEVKWBY1C0itDU6fOgeTRghfEFKRSeoeFP9CGY9g1e95anhO8fHn3qYGE3uC6ttZetgcinoxO86Ho7R8suLV0sxgk_7Ggf-Gd1FRgD06GP1pilfU40blI0JErHIyXRgf4vvF-ur07uM9uVDOvYgK3uBhg_C4kFie2Nqafw61Q7RJGpqZ7Qz-zpWZqvaKy8VyBffg5Z5fP26z3mFvZA_kwlxiu1jmAAfw16ObXOkbHuI6dt6OAIAhdHarGfKyYov5CTVJJFGtGOXJh8sKq_FEaFA6t-RXDcxdA_LseIhWZK_RrAlij7QJ3v45XFLo2pkjYnL95q0gGSe97rJPpFJvkKF5P5I_Be3H04w9fM-t1SPBoIL5SDGE5UCo8tMkR1v_d2KhynejaGvc9uvKDhvsjE9kFC_N0hn-f0jc65nsKwvpWo8Ka5cGLGfps72-Yy1zkWO5xSH3UQ_F_mIzXNnpgu4DVwct-Tdjb14L4AL_fxHhPuRTs4UY4laA2tXlErMQJ5-gEcVmd9fN-QfaQVftTe8BE_l9eZ1q6kc8N5jYk3ZVU0238om8wfRPxozZsyWlRG3bx9Ex1jDoiEgEGvHgQSCTB8MjzlWIojzlXWpX4SNXLdyGFcConkf6yvBuv4qjF3dXBaku0QAZrcZ6ZFJ4gg-evld4AYqY50nZEFFxfi5B7CQEvgALLAJnZ5It4JbxQL48fjkiokZQzpNGguWL7mmzUamAuHiALnZYN3HND6-0Yuib7S5DoO1FVoVGsyGohVXdWt-9RZX4FsfK5ody90GDAZsiB_GNqc9wAb_nIJa1DEMSBmuo4sjTOBn9fkV_HrtwIZmTrkndSbPsrm_LZ3pRcrvwww7urcKospdBHuHKY-Il6m0zHegStgJeJZP-e3m6nRiica2WORqKk3fkZrnN1tDpyiWjQkWc-MCua5ax0m7VjByX4F6aK67jZDXzrJMztYCNucQKzpBSxdo4ygDcvw_T_9JJ4fC0VxKEqYxFfnj-rHz3P7XEhc1FRh3wRHtnGF6CkstcdaGHxQNXT5ykJcmQeZxXC_kxVoOKITmHl2Qp4GloQqixjL0wgGrhOTLPT8hJJ38QE6l3RYNMhUILByFzEvxFEIapvJQWZYYE43Yp_kaNVqQIlGM64UrssispnFzuhlbKaVGEUoTCEXyhFTbBePql4cBEXpVWxIpKbovYuN5EUalsyUwXLrrr98dcRqEHwwRm451YLWtJBnqtskEhTYsUTT2LXVdsW5wvYhrB1JxnY2tb95YLWLq55A3ut9bmVwQeh7LS_63hRu3eWuxbiUWL1VG2RdARP04gyf8W5kVhPLn2DnBI3yUPQuppRK3qE8qNdQnpWnOTzSMDR2cG5hFA_sBXD_dGiJ8TBTzVXtJBTSs1AcP3cxXeivYj0wtRQ8aRpyfMjWXWKOjO2tY4sPgZ85W955pGo51aLKyzU5q1DbZUyNFToMHST0gbXsbPwNacFGEQgjPXfjxlqOgjN8cSlT0HkHYGua8S1msIh8z4jAjTzuku7k8BkCMtA5fCv8xEgkGgkevPSQQEnQEyf6y8rZexXLn9lIVLbe935iQWrAAqQ54YafTd0fKm8Pab6r4ah4KZz0KzkCvYw6uugN1YvaWfvaJT94qAmWGpRQAHw7ZkSO5sZsF7_Dujz9JZPFhyPKgIvGLeWj9pOTrORy108iQ-ir43QczMcPAb9dKKiQseVj_uBz3IjkcnPdPzqSPoa_r75lIMjxqH2-cRPZ_jpRK-jvsArfO9dhGxJoFUbW8B5roHWxCeYukCJUnI3M3QtNNSmxImpSOpJrv6YaoNXtvIPWagJWyTAbNjXc2NatlC56ykhLUIKOvOX8A3Apg4Z0fRnsT2M0ZS2-JwyTk8l4LzyjjeaL6saWJ83t1JAf6BlitQ8DTunRoTg8YxpUaiEeRruqZTWtfbj127hRoZijCsC2KsONr3avyGd9Sb8qYuJ9uavAI-cJZFlFr1wLN5teux9t1y6He5Ts11RgFWAo6KQKDxfQq87j1teS1w7eilz03620DoPRdv5ujGeNSUxDS6ThCt2w_OcY6k-MtdTTclkzthmswbmRgFJKxWld8LCEuZXZJKX0kHtIPwnW9ln2G_1J0TZKhQDAXhUiD7OMG_ANWO6oX8UFjAw260i0MuFjb-19hsPdN_8JDn3P02Bi1HDiMRaE6nOz_68d5mOP5LAIuRX_sxn51KLeuFzMUwTp2HnZJEIoiYzwAPR_ePH1Bo0zyHuseudqK5ZQ0sybg77ioreaq7jB0Q7PPTFpeuYN0kypcWUUyZtceOTPqxfe_ah728yo4PUCXzpVapQImlYqie9mfhGqdWoFH5fM_ViN3irpmfv1N6l8Y2bB3kF3T9RNfufoog0EIahTn0IidgMXQhsqIfpSc_y3twgkfVy6FtyM-FhpeJ8UQXnslvDr_aEQdaqVMCyh9-cjJOPHKljwoBKIlo6D6Op3rjvRZDd7bp7XolYlooBzyaCzZ8FDeDjZ8ivDQ4bFdIDHBMVDIODrH4B-h3XfjIYVw_WpJPTDv0yWe2y8Y3qifIiNnTPZhyxriprRq95r7er0Mm2STYTmvZ4lwFvQOcKC9Q93N9YF2GMrG9WcAc1RMR6kZms333QaY8IjUANRwUtwrnxyWF-WLdQ4i1S0R6_fbM3SHwHlakrikfTTb5fpnfreswFXVBHDbHcSUBf1E76dYGLEwdyKtmSvFd0uIVIVBEpF99rvCalWbjTqHfjBm86uiypwrUh0uLf770ja8UwMHI4xbt5381D4s_6HZSgitsMFwjyaN46kPYxxKdhzF9weJSOd3vq2K3Gm938KjF7wIqYwirSMjb9uS-BJWpIi5GZDGrIQo-h_AxDMsF2wWtHu567H7Tw-AJSyNyZOwk4OtpqxfMbsAHUEYiigChgcbk3HGr-S-1AdHQnqPdhfQAcd0sKtJ9-LJ7dk-2AfDXIaqumfWq_g7nr_erIGm92aEdVNlSyuNA8fVGWI6XAXgqHBQIHSoJESkjMCidEuVVh7irl_Ego569YRvvgIKzTjf2urmy2sYNrEgyH-dehhZveC8IZhZ9FduK4Zqx8ifdNPv8dS7JBBiNOvfEco7zRoShMq2kvYWFdVCJ0Z0JeH7a5A7yJzfbRG3sD12bByWzuQSY4S7oG8qWc-9pqBX04IK_Gh_qcBIcIpczcmriemc0YkHojbUvxvuYjPS7uTwRWghZNXjOZeJZN2s4DUFsUytm4WjMW6rPhC3UHLHMh1SHE2ir5u3XNaZMa-XEHfWt1fTUz51C_53EsDTs1_6cvTeGKOsNaaBuQjZqyb-Se78rcedR4rezV3OxWVs1r-E2Yx9qxzK5zOcbAeYreLSBxtD-bf17Uw_K5Nam5U7lsWYrxBIthVjX5LauqRyK-OEVPJ-iLhO2aiw2BqSApc-H2FVzhc35OJ4w5Ddn2TkKheQBfWW6D1RFgH3MXJOm3IxknKe61yktH7Mp0BYxjvlssQL8GWbJrYzW-UAE-oNdkQ8KVHgCGAqtcD5UsyfP5s_MU4y6_4y_MOtd7jYtO4v2nSZsFomkEpXrL0o0x_kLfb-Jyi7l2SRI6BYVO1652VPNE3RbU6PzSXw0U7pPAKYj8K5dRGq60yBJBycTtfRmxFDWgMBF8dC6VJNesWPFDC3cnKAQXJ22byDKtfn5zHxHKS8RIpGbbz1-cSG1sJLPMjlSvJDMaXRAjk5AmE9pMAcouPRh2FGnQEC4GU09mxiHqoNVX02Uo_juXFhvgExVY-ZCyMJ5BwTm7SQpH8-YLosr15uQK3mOCpxM_hs0tSczFhbn0alFctV84AnablSsdYBOFPbuZxEv2dqgLgZH6szWZlpUPggBvaH06_OiT4ieC9eo6QjLKvzBK58trL6Eba5_FeEjX7Ldml-pWq-supuGWMrbBvI1OcGRYlWKMeJnhuofrXfJHKhBU12vY9perp-an_RKQT4aNNjqjxVAfoDtOw4wjEjrSiItuCyVbWIdVIHDLK9ftMXle3wwDV8ZTvYDTgVr6ZmqkmifKb4nfmOwgBWPOb_4VaE5WBr0UwUgJ8e3FC7BNslNVV5KiEoYeZFb6qqVgQPbK_yYjQhHi_WUthxSfr6TIrCx4O7LhbAvgDtA37mEwcTgYPcQ3lf750_eLaNjaD94KvBoF9FY4q3a7H9tVh_KSy3r2yb6pC4TjX3VFhsGIgwmaFpihipvelt4iRcLOJdeiO6SLT4xRQtfYwdpo4D2WuBrc3YXY4WwguEhD7CT4fG1PV8H3LS9VjegAvdy6Kd6LOnvIrpAsujVaJ6vqC0qSO9B3xjaWcJFRcVJG_O6Ejd8DXk0lXSrifM3jz8c-DUQEGOwunky4FQPexqcU8roClUzpcjlj_Y5i9UrV-ZMODgyjSU-TGLB1_5EZup90ZWYp-0PN1","Term":1}] starting at 2
+0: update timestamp to 1609149327983 ms
+0: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 0
+1: append log to 0 sucessfully range [2:2]
+2: request vote {"CurrentTerm":3,"Whoimi":2,"LastLogIndex":1,"LastLogTerm":1} to 0
+0: receive vote request {"CurrentTerm":3,"Whoimi":2,"LastLogIndex":1,"LastLogTerm":1} from 2
+0: update timestamp to 1609149328149 ms
+0: reject for this term because voted
+0: send vote reply {"CurrentTerm":3,"VoteFor":false} to 2
+2: reply vote {"CurrentTerm":3,"VoteFor":false} from 0
+2: false to channel
+2: get one result (false) 
+2: Already been return from all server
+1: Send heartBeat with term 1, leader index 1, current go routine number 18
+1: send entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} to peer 2
+2: recieve entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} from peer 1
+2: reject because currentTerm 3 > 1
+1: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+0: request vote {"CurrentTerm":2,"Whoimi":0,"LastLogIndex":1,"LastLogTerm":1} to 1
+1: receive vote request {"CurrentTerm":2,"Whoimi":0,"LastLogIndex":1,"LastLogTerm":1} from 0
+1: update timestamp to 1609149328385 ms
+1: reject for old term
+1: send vote reply {"CurrentTerm":3,"VoteFor":false} to 0
+0: reply vote {"CurrentTerm":3,"VoteFor":true} from 1
+0: true to channel
+Recovered in f send on closed channel
+1: send entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} from peer 1
+0: reject because currentTerm 3 > 1
+1: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 0
+2: curtime: 1609149327783, time out after 332 ms
+2: update timestamp to 1609149328401 ms
+2: start poll
+2: request vote {"CurrentTerm":4,"Whoimi":2,"LastLogIndex":1,"LastLogTerm":1} to 1
+1: receive vote request {"CurrentTerm":4,"Whoimi":2,"LastLogIndex":1,"LastLogTerm":1} from 2
+1: update timestamp to 1609149328412 ms
+1: reject for log not latest
+1: send vote reply {"CurrentTerm":3,"VoteFor":false} to 2
+2: reply vote {"CurrentTerm":3,"VoteFor":false} from 1
+2: false to channel
+2: get one result (false)
+0: send entries {"CurrentTerm":2,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} to peer 1
+1: recieve entries {"CurrentTerm":2,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} from peer 0
+1: reject because currentTerm 3 > 2
+0: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 1
+0: Start Send heartBeat
+0: current match index list [-1,-1] (not include self)
+0: middle match index is -1
+0 log value at index 2 is <nil>
+1 log value at index 2 is <nil>
+2 log value at index 2 is <nil>
+nd is 0, cmd1 is <nil>
+1: curtime: 1609149328127, time out after 369 ms
+1: update timestamp to 1609149328420 ms
+1: start poll
+1: request vote {"CurrentTerm":4,"Whoimi":1,"LastLogIndex":2,"LastLogTerm":1} to 2
+2: receive vote request {"CurrentTerm":4,"Whoimi":1,"LastLogIndex":2,"LastLogTerm":1} from 1
+2: update timestamp to 1609149328429 ms
+2: reject for this term because voted
+2: send vote reply {"CurrentTerm":4,"VoteFor":false} to 1
+1: reply vote {"CurrentTerm":4,"VoteFor":false} from 2
+1: false to channel
+1: get one result (false)
+1: current match index list [1,1] (not include self)
+1: middle match index is 1
+1: current match index list [1,1] (not include self)
+1: middle match index is 1
+0: send entries {"CurrentTerm":2,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} to peer 2
+2: recieve entries {"CurrentTerm":2,"LeaderId":0,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} from peer 0
+2: reject because currentTerm 4 > 2
+0: recieve entries reply {"CurrentTerm":4,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+1: request vote {"CurrentTerm":4,"Whoimi":1,"LastLogIndex":2,"LastLogTerm":1} to 0
+0: receive vote request {"CurrentTerm":4,"Whoimi":1,"LastLogIndex":2,"LastLogTerm":1} from 1
+0: update timestamp to 1609149328435 ms
+0: accept and vote for 1!
+0: send vote reply {"CurrentTerm":4,"VoteFor":true} to 1
+1: reply vote {"CurrentTerm":4,"VoteFor":true} from 0
+1: true to channel
+1: get one result (true)
+1: Get marjority vote
+1: Declare election win to all
+1: current match index list [-1,2] (not include self)
+1: middle match index is 2
+0: current match index list [-1,-1] (not include self)
+0: middle match index is -1
+2: request vote {"CurrentTerm":4,"Whoimi":2,"LastLogIndex":1,"LastLogTerm":1} to 0
+0: receive vote request {"CurrentTerm":4,"Whoimi":2,"LastLogIndex":1,"LastLogTerm":1} from 2
+0: update timestamp to 1609149328450 ms
+0: reject for this term because voted
+0: send vote reply {"CurrentTerm":4,"VoteFor":false} to 2
+2: reply vote {"CurrentTerm":4,"VoteFor":false} from 0
+2: false to channel
+2: get one result (false)
+2: Already been return from all server
+0 log value at index 2 is <nil>
+1 log value at index 2 is <nil>
+2 log value at index 2 is <nil>
+nd is 0, cmd1 is <nil>
+1: send entries {"CurrentTerm":4,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} to peer 0
+0: recieve entries {"CurrentTerm":4,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} from peer 1
+0: term jump from 4 to 4, leader id is 1, commitIndex is 1
+0: update timestamp to 1609149328460 ms
+0: reply entries {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 0
+1: send entries {"CurrentTerm":4,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} to peer 2
+2: recieve entries {"CurrentTerm":4,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} from peer 1
+2: warn: may be double leader in a term. my vote is: 2, leader id is: 1
+2: term jump from 4 to 4, leader id is 1, commitIndex is 1
+2: update timestamp to 1609149328463 ms
+2: reply entries {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+1: Start Send heartBeat
+1: Send heartBeat with term 4, leader index 1, current go routine number 22
+1: send entries {"CurrentTerm":4,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} to peer 2
+2: recieve entries {"CurrentTerm":4,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} from peer 1
+2: term jump from 4 to 4, leader id is 1, commitIndex is 1
+2: update timestamp to 1609149328465 ms
+2: reply entries {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+1: current match index list [-1,2] (not include self)
+1: middle match index is 2
+1: send entries {"CurrentTerm":4,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} to peer 0
+0: recieve entries {"CurrentTerm":4,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} from peer 1
+0: term jump from 4 to 4, leader id is 1, commitIndex is 1
+0: update timestamp to 1609149328468 ms
+0: reply entries {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 0
+0 log value at index 2 is <nil>
+1 log value at index 2 is <nil>
+2 log value at index 2 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 2 is <nil>
+1 log value at index 2 is <nil>
+2 log value at index 2 is <nil>
+nd is 0, cmd1 is <nil>
+1: Send heartBeat with term 1, leader index 1, current go routine number 22
+1: send entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} to peer 2
+2: recieve entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} from peer 1
+2: reject because currentTerm 4 > 1
+1: recieve entries reply {"CurrentTerm":4,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+1: send entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} from peer 1
+0: reject because currentTerm 4 > 1
+1: recieve entries reply {"CurrentTerm":4,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 0
+1: current match index list [-1,2] (not include self)
+1: middle match index is 2
+1: current match index list [-1,2] (not include self)
+1: middle match index is 2
+0 log value at index 2 is <nil>
+1 log value at index 2 is <nil>
+2 log value at index 2 is <nil>
+nd is 0, cmd1 is <nil>
+1: current match index list [-1,2] (not include self)
+1: middle match index is 2
+1: current match index list [-1,2] (not include self)
+1: middle match index is 2
+0 log value at index 2 is <nil>
+1 log value at index 2 is <nil>
+2 log value at index 2 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 2 is <nil>
+1 log value at index 2 is <nil>
+2 log value at index 2 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 2 is <nil>
+1 log value at index 2 is <nil>
+2 log value at index 2 is <nil>
+nd is 0, cmd1 is <nil>
+1: current match index list [-1,2] (not include self)
+1: middle match index is 2
+1: current match index list [-1,2] (not include self)
+1: middle match index is 2
+1: current match index list [-1,2] (not include self)
+1: middle match index is 2
+0 log value at index 2 is <nil>
+1 log value at index 2 is <nil>
+2 log value at index 2 is <nil>
+nd is 0, cmd1 is <nil>
+1: Send heartBeat with term 4, leader index 1, current go routine number 20
+1: send entries {"CurrentTerm":4,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} to peer 2
+2: recieve entries {"CurrentTerm":4,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} from peer 1
+2: term jump from 4 to 4, leader id is 1, commitIndex is 1
+2: update timestamp to 1609149328667 ms
+2: reply entries {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+1: send entries {"CurrentTerm":4,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} to peer 0
+0: recieve entries {"CurrentTerm":4,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} from peer 1
+0: term jump from 4 to 4, leader id is 1, commitIndex is 1
+0: update timestamp to 1609149328669 ms
+0: reply entries {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 0
+1: current match index list [-1,2] (not include self)
+1: middle match index is 2
+0 log value at index 2 is <nil>
+1 log value at index 2 is <nil>
+2 log value at index 2 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 2 is <nil>
+1 log value at index 2 is <nil>
+2 log value at index 2 is <nil>
+nd is 0, cmd1 is <nil>
+1: Send heartBeat with term 1, leader index 1, current go routine number 20
+1: send entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} to peer 2
+2: recieve entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} from peer 1
+2: reject because currentTerm 4 > 1
+1: recieve entries reply {"CurrentTerm":4,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+1: send entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} from peer 1
+0: reject because currentTerm 4 > 1
+1: recieve entries reply {"CurrentTerm":4,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 0
+0 log value at index 2 is <nil>
+1 log value at index 2 is <nil>
+2 log value at index 2 is <nil>
+nd is 0, cmd1 is <nil>
+1: current match index list [-1,2] (not include self)
+1: middle match index is 2
+1: current match index list [-1,2] (not include self)
+1: middle match index is 2
+1: current match index list [-1,2] (not include self)
+1: middle match index is 2
+0 log value at index 2 is <nil>
+1 log value at index 2 is <nil>
+2 log value at index 2 is <nil>
+nd is 0, cmd1 is <nil>
+1: current match index list [-1,2] (not include self)
+1: middle match index is 2
+0 log value at index 2 is <nil>
+1 log value at index 2 is <nil>
+2 log value at index 2 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 2 is <nil>
+1 log value at index 2 is <nil>
+2 log value at index 2 is <nil>
+nd is 0, cmd1 is <nil>
+1: current match index list [-1,2] (not include self)
+1: middle match index is 2
+1: current match index list [-1,2] (not include self)
+1: middle match index is 2
+1: current match index list [-1,2] (not include self)
+1: middle match index is 2
+0 log value at index 2 is <nil>
+1 log value at index 2 is <nil>
+2 log value at index 2 is <nil>
+nd is 0, cmd1 is <nil>
+1: Send heartBeat with term 4, leader index 1, current go routine number 20
+1: send entries {"CurrentTerm":4,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} to peer 2
+2: recieve entries {"CurrentTerm":4,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} from peer 1
+2: term jump from 4 to 4, leader id is 1, commitIndex is 1
+2: update timestamp to 1609149328870 ms
+2: reply entries {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+1: send entries {"CurrentTerm":4,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} to peer 0
+0: recieve entries {"CurrentTerm":4,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} from peer 1
+0: term jump from 4 to 4, leader id is 1, commitIndex is 1
+0: update timestamp to 1609149328901 ms
+0: reply entries {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} to peer 1
+1: recieve entries reply {"CurrentTerm":4,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 0
+0 log value at index 2 is <nil>
+1 log value at index 2 is <nil>
+2 log value at index 2 is <nil>
+nd is 0, cmd1 is <nil>
+1: current match index list [-1,2] (not include self)
+1: middle match index is 2
+0 log value at index 2 is <nil>
+1 log value at index 2 is <nil>
+2 log value at index 2 is <nil>
+nd is 0, cmd1 is <nil>
+1: Send heartBeat with term 1, leader index 1, current go routine number 20
+1: send entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} to peer 2
+2: recieve entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} from peer 1
+2: reject because currentTerm 4 > 1
+1: recieve entries reply {"CurrentTerm":4,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 2
+1: send entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":1,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} from peer 1
+0: reject because currentTerm 4 > 1
+1: recieve entries reply {"CurrentTerm":4,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0} from peer 0
+0 log value at index 2 is <nil>
+1 log value at index 2 is <nil>
+2 log value at index 2 is <nil>
+nd is 0, cmd1 is <nil>
+1: current match index list [-1,2] (not include self)
+1: middle match index is 2
+1: current match index list [-1,2] (not include self)
+1: middle match index is 2
+1: current match index list [-1,2] (not include self)
+1: middle match index is 2
+--- FAIL: TestRPCBytes2B (3.41s)
+    config.go:476: one(c9jTl3bJczvKZ7J_BV9J4uxPJHhsOg8oLJS-SoLh49uYMUfd8jsrEYhGct1qKETc0e06QfQ246X6_54LlxDeW6aczF0JAGgvLNA_9UbKn9DAsunEc064G7s_p1XGckZtZQtxM4ugnW4PFg6E17u6fAzVex1bPqDGH_yYRF2UMknfdQ2pGvaRNd4zEUnXEsgueHGqQFLUYrRJ_WfnKY8boM89BKxSUDvyV5B62OO7s8iEjI292m02RjAv8Ak-0kGFuLXxkpsDYGFEtTx1AbnDMoum4DCfyXc36lQ_1jtNiWUkWskfK7jQnPJbo8oxTA5bTtYP75V9W2NXLg14Nh27cw-GShTrQC2b2Ptlb-OdY8h61aQnDlNL4YQvYbtwRt04aa2F-v4dRwlQd1VlcYv3NKwG4gRY1vT3HUxg2js_OreuSlzIzAB-e-0im3NZI61WtF_nJI3t6AVw8Yx20Kn1vcon2O4iFLzsprelxKCZlRJ6ZSy3_X1BQ3nLDtWIE2sKCfBllDN4zR0q0EP594oxf5NKzpG4uKj3d7f9qwiBAYE89Yr18JpEVKWBY1C0itDU6fOgeTRghfEFKRSeoeFP9CGY9g1e95anhO8fHn3qYGE3uC6ttZetgcinoxO86Ho7R8suLV0sxgk_7Ggf-Gd1FRgD06GP1pilfU40blI0JErHIyXRgf4vvF-ur07uM9uVDOvYgK3uBhg_C4kFie2Nqafw61Q7RJGpqZ7Qz-zpWZqvaKy8VyBffg5Z5fP26z3mFvZA_kwlxiu1jmAAfw16ObXOkbHuI6dt6OAIAhdHarGfKyYov5CTVJJFGtGOXJh8sKq_FEaFA6t-RXDcxdA_LseIhWZK_RrAlij7QJ3v45XFLo2pkjYnL95q0gGSe97rJPpFJvkKF5P5I_Be3H04w9fM-t1SPBoIL5SDGE5UCo8tMkR1v_d2KhynejaGvc9uvKDhvsjE9kFC_N0hn-f0jc65nsKwvpWo8Ka5cGLGfps72-Yy1zkWO5xSH3UQ_F_mIzXNnpgu4DVwct-Tdjb14L4AL_fxHhPuRTs4UY4laA2tXlErMQJ5-gEcVmd9fN-QfaQVftTe8BE_l9eZ1q6kc8N5jYk3ZVU0238om8wfRPxozZsyWlRG3bx9Ex1jDoiEgEGvHgQSCTB8MjzlWIojzlXWpX4SNXLdyGFcConkf6yvBuv4qjF3dXBaku0QAZrcZ6ZFJ4gg-evld4AYqY50nZEFFxfi5B7CQEvgALLAJnZ5It4JbxQL48fjkiokZQzpNGguWL7mmzUamAuHiALnZYN3HND6-0Yuib7S5DoO1FVoVGsyGohVXdWt-9RZX4FsfK5ody90GDAZsiB_GNqc9wAb_nIJa1DEMSBmuo4sjTOBn9fkV_HrtwIZmTrkndSbPsrm_LZ3pRcrvwww7urcKospdBHuHKY-Il6m0zHegStgJeJZP-e3m6nRiica2WORqKk3fkZrnN1tDpyiWjQkWc-MCua5ax0m7VjByX4F6aK67jZDXzrJMztYCNucQKzpBSxdo4ygDcvw_T_9JJ4fC0VxKEqYxFfnj-rHz3P7XEhc1FRh3wRHtnGF6CkstcdaGHxQNXT5ykJcmQeZxXC_kxVoOKITmHl2Qp4GloQqixjL0wgGrhOTLPT8hJJ38QE6l3RYNMhUILByFzEvxFEIapvJQWZYYE43Yp_kaNVqQIlGM64UrssispnFzuhlbKaVGEUoTCEXyhFTbBePql4cBEXpVWxIpKbovYuN5EUalsyUwXLrrr98dcRqEHwwRm451YLWtJBnqtskEhTYsUTT2LXVdsW5wvYhrB1JxnY2tb95YLWLq55A3ut9bmVwQeh7LS_63hRu3eWuxbiUWL1VG2RdARP04gyf8W5kVhPLn2DnBI3yUPQuppRK3qE8qNdQnpWnOTzSMDR2cG5hFA_sBXD_dGiJ8TBTzVXtJBTSs1AcP3cxXeivYj0wtRQ8aRpyfMjWXWKOjO2tY4sPgZ85W955pGo51aLKyzU5q1DbZUyNFToMHST0gbXsbPwNacFGEQgjPXfjxlqOgjN8cSlT0HkHYGua8S1msIh8z4jAjTzuku7k8BkCMtA5fCv8xEgkGgkevPSQQEnQEyf6y8rZexXLn9lIVLbe935iQWrAAqQ54YafTd0fKm8Pab6r4ah4KZz0KzkCvYw6uugN1YvaWfvaJT94qAmWGpRQAHw7ZkSO5sZsF7_Dujz9JZPFhyPKgIvGLeWj9pOTrORy108iQ-ir43QczMcPAb9dKKiQseVj_uBz3IjkcnPdPzqSPoa_r75lIMjxqH2-cRPZ_jpRK-jvsArfO9dhGxJoFUbW8B5roHWxCeYukCJUnI3M3QtNNSmxImpSOpJrv6YaoNXtvIPWagJWyTAbNjXc2NatlC56ykhLUIKOvOX8A3Apg4Z0fRnsT2M0ZS2-JwyTk8l4LzyjjeaL6saWJ83t1JAf6BlitQ8DTunRoTg8YxpUaiEeRruqZTWtfbj127hRoZijCsC2KsONr3avyGd9Sb8qYuJ9uavAI-cJZFlFr1wLN5teux9t1y6He5Ts11RgFWAo6KQKDxfQq87j1teS1w7eilz03620DoPRdv5ujGeNSUxDS6ThCt2w_OcY6k-MtdTTclkzthmswbmRgFJKxWld8LCEuZXZJKX0kHtIPwnW9ln2G_1J0TZKhQDAXhUiD7OMG_ANWO6oX8UFjAw260i0MuFjb-19hsPdN_8JDn3P02Bi1HDiMRaE6nOz_68d5mOP5LAIuRX_sxn51KLeuFzMUwTp2HnZJEIoiYzwAPR_ePH1Bo0zyHuseudqK5ZQ0sybg77ioreaq7jB0Q7PPTFpeuYN0kypcWUUyZtceOTPqxfe_ah728yo4PUCXzpVapQImlYqie9mfhGqdWoFH5fM_ViN3irpmfv1N6l8Y2bB3kF3T9RNfufoog0EIahTn0IidgMXQhsqIfpSc_y3twgkfVy6FtyM-FhpeJ8UQXnslvDr_aEQdaqVMCyh9-cjJOPHKljwoBKIlo6D6Op3rjvRZDd7bp7XolYlooBzyaCzZ8FDeDjZ8ivDQ4bFdIDHBMVDIODrH4B-h3XfjIYVw_WpJPTDv0yWe2y8Y3qifIiNnTPZhyxriprRq95r7er0Mm2STYTmvZ4lwFvQOcKC9Q93N9YF2GMrG9WcAc1RMR6kZms333QaY8IjUANRwUtwrnxyWF-WLdQ4i1S0R6_fbM3SHwHlakrikfTTb5fpnfreswFXVBHDbHcSUBf1E76dYGLEwdyKtmSvFd0uIVIVBEpF99rvCalWbjTqHfjBm86uiypwrUh0uLf770ja8UwMHI4xbt5381D4s_6HZSgitsMFwjyaN46kPYxxKdhzF9weJSOd3vq2K3Gm938KjF7wIqYwirSMjb9uS-BJWpIi5GZDGrIQo-h_AxDMsF2wWtHu567H7Tw-AJSyNyZOwk4OtpqxfMbsAHUEYiigChgcbk3HGr-S-1AdHQnqPdhfQAcd0sKtJ9-LJ7dk-2AfDXIaqumfWq_g7nr_erIGm92aEdVNlSyuNA8fVGWI6XAXgqHBQIHSoJESkjMCidEuVVh7irl_Ego569YRvvgIKzTjf2urmy2sYNrEgyH-dehhZveC8IZhZ9FduK4Zqx8ifdNPv8dS7JBBiNOvfEco7zRoShMq2kvYWFdVCJ0Z0JeH7a5A7yJzfbRG3sD12bByWzuQSY4S7oG8qWc-9pqBX04IK_Gh_qcBIcIpczcmriemc0YkHojbUvxvuYjPS7uTwRWghZNXjOZeJZN2s4DUFsUytm4WjMW6rPhC3UHLHMh1SHE2ir5u3XNaZMa-XEHfWt1fTUz51C_53EsDTs1_6cvTeGKOsNaaBuQjZqyb-Se78rcedR4rezV3OxWVs1r-E2Yx9qxzK5zOcbAeYreLSBxtD-bf17Uw_K5Nam5U7lsWYrxBIthVjX5LauqRyK-OEVPJ-iLhO2aiw2BqSApc-H2FVzhc35OJ4w5Ddn2TkKheQBfWW6D1RFgH3MXJOm3IxknKe61yktH7Mp0BYxjvlssQL8GWbJrYzW-UAE-oNdkQ8KVHgCGAqtcD5UsyfP5s_MU4y6_4y_MOtd7jYtO4v2nSZsFomkEpXrL0o0x_kLfb-Jyi7l2SRI6BYVO1652VPNE3RbU6PzSXw0U7pPAKYj8K5dRGq60yBJBycTtfRmxFDWgMBF8dC6VJNesWPFDC3cnKAQXJ22byDKtfn5zHxHKS8RIpGbbz1-cSG1sJLPMjlSvJDMaXRAjk5AmE9pMAcouPRh2FGnQEC4GU09mxiHqoNVX02Uo_juXFhvgExVY-ZCyMJ5BwTm7SQpH8-YLosr15uQK3mOCpxM_hs0tSczFhbn0alFctV84AnablSsdYBOFPbuZxEv2dqgLgZH6szWZlpUPggBvaH06_OiT4ieC9eo6QjLKvzBK58trL6Eba5_FeEjX7Ldml-pWq-supuGWMrbBvI1OcGRYlWKMeJnhuofrXfJHKhBU12vY9perp-an_RKQT4aNNjqjxVAfoDtOw4wjEjrSiItuCyVbWIdVIHDLK9ftMXle3wwDV8ZTvYDTgVr6ZmqkmifKb4nfmOwgBWPOb_4VaE5WBr0UwUgJ8e3FC7BNslNVV5KiEoYeZFb6qqVgQPbK_yYjQhHi_WUthxSfr6TIrCx4O7LhbAvgDtA37mEwcTgYPcQ3lf750_eLaNjaD94KvBoF9FY4q3a7H9tVh_KSy3r2yb6pC4TjX3VFhsGIgwmaFpihipvelt4iRcLOJdeiO6SLT4xRQtfYwdpo4D2WuBrc3YXY4WwguEhD7CT4fG1PV8H3LS9VjegAvdy6Kd6LOnvIrpAsujVaJ6vqC0qSO9B3xjaWcJFRcVJG_O6Ejd8DXk0lXSrifM3jz8c-DUQEGOwunky4FQPexqcU8roClUzpcjlj_Y5i9UrV-ZMODgyjSU-TGLB1_5EZup90ZWYp-0PN1) failed to reach agreement
+FAIL
+exit status 1
+BE_l9eZ1q6kc8N5jYk3ZVU0238om8wfRPxozZsyWlRG3bx9Ex1jDoiEgEGvHgQSCTB8MjzlWIojzlXWpX4SNXLdyGFcConkf6yvBuv4qjF3dXBaku0QAZrcZ6ZFJ4gg-evld4AYqY50nZEFFxfi5B7CQEvgALLAJnZ5It4JbxQL48fjkiokZQzpNGguWL7mmzUamAuHiALnZYN3HND6-0Yuib7S5DoO1FVoVGsyGohVXdWt-9RZX4FsfK5ody90GDAZsiB_GNqc9wAb_nIJa1DEMSBmuo4sjTOBn9fkV_HrtwIZmTrkndSbPsrm_LZ3pRcrvwww7urcKospdBHuHKY-Il6m0zHegStgJeJZP-e3m6nRiica2WORqKk3fkZrnN1tDpyiWjQkWc-MCua5ax0m7VjByX4F6aK67jZDXzrJMztYCNucQKzpBSxdo4ygDcvw_T_9JJ4fC0VxKEqYxFfnj-rHz3P7XEhc1FRh3wRHtnGF6CkstcdaGHxQNXT5ykJcmQeZxXC_kxVoOKITmHl2Qp4GloQqixjL0wgGrhOTLPT8hJJ38QE6l3RYNMhUILByFzEvxFEIapvJQWZYYE43Yp_kaNVqQIlGM64UrssispnFzuhlbKaVGEUoTCEXyhFTbBePql4cBEXpVWxIpKbovYuN5EUalsyUwXLrrr98dcRqEHwwRm451YLWtJBnqtskEhTYsUTT2LXVdsW5wvYhrB1JxnY2tb95YLWLq55A3ut9bmVwQeh7LS_63hRu3eWuxbiUWL1VG2RdARP04gyf8W5kVhPLn2DnBI3yUPQuppRK3qE8qNdQnpWnOTzSMDR2cG5hFA_sBXD_dGiJ8TBTzVXtJBTSs1AcP3cxXeivYj0wtRQ8aRpyfMjWXWKOjO2tY4sPgZ85W955pGo51aLKyzU5q1DbZUyNFToMHST0gbXsbPwNacFGEQgjPXfjxlqOgjN8cSlT0HkHYGua8S1msIh8z4jAjTzuku7k8BkCMtA5fCv8xEgkGgkevPSQQEnQEyf6y8rZexXLn9lIVLbe935iQWrAAqQ54YafTd0fKm8Pab6r4ah4KZz0KzkCvYw6uugN1YvaWfvaJT94qAmWGpRQAHw7ZkSO5sZsF7_Dujz9JZPFhyPKgIvGLeWj9pOTrORy108iQ-ir43QczMcPAb9dKKiQseVj_uBz3IjkcnPdPzqSPoa_r75lIMjxqH2-cRPZ_jpRK-jvsArfO9dhGxJoFUbW8B5roHWxCeYukCJUnI3M3QtNNSmxImpSOpJrv6YaoNXtvIPWagJWyTAbNjXc2NatlC56ykhLUIKOvOX8A3Apg4Z0fRnsT2M0ZS2-JwyTk8l4LzyjjeaL6saWJ83t1JAf6BlitQ8DTunRoTg8YxpUaiEeRruqZTWtfbj127hRoZijCsC2KsONr3avyGd9Sb8qYuJ9uavAI-cJZFlFr1wLN5teux9t1y6He5Ts11RgFWAo6KQKDxfQq87j1teS1w7eilz03620DoPRdv5ujGeNSUxDS6ThCt2w_OcY6k-MtdTTclkzthmswbmRgFJKxWld8LCEuZXZJKX0kHtIPwnW9ln2G_1J0TZKhQDAXhUiD7OMG_ANWO6oX8UFjAw260i0MuFjb-19hsPdN_8JDn3P02Bi1HDiMRaE6nOz_68d5mOP5LAIuRX_sxn51KLeuFzMUwTp2HnZJEIoiYzwAPR_ePH1Bo0zyHuseudqK5ZQ0sybg77ioreaq7jB0Q7PPTFpeuYN0kypcWUUyZtceOTPqxfe_ah728yo4PUCXzpVapQImlYqie9mfhGqdWoFH5fM_ViN3irpmfv1N6l8Y2bB3kF3T9RNfufoog0EIahTn0IidgMXQhsqIfpSc_y3twgkfVy6FtyM-FhpeJ8UQXnslvDr_aEQdaqVMCyh9-cjJOPHKljwoBKIlo6D6Op3rjvRZDd7bp7XolYlooBzyaCzZ8FDeDjZ8ivDQ4bFdIDHBMVDIODrH4B-h3XfjIYVw_WpJPTDv0yWe2y8Y3qifIiNnTPZhyxriprRq95r7er0Mm2STYTmvZ4lwFvQOcKC9Q93N9YF2GMrG9WcAc1RMR6kZms333QaY8IjUANRwUtwrnxyWF-WLdQ4i1S0R6_fbM3SHwHlakrikfTTb5fpnfreswFXVBHDbHcSUBf1E76dYGLEwdyKtmSvFd0uIVIVBEpF99rvCalWbjTqHfjBm86uiypwrUh0uLf770ja8UwMHI4xbt5381D4s_6HZSgitsMFwjyaN46kPYxxKdhzF9weJSOd3vq2K3Gm938KjF7wIqYwirSMjb9uS-BJWpIi5GZDGrIQo-h_AxDMsF2wWtHu567H7Tw-AJSyNyZOwk4OtpqxfMbsAHUEYiigChgcbk3HGr-S-1AdHQnqPdhfQAcd0sKtJ9-LJ7dk-2AfDXIaqumfWq_g7nr_erIGm92aEdVNlSyuNA8fVGWI6XAXgqHBQIHSoJESkjMCidEuVVh7irl_Ego569YRvvgIKzTjf2urmy2sYNrEgyH-dehhZveC8IZhZ9FduK4Zqx8ifdNPv8dS7JBBiNOvfEco7zRoShMq2kvYWFdVCJ0Z0JeH7a5A7yJzfbRG3sD12bByWzuQSY4S7oG8qWc-9pqBX04IK_Gh_qcBIcIpczcmriemc0YkHojbUvxvuYjPS7uTwRWghZNXjOZeJZN2s4DUFsUytm4WjMW6rPhC3UHLHMh1SHE2ir5u3XNaZMa-XEHfWt1fTUz51C_53EsDTs1_6cvTeGKOsNaaBuQjZqyb-Se78rcedR4rezV3OxWVs1r-E2Yx9qxzK5zOcbAeYreLSBxtD-bf17Uw_K5Nam5U7lsWYrxBIthVjX5LauqRyK-OEVPJ-iLhO2aiw2BqSApc-H2FVzhc35OJ4w5Ddn2TkKheQBfWW6D1RFgH3MXJOm3IxknKe61yktH7Mp0BYxjvlssQL8GWbJrYzW-UAE-oNdkQ8KVHgCGAqtcD5UsyfP5s_MU4y6_4y_MOtd7jYtO4v2nSZsFomkEpXrL0o0x_kLfb-Jyi7l2SRI6BYVO1652VPNE3RbU6PzSXw0U7pPAKYj8K5dRGq60yBJBycTtfRmxFDWgMBF8dC6VJNesWPFDC3cnKAQXJ22byDKtfn5zHxHKS8RIpGbbz1-cSG1sJLPMjlSvJDMaXRAjk5AmE9pMAcouPRh2FGnQEC4GU09mxiHqoNVX02Uo_juXFhvgExVY-ZCyMJ5BwTm7SQpH8-YLosr15uQK3mOCpxM_hs0tSczFhbn0alFctV84AnablSsdYBOFPbuZxEv2dqgLgZH6szWZlpUPggBvaH06_OiT4ieC9eo6QjLKvzBK58trL6Eba5_FeEjX7Ldml-pWq-supuGWMrbBvI1OcGRYlWKMeJnhuofrXfJHKhBU12vY9perp-an_RKQT4aNNjqjxVAfoDtOw4wjEjrSiItuCyVbWIdVIHDLK9ftMXle3wwDV8ZTvYDTgVr6ZmqkmifKb4nfmOwgBWPOb_4VaE5WBr0UwUgJ8e3FC7BNslNVV5KiEoYeZFb6qqVgQPbK_yYjQhHi_WUthxSfr6TIrCx4O7LhbAvgDtA37mEwcTgYPcQ3lf750_eLaNjaD94KvBoF9FY4q3a7H9tVh_KSy3r2yb6pC4TjX3VFhsGIgwmaFpihipvelt4iRcLOJdeiO6SLT4xRQtfYwdpo4D2WuBrc3YXY4WwguEhD7CT4fG1PV8H3LS9VjegAvdy6Kd6LOnvIrpAsujVaJ6vqC0qSO9B3xjaWcJFRcVJG_O6Ejd8DXk0lXSrifM3jz8c-DUQEGOwunky4FQPexqcU8roClUzpcjlj_Y5i9UrV-ZMODgyjSU-TGLB1_5EZup90ZWYp-0PN1) failed to reach agreement
+FAIL
+exit status 1
+FAIL    _/mnt/e/Work/Go/lab2/6.824/src/raft     3.420s

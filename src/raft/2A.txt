@@ -1,0 +1,677 @@
+Test (2A): initial election ...
+0: curtime: 1609157826818, time out after 382 ms
+0: update timestamp to 1609157826416 ms
+0: update timestamp to 1609157826819 ms
+0: start poll 
+0: GetState result, term is 0, isLeader is false
+1: GetState result, term is 0, isLeader is false
+2: GetState result, term is 0, isLeader is false
+2: curtime: 1609157826919, time out after 480 ms
+2: update timestamp to 1609157826416 ms
+2: update timestamp to 1609157826919 ms
+1: curtime: 1609157826919, time out after 416 ms
+1: update timestamp to 1609157826416 ms
+1: update timestamp to 1609157826920 ms
+1: start poll 
+2: start poll 
+0: curtime: 1609157827221, time out after 356 ms
+0: update timestamp to 1609157826819 ms
+0: update timestamp to 1609157827221 ms
+1: curtime: 1609157827221, time out after 257 ms
+0: start poll 
+1: update timestamp to 1609157826920 ms
+1: update timestamp to 1609157827222 ms
+1: start poll 
+0: GetState result, term is 0, isLeader is false
+1: GetState result, term is 0, isLeader is false
+2: GetState result, term is 0, isLeader is false
+2: curtime: 1609157827422, time out after 463 ms
+2: update timestamp to 1609157826919 ms
+2: update timestamp to 1609157827422 ms
+2: start poll 
+0: curtime: 1609157827723, time out after 481 ms
+0: update timestamp to 1609157827221 ms
+1: curtime: 1609157827723, time out after 429 ms
+1: update timestamp to 1609157827222 ms
+1: update timestamp to 1609157827723 ms
+0: update timestamp to 1609157827723 ms
+0: start poll 
+1: start poll 
+0: GetState result, term is 0, isLeader is false
+1: GetState result, term is 0, isLeader is false
+2: GetState result, term is 0, isLeader is false
+2: curtime: 1609157827924, time out after 490 ms
+2: update timestamp to 1609157827422 ms
+2: update timestamp to 1609157827924 ms
+2: start poll 
+1: curtime: 1609157828125, time out after 394 ms
+1: update timestamp to 1609157827723 ms
+1: update timestamp to 1609157828125 ms
+1: start poll 
+0: curtime: 1609157828226, time out after 446 ms
+0: update timestamp to 1609157827723 ms
+0: update timestamp to 1609157828226 ms
+0: start poll 
+0: GetState result, term is 0, isLeader is false
+1: GetState result, term is 0, isLeader is false
+2: GetState result, term is 0, isLeader is false
+2: curtime: 1609157828426, time out after 427 ms
+2: update timestamp to 1609157827924 ms
+2: update timestamp to 1609157828426 ms
+2: start poll 
+1: curtime: 1609157828526, time out after 375 ms
+1: update timestamp to 1609157828125 ms
+1: update timestamp to 1609157828526 ms
+1: start poll 
+0: curtime: 1609157828526, time out after 257 ms
+0: update timestamp to 1609157828226 ms
+0: update timestamp to 1609157828526 ms
+0: start poll 
+2: curtime: 1609157828827, time out after 328 ms
+2: update timestamp to 1609157828426 ms
+2: update timestamp to 1609157828827 ms
+2: start poll 
+0: GetState result, term is 0, isLeader is false
+1: GetState result, term is 0, isLeader is false
+2: GetState result, term is 0, isLeader is false
+1: curtime: 1609157828927, time out after 399 ms
+1: update timestamp to 1609157828526 ms
+1: update timestamp to 1609157828927 ms
+1: start poll 
+0: curtime: 1609157829028, time out after 444 ms
+0: update timestamp to 1609157828526 ms
+0: update timestamp to 1609157829028 ms
+0: start poll 
+2: curtime: 1609157829229, time out after 321 ms
+2: update timestamp to 1609157828827 ms
+2: update timestamp to 1609157829229 ms
+2: start poll 
+0: GetState result, term is 0, isLeader is false
+1: GetState result, term is 0, isLeader is false
+2: GetState result, term is 0, isLeader is false
+1: curtime: 1609157829431, time out after 445 ms
+1: update timestamp to 1609157828927 ms
+1: update timestamp to 1609157829431 ms
+1: start poll 
+0: curtime: 1609157829534, time out after 442 ms
+0: update timestamp to 1609157829028 ms
+0: update timestamp to 1609157829534 ms
+0: start poll 
+2: curtime: 1609157829638, time out after 364 ms
+2: update timestamp to 1609157829229 ms
+2: update timestamp to 1609157829638 ms
+2: start poll 
+0: GetState result, term is 0, isLeader is false
+1: GetState result, term is 0, isLeader is false
+2: GetState result, term is 0, isLeader is false
+0: curtime: 1609157829840, time out after 306 ms
+0: update timestamp to 1609157829534 ms
+0: update timestamp to 1609157829840 ms
+0: start poll 
+1: curtime: 1609157829945, time out after 456 ms
+1: update timestamp to 1609157829431 ms
+1: update timestamp to 1609157829945 ms
+1: start poll 
+2: curtime: 1609157830146, time out after 421 ms
+2: update timestamp to 1609157829638 ms
+2: update timestamp to 1609157830146 ms
+2: start poll 
+0: curtime: 1609157830243, time out after 304 ms
+0: update timestamp to 1609157829840 ms
+0: update timestamp to 1609157830243 ms
+0: start poll 
+1: curtime: 1609157830348, time out after 361 ms
+1: update timestamp to 1609157829945 ms
+1: update timestamp to 1609157830348 ms
+1: start poll 
+0: GetState result, term is 0, isLeader is false
+1: GetState result, term is 0, isLeader is false
+2: GetState result, term is 0, isLeader is false
+2: curtime: 1609157830649, time out after 439 ms
+2: update timestamp to 1609157830146 ms
+2: update timestamp to 1609157830649 ms
+2: start poll 
+0: curtime: 1609157830746, time out after 498 ms
+0: update timestamp to 1609157830243 ms
+0: update timestamp to 1609157830746 ms
+0: start poll 
+1: curtime: 1609157830750, time out after 372 ms
+1: update timestamp to 1609157830348 ms
+1: update timestamp to 1609157830750 ms
+1: start poll 
+0: GetState result, term is 0, isLeader is false
+1: GetState result, term is 0, isLeader is false
+2: GetState result, term is 0, isLeader is false
+2: curtime: 1609157831051, time out after 373 ms
+2: update timestamp to 1609157830649 ms
+2: update timestamp to 1609157831051 ms
+2: start poll 
+0: curtime: 1609157831148, time out after 364 ms
+0: update timestamp to 1609157830746 ms
+0: update timestamp to 1609157831148 ms
+0: start poll 
+1: curtime: 1609157831252, time out after 429 ms
+1: update timestamp to 1609157830750 ms
+1: update timestamp to 1609157831252 ms
+1: start poll 
+2: curtime: 1609157831358, time out after 297 ms
+2: update timestamp to 1609157831051 ms
+2: update timestamp to 1609157831358 ms
+2: start poll 
+0: GetState result, term is 0, isLeader is false
+1: GetState result, term is 0, isLeader is false
+2: GetState result, term is 0, isLeader is false
+--- FAIL: TestInitialElection2A (4.94s)
+    config.go:334: expected one leader, got none
+Test (2A): election after network failure ...
+0: request vote {"CurrentTerm":1,"Whoimi":0,"LastLogIndex":0,"LastLogTerm":0} to 2
+0: reply vote {"CurrentTerm":0,"VoteFor":false} from 2
+0: false to channel
+0: get one result (false) 
+2: request vote {"CurrentTerm":1,"Whoimi":2,"LastLogIndex":0,"LastLogTerm":0} to 1
+1: request vote {"CurrentTerm":1,"Whoimi":1,"LastLogIndex":0,"LastLogTerm":0} to 0
+2: reply vote {"CurrentTerm":0,"VoteFor":false} from 1
+2: false to channel
+2: get one result (false) 
+1: reply vote {"CurrentTerm":0,"VoteFor":false} from 0
+1: false to channel
+1: get one result (false) 
+0: request vote {"CurrentTerm":2,"Whoimi":0,"LastLogIndex":0,"LastLogTerm":0} to 2
+1: request vote {"CurrentTerm":2,"Whoimi":1,"LastLogIndex":0,"LastLogTerm":0} to 0
+0: request vote {"CurrentTerm":1,"Whoimi":0,"LastLogIndex":0,"LastLogTerm":0} to 1
+0: reply vote {"CurrentTerm":0,"VoteFor":false} from 1
+0: false to channel
+0: get one result (false) 
+0: Already been return from all server
+1: request vote {"CurrentTerm":3,"Whoimi":1,"LastLogIndex":0,"LastLogTerm":0} to 0
+1: request vote {"CurrentTerm":5,"Whoimi":1,"LastLogIndex":0,"LastLogTerm":0} to 0
+2: request vote {"CurrentTerm":2,"Whoimi":2,"LastLogIndex":0,"LastLogTerm":0} to 1
+1: reply vote {"CurrentTerm":0,"VoteFor":false} from 0
+1: false to channel
+1: get one result (false) 
+1: request vote {"CurrentTerm":1,"Whoimi":1,"LastLogIndex":0,"LastLogTerm":0} to 2
+0: request vote {"CurrentTerm":3,"Whoimi":0,"LastLogIndex":0,"LastLogTerm":0} to 2
+1: reply vote {"CurrentTerm":0,"VoteFor":false} from 2
+1: false to channel
+1: get one result (false) 
+1: Already been return from all server
+2: request vote {"CurrentTerm":3,"Whoimi":2,"LastLogIndex":0,"LastLogTerm":0} to 1
+1: request vote {"CurrentTerm":6,"Whoimi":1,"LastLogIndex":0,"LastLogTerm":0} to 0
+1: reply vote {"CurrentTerm":0,"VoteFor":false} from 0
+1: false to channel
+1: get one result (false) 
+2: request vote {"CurrentTerm":3,"Whoimi":2,"LastLogIndex":0,"LastLogTerm":0} to 0
+1: request vote {"CurrentTerm":7,"Whoimi":1,"LastLogIndex":0,"LastLogTerm":0} to 0
+2: reply vote {"CurrentTerm":0,"VoteFor":false} from 0
+2: false to channel
+1: request vote {"CurrentTerm":8,"Whoimi":1,"LastLogIndex":0,"LastLogTerm":0} to 0
+0: request vote {"CurrentTerm":4,"Whoimi":0,"LastLogIndex":0,"LastLogTerm":0} to 1
+1: reply vote {"CurrentTerm":0,"VoteFor":false} from 0
+0: reply vote {"CurrentTerm":0,"VoteFor":false} from 1
+0: false to channel
+0: get one result (false) 
+1: request vote {"CurrentTerm":4,"Whoimi":1,"LastLogIndex":0,"LastLogTerm":0} to 0
+1: reply vote {"CurrentTerm":0,"VoteFor":false} from 0
+1: false to channel
+1: get one result (false) 
+2: request vote {"CurrentTerm":1,"Whoimi":2,"LastLogIndex":0,"LastLogTerm":0} to 0
+1: request vote {"CurrentTerm":11,"Whoimi":1,"LastLogIndex":0,"LastLogTerm":0} to 2
+2: reply vote {"CurrentTerm":0,"VoteFor":false} from 0
+2: false to channel
+1: reply vote {"CurrentTerm":0,"VoteFor":false} from 2
+1: false to channel
+1: get one result (false) 
+1: reply vote {"CurrentTerm":0,"VoteFor":false} from 0
+1: false to channel
+1: get one result (false) 
+2: get one result (false) 
+0: request vote {"CurrentTerm":5,"Whoimi":0,"LastLogIndex":0,"LastLogTerm":0} to 2
+2: request vote {"CurrentTerm":7,"Whoimi":2,"LastLogIndex":0,"LastLogTerm":0} to 1
+0: reply vote {"CurrentTerm":0,"VoteFor":false} from 2
+0: false to channel
+0: get one result (false) 
+2: request vote {"CurrentTerm":2,"Whoimi":2,"LastLogIndex":0,"LastLogTerm":0} to 0
+2: reply vote {"CurrentTerm":0,"VoteFor":false} from 0
+2: false to channel
+2: get one result (false) 
+0: reply vote {"CurrentTerm":0,"VoteFor":false} from 2
+0: false to channel
+0: get one result (false) 
+0: request vote {"CurrentTerm":6,"Whoimi":0,"LastLogIndex":0,"LastLogTerm":0} to 2
+2: request vote {"CurrentTerm":9,"Whoimi":2,"LastLogIndex":0,"LastLogTerm":0} to 1
+1: request vote {"CurrentTerm":10,"Whoimi":1,"LastLogIndex":0,"LastLogTerm":0} to 0
+1: reply vote {"CurrentTerm":0,"VoteFor":false} from 0
+1: false to channel
+1: get one result (false) 
+1: request vote {"CurrentTerm":5,"Whoimi":1,"LastLogIndex":0,"LastLogTerm":0} to 2
+0: request vote {"CurrentTerm":9,"Whoimi":0,"LastLogIndex":0,"LastLogTerm":0} to 1
+1: reply vote {"CurrentTerm":0,"VoteFor":false} from 2
+1: false to channel
+1: get one result (false) 
+1: Already been return from all server
+2: request vote {"CurrentTerm":5,"Whoimi":2,"LastLogIndex":0,"LastLogTerm":0} to 0
+2: reply vote {"CurrentTerm":0,"VoteFor":false} from 0
+2: false to channel
+2: get one result (false) 
+0: request vote {"CurrentTerm":3,"Whoimi":0,"LastLogIndex":0,"LastLogTerm":0} to 1
+0: request vote {"CurrentTerm":11,"Whoimi":0,"LastLogIndex":0,"LastLogTerm":0} to 2
+0: reply vote {"CurrentTerm":0,"VoteFor":false} from 1
+0: false to channel
+0: reply vote {"CurrentTerm":0,"VoteFor":false} from 2
+0: false to channel
+0: get one result (false) 
+0: request vote {"CurrentTerm":8,"Whoimi":0,"LastLogIndex":0,"LastLogTerm":0} to 1
+2: request vote {"CurrentTerm":11,"Whoimi":2,"LastLogIndex":0,"LastLogTerm":0} to 0
+0: reply vote {"CurrentTerm":0,"VoteFor":false} from 1
+0: false to channel
+0: get one result (false) 
+2: request vote {"CurrentTerm":8,"Whoimi":2,"LastLogIndex":0,"LastLogTerm":0} to 0
+2: reply vote {"CurrentTerm":0,"VoteFor":false} from 0
+2: false to channel
+2: get one result (false) 
+2: request vote {"CurrentTerm":10,"Whoimi":2,"LastLogIndex":0,"LastLogTerm":0} to 1
+2: reply vote {"CurrentTerm":0,"VoteFor":false} from 1
+2: false to channel
+2: get one result (false) 
+1: request vote {"CurrentTerm":3,"Whoimi":1,"LastLogIndex":0,"LastLogTerm":0} to 2
+1: reply vote {"CurrentTerm":0,"VoteFor":false} from 2
+1: false to channel
+1: get one result (false) 
+1: request vote {"CurrentTerm":9,"Whoimi":1,"LastLogIndex":0,"LastLogTerm":0} to 2
+1: reply vote {"CurrentTerm":0,"VoteFor":false} from 2
+1: false to channel
+1: get one result (false) 
+2: get one result (false) 
+2: Already been return from all server
+2: request vote {"CurrentTerm":4,"Whoimi":2,"LastLogIndex":0,"LastLogTerm":0} to 0
+2: reply vote {"CurrentTerm":0,"VoteFor":false} from 0
+2: false to channel
+2: get one result (false) 
+1: request vote {"CurrentTerm":4,"Whoimi":1,"LastLogIndex":0,"LastLogTerm":0} to 2
+1: reply vote {"CurrentTerm":0,"VoteFor":false} from 2
+1: false to channel
+1: get one result (false) 
+1: Already been return from all server
+2: request vote {"CurrentTerm":6,"Whoimi":2,"LastLogIndex":0,"LastLogTerm":0} to 1
+2: reply vote {"CurrentTerm":0,"VoteFor":false} from 1
+2: false to channel
+2: get one result (false) 
+2: request vote {"CurrentTerm":6,"Whoimi":2,"LastLogIndex":0,"LastLogTerm":0} to 0
+2: reply vote {"CurrentTerm":0,"VoteFor":false} from 0
+2: false to channel
+2: get one result (false) 
+2: Already been return from all server
+2: request vote {"CurrentTerm":11,"Whoimi":2,"LastLogIndex":0,"LastLogTerm":0} to 1
+2: reply vote {"CurrentTerm":0,"VoteFor":false} from 1
+2: false to channel
+2: get one result (false) 
+0: request vote {"CurrentTerm":11,"Whoimi":0,"LastLogIndex":0,"LastLogTerm":0} to 1
+0: reply vote {"CurrentTerm":0,"VoteFor":false} from 1
+0: false to channel
+0: get one result (false) 
+0: Already been return from all server
+2: reply vote {"CurrentTerm":0,"VoteFor":false} from 1
+2: false to channel
+2: get one result (false) 
+0: request vote {"CurrentTerm":4,"Whoimi":0,"LastLogIndex":0,"LastLogTerm":0} to 2
+0: reply vote {"CurrentTerm":0,"VoteFor":false} from 2
+0: false to channel
+0: get one result (false) 
+0: Already been return from all server
+0: request vote {"CurrentTerm":10,"Whoimi":0,"LastLogIndex":0,"LastLogTerm":0} to 2
+0: reply vote {"CurrentTerm":0,"VoteFor":false} from 2
+0: false to channel
+0: get one result (false) 
+0: reply vote {"CurrentTerm":0,"VoteFor":false} from 1
+0: false to channel
+0: get one result (false) 
+1: request vote {"CurrentTerm":2,"Whoimi":1,"LastLogIndex":0,"LastLogTerm":0} to 2
+1: reply vote {"CurrentTerm":0,"VoteFor":false} from 2
+1: false to channel
+1: get one result (false) 
+1: Already been return from all server
+2: request vote {"CurrentTerm":9,"Whoimi":2,"LastLogIndex":0,"LastLogTerm":0} to 0
+2: reply vote {"CurrentTerm":0,"VoteFor":false} from 0
+2: false to channel
+2: get one result (false) 
+2: Already been return from all server
+0: get one result (false) 
+0: Already been return from all server
+1: request vote {"CurrentTerm":11,"Whoimi":1,"LastLogIndex":0,"LastLogTerm":0} to 0
+1: reply vote {"CurrentTerm":0,"VoteFor":false} from 0
+1: false to channel
+1: get one result (false) 
+1: Already been return from all server
+1: request vote {"CurrentTerm":7,"Whoimi":1,"LastLogIndex":0,"LastLogTerm":0} to 2
+1: reply vote {"CurrentTerm":0,"VoteFor":false} from 2
+1: false to channel
+1: get one result (false) 
+0: request vote {"CurrentTerm":2,"Whoimi":0,"LastLogIndex":0,"LastLogTerm":0} to 1
+0: reply vote {"CurrentTerm":0,"VoteFor":false} from 1
+0: false to channel
+0: get one result (false) 
+0: reply vote {"CurrentTerm":0,"VoteFor":false} from 2
+0: false to channel
+0: get one result (false) 
+0: Already been return from all server
+1: false to channel
+1: get one result (false) 
+1: request vote {"CurrentTerm":10,"Whoimi":1,"LastLogIndex":0,"LastLogTerm":0} to 2
+1: reply vote {"CurrentTerm":0,"VoteFor":false} from 2
+1: false to channel
+1: get one result (false) 
+1: Already been return from all server
+1: request vote {"CurrentTerm":9,"Whoimi":1,"LastLogIndex":0,"LastLogTerm":0} to 0
+1: reply vote {"CurrentTerm":0,"VoteFor":false} from 0
+1: false to channel
+1: get one result (false) 
+1: Already been return from all server
+2: request vote {"CurrentTerm":5,"Whoimi":2,"LastLogIndex":0,"LastLogTerm":0} to 1
+2: reply vote {"CurrentTerm":0,"VoteFor":false} from 1
+2: false to channel
+2: get one result (false) 
+2: Already been return from all server
+2: reply vote {"CurrentTerm":0,"VoteFor":false} from 1
+2: false to channel
+2: get one result (false) 
+2: Already been return from all server
+1: request vote {"CurrentTerm":6,"Whoimi":1,"LastLogIndex":0,"LastLogTerm":0} to 2
+1: reply vote {"CurrentTerm":0,"VoteFor":false} from 2
+1: false to channel
+1: get one result (false) 
+1: Already been return from all server
+2: request vote {"CurrentTerm":4,"Whoimi":2,"LastLogIndex":0,"LastLogTerm":0} to 1
+2: reply vote {"CurrentTerm":0,"VoteFor":false} from 1
+2: false to channel
+2: get one result (false) 
+2: Already been return from all server
+1: reply vote {"CurrentTerm":0,"VoteFor":false} from 0
+1: false to channel
+1: get one result (false) 
+1: Already been return from all server
+2: reply vote {"CurrentTerm":0,"VoteFor":false} from 1
+2: false to channel
+2: get one result (false) 
+2: Already been return from all server
+1: request vote {"CurrentTerm":8,"Whoimi":1,"LastLogIndex":0,"LastLogTerm":0} to 2
+1: reply vote {"CurrentTerm":0,"VoteFor":false} from 2
+1: false to channel
+1: get one result (false) 
+1: Already been return from all server
+1: reply vote {"CurrentTerm":0,"VoteFor":false} from 0
+1: false to channel
+1: get one result (false) 
+1: Already been return from all server
+0: request vote {"CurrentTerm":7,"Whoimi":0,"LastLogIndex":0,"LastLogTerm":0} to 2
+0: reply vote {"CurrentTerm":0,"VoteFor":false} from 2
+0: false to channel
+0: get one result (false) 
+0: request vote {"CurrentTerm":6,"Whoimi":0,"LastLogIndex":0,"LastLogTerm":0} to 1
+0: reply vote {"CurrentTerm":0,"VoteFor":false} from 1
+0: false to channel
+0: get one result (false) 
+2: reply vote {"CurrentTerm":0,"VoteFor":false} from 1
+2: false to channel
+2: get one result (false) 
+0: request vote {"CurrentTerm":7,"Whoimi":0,"LastLogIndex":0,"LastLogTerm":0} to 1
+0: reply vote {"CurrentTerm":0,"VoteFor":false} from 1
+0: false to channel
+0: get one result (false) 
+0: Already been return from all server
+2: request vote {"CurrentTerm":8,"Whoimi":2,"LastLogIndex":0,"LastLogTerm":0} to 1
+2: reply vote {"CurrentTerm":0,"VoteFor":false} from 1
+2: false to channel
+2: get one result (false) 
+2: Already been return from all server
+2: request vote {"CurrentTerm":10,"Whoimi":2,"LastLogIndex":0,"LastLogTerm":0} to 0
+2: reply vote {"CurrentTerm":0,"VoteFor":false} from 0
+2: false to channel
+2: get one result (false) 
+2: Already been return from all server
+0: request vote {"CurrentTerm":10,"Whoimi":0,"LastLogIndex":0,"LastLogTerm":0} to 1
+0: reply vote {"CurrentTerm":0,"VoteFor":false} from 1
+0: false to channel
+0: get one result (false) 
+0: Already been return from all server
+2: reply vote {"CurrentTerm":0,"VoteFor":false} from 0
+2: false to channel
+2: get one result (false) 
+2: Already been return from all server
+0: request vote {"CurrentTerm":5,"Whoimi":0,"LastLogIndex":0,"LastLogTerm":0} to 1
+0: reply vote {"CurrentTerm":0,"VoteFor":false} from 1
+0: false to channel
+0: get one result (false) 
+0: Already been return from all server
+0: request vote {"CurrentTerm":8,"Whoimi":0,"LastLogIndex":0,"LastLogTerm":0} to 2
+0: reply vote {"CurrentTerm":0,"VoteFor":false} from 2
+0: false to channel
+0: get one result (false) 
+0: Already been return from all server
+0: request vote {"CurrentTerm":9,"Whoimi":0,"LastLogIndex":0,"LastLogTerm":0} to 2
+0: reply vote {"CurrentTerm":0,"VoteFor":false} from 2
+0: false to channel
+0: get one result (false) 
+0: Already been return from all server
+2: request vote {"CurrentTerm":7,"Whoimi":2,"LastLogIndex":0,"LastLogTerm":0} to 0
+2: reply vote {"CurrentTerm":0,"VoteFor":false} from 0
+2: false to channel
+2: get one result (false) 
+2: Already been return from all server
+0: reply vote {"CurrentTerm":0,"VoteFor":false} from 2
+0: false to channel
+0: get one result (false) 
+0: Already been return from all server
+2: curtime: 1609157831667, time out after 288 ms
+2: update timestamp to 1609157831361 ms
+2: update timestamp to 1609157831667 ms
+2: start poll 
+0: curtime: 1609157831698, time out after 464 ms
+0: update timestamp to 1609157831148 ms
+0: update timestamp to 1609157831698 ms
+0: start poll 
+0: request vote {"CurrentTerm":12,"Whoimi":0,"LastLogIndex":0,"LastLogTerm":0} to 2
+0: reply vote {"CurrentTerm":0,"VoteFor":false} from 2
+0: false to channel
+0: get one result (false) 
+2: curtime: 1609157831699, time out after 255 ms
+2: update timestamp to 1609157831358 ms
+2: update timestamp to 1609157831700 ms
+2: start poll 
+2: request vote {"CurrentTerm":12,"Whoimi":2,"LastLogIndex":0,"LastLogTerm":0} to 1
+2: reply vote {"CurrentTerm":0,"VoteFor":false} from 1
+2: false to channel
+2: get one result (false) 
+0: request vote {"CurrentTerm":12,"Whoimi":0,"LastLogIndex":0,"LastLogTerm":0} to 1
+0: reply vote {"CurrentTerm":0,"VoteFor":false} from 1
+0: false to channel
+0: get one result (false) 
+0: Already been return from all server
+2: request vote {"CurrentTerm":12,"Whoimi":2,"LastLogIndex":0,"LastLogTerm":0} to 0
+2: reply vote {"CurrentTerm":0,"VoteFor":false} from 0
+2: false to channel
+2: get one result (false) 
+2: Already been return from all server
+0: curtime: 1609157831700, time out after 273 ms
+0: update timestamp to 1609157831361 ms
+0: update timestamp to 1609157831700 ms
+0: start poll 
+1: curtime: 1609157831700, time out after 442 ms
+1: update timestamp to 1609157831252 ms
+1: update timestamp to 1609157831700 ms
+1: start poll 
+1: request vote {"CurrentTerm":12,"Whoimi":1,"LastLogIndex":0,"LastLogTerm":0} to 2
+1: reply vote {"CurrentTerm":0,"VoteFor":false} from 2
+1: false to channel
+1: get one result (false) 
+1: request vote {"CurrentTerm":12,"Whoimi":1,"LastLogIndex":0,"LastLogTerm":0} to 0
+1: reply vote {"CurrentTerm":0,"VoteFor":false} from 0
+1: false to channel
+1: get one result (false) 
+1: Already been return from all server
+1: curtime: 1609157831801, time out after 433 ms
+1: update timestamp to 1609157831361 ms
+1: update timestamp to 1609157831801 ms
+1: start poll 
+0: GetState result, term is 0, isLeader is false
+1: GetState result, term is 0, isLeader is false
+2: GetState result, term is 0, isLeader is false
+2: curtime: 1609157832077, time out after 325 ms
+2: update timestamp to 1609157831667 ms
+2: update timestamp to 1609157832077 ms
+2: start poll 
+0: curtime: 1609157832103, time out after 324 ms
+0: update timestamp to 1609157831700 ms
+0: update timestamp to 1609157832103 ms
+0: start poll 
+1: curtime: 1609157832203, time out after 334 ms
+1: update timestamp to 1609157831801 ms
+1: update timestamp to 1609157832204 ms
+1: start poll 
+0: GetState result, term is 0, isLeader is false
+1: GetState result, term is 0, isLeader is false
+2: GetState result, term is 0, isLeader is false
+0: curtime: 1609157832506, time out after 316 ms
+0: update timestamp to 1609157832103 ms
+0: update timestamp to 1609157832506 ms
+0: start poll 
+2: curtime: 1609157832579, time out after 474 ms
+2: update timestamp to 1609157832077 ms
+2: update timestamp to 1609157832579 ms
+2: start poll 
+1: curtime: 1609157832606, time out after 372 ms
+1: update timestamp to 1609157832204 ms
+1: update timestamp to 1609157832606 ms
+1: start poll 
+0: GetState result, term is 0, isLeader is false
+1: GetState result, term is 0, isLeader is false
+2: GetState result, term is 0, isLeader is false
+2: curtime: 1609157832991, time out after 336 ms
+2: update timestamp to 1609157832579 ms
+2: update timestamp to 1609157832991 ms
+2: start poll 
+0: curtime: 1609157833008, time out after 442 ms
+0: update timestamp to 1609157832506 ms
+0: update timestamp to 1609157833008 ms
+0: start poll 
+1: curtime: 1609157833139, time out after 448 ms
+1: update timestamp to 1609157832606 ms
+1: update timestamp to 1609157833139 ms
+1: start poll 
+0: GetState result, term is 0, isLeader is false
+1: GetState result, term is 0, isLeader is false
+2: GetState result, term is 0, isLeader is false
+2: curtime: 1609157833437, time out after 373 ms
+2: update timestamp to 1609157832991 ms
+2: update timestamp to 1609157833437 ms
+2: start poll 
+1: curtime: 1609157833447, time out after 278 ms
+1: update timestamp to 1609157833139 ms
+1: update timestamp to 1609157833447 ms
+1: start poll 
+0: curtime: 1609157833549, time out after 492 ms
+0: update timestamp to 1609157833008 ms
+0: update timestamp to 1609157833549 ms
+0: start poll 
+2: curtime: 1609157833753, time out after 303 ms
+2: update timestamp to 1609157833437 ms
+2: update timestamp to 1609157833753 ms
+2: start poll 
+0: GetState result, term is 0, isLeader is false
+1: GetState result, term is 0, isLeader is false
+2: GetState result, term is 0, isLeader is false
+1: curtime: 1609157833853, time out after 357 ms
+1: update timestamp to 1609157833447 ms
+1: update timestamp to 1609157833853 ms
+1: start poll 
+2: curtime: 1609157834054, time out after 291 ms
+2: update timestamp to 1609157833753 ms
+2: update timestamp to 1609157834055 ms
+2: start poll 
+0: curtime: 1609157834055, time out after 491 ms
+0: update timestamp to 1609157833549 ms
+0: update timestamp to 1609157834055 ms
+0: start poll 
+1: curtime: 1609157834155, time out after 286 ms
+1: update timestamp to 1609157833853 ms
+1: update timestamp to 1609157834155 ms
+1: start poll 
+0: GetState result, term is 0, isLeader is false
+1: GetState result, term is 0, isLeader is false
+2: GetState result, term is 0, isLeader is false
+2: curtime: 1609157834356, time out after 263 ms
+2: update timestamp to 1609157834055 ms
+2: update timestamp to 1609157834356 ms
+2: start poll 
+1: curtime: 1609157834556, time out after 321 ms
+1: update timestamp to 1609157834155 ms
+1: update timestamp to 1609157834556 ms
+1: start poll 
+0: curtime: 1609157834556, time out after 486 ms
+0: update timestamp to 1609157834055 ms
+0: update timestamp to 1609157834556 ms
+0: start poll 
+0: GetState result, term is 0, isLeader is false
+1: GetState result, term is 0, isLeader is false
+2: GetState result, term is 0, isLeader is false
+2: curtime: 1609157834857, time out after 440 ms
+2: update timestamp to 1609157834356 ms
+2: update timestamp to 1609157834858 ms
+1: curtime: 1609157834858, time out after 259 ms
+1: update timestamp to 1609157834556 ms
+1: update timestamp to 1609157834858 ms
+1: start poll 
+2: start poll 
+0: curtime: 1609157835058, time out after 493 ms
+0: update timestamp to 1609157834556 ms
+0: update timestamp to 1609157835058 ms
+0: start poll 
+2: curtime: 1609157835261, time out after 397 ms
+2: update timestamp to 1609157834858 ms
+2: update timestamp to 1609157835261 ms
+2: start poll 
+1: curtime: 1609157835261, time out after 400 ms
+1: update timestamp to 1609157834858 ms
+1: update timestamp to 1609157835261 ms
+1: start poll 
+0: GetState result, term is 0, isLeader is false
+1: GetState result, term is 0, isLeader is false
+2: GetState result, term is 0, isLeader is false
+0: curtime: 1609157835462, time out after 316 ms
+0: update timestamp to 1609157835058 ms
+0: update timestamp to 1609157835462 ms
+0: start poll 
+1: curtime: 1609157835663, time out after 345 ms
+1: update timestamp to 1609157835261 ms
+1: update timestamp to 1609157835663 ms
+1: start poll 
+2: curtime: 1609157835763, time out after 491 ms
+2: update timestamp to 1609157835261 ms
+2: update timestamp to 1609157835763 ms
+2: start poll 
+0: GetState result, term is 0, isLeader is false
+1: GetState result, term is 0, isLeader is false
+2: GetState result, term is 0, isLeader is false
+0: curtime: 1609157835864, time out after 353 ms
+0: update timestamp to 1609157835462 ms
+0: update timestamp to 1609157835864 ms
+0: start poll 
+1: curtime: 1609157836065, time out after 387 ms
+1: update timestamp to 1609157835663 ms
+1: update timestamp to 1609157836065 ms
+1: start poll 
+2: curtime: 1609157836165, time out after 385 ms
+2: update timestamp to 1609157835763 ms
+2: update timestamp to 1609157836165 ms
+2: start poll 
+0: curtime: 1609157836265, time out after 386 ms
+0: update timestamp to 1609157835864 ms
+0: update timestamp to 1609157836265 ms
+0: start poll 
+0: GetState result, term is 0, isLeader is false
+1: GetState result, term is 0, isLeader is false
+2: GetState result, term is 0, isLeader is false
+--- FAIL: TestReElection2A (4.95s)
+    config.go:334: expected one leader, got none
+FAIL
+exit status 1
+FAIL	_/mnt/e/Work/Go/lab2/6.824/src/raft	9.903s
