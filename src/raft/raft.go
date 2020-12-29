@@ -275,6 +275,7 @@ type AppendLogEntriesReply struct {
 	Success                   bool
 	ConflictTermFirstLogIndex int
 	ConflictTermLogTerm       int
+	VotedFor                  int
 }
 
 //
@@ -362,11 +363,15 @@ func (rf *Raft) poll() bool {
 
 	close(voteResultChannel)
 	if voteNumber > len(rf.peers)/2 {
+		rf.mu.Lock()
 		rf.role = 1
-		for i := 1; i < len(rf.peers); i++ {
+		for i := 0; i < len(rf.peers); i++ {
 			rf.nextIndex[i] = lastLogIndex + 1
-			rf.matchIndex[i] = -1
+			rf.matchIndex[i] = 0
 		}
+		fmt.Printf("%d: initial leader rf log is %s", rf.me, toJSON(rf.log))
+		fmt.Printf("%d: initial leader nextIndex  to %s and matchIndex to %s\n", rf.me, toJSON(rf.nextIndex), toJSON(rf.matchIndex))
+		rf.mu.Unlock()
 		rf.SendInitialLeader(voteTerm, voteCommitIndex)
 	}
 	return true
@@ -382,7 +387,11 @@ func (rf *Raft) sendRequestVote(server int, args *RequestVoteArgs, reply *Reques
 	ok := rf.peers[server].Call("Raft.RequestVote", args, reply)
 	fmt.Printf("%d: reply vote %s from %d\n", rf.me, toJSON(reply), server)
 	fmt.Printf("%d: %v to channel\n", rf.me, reply.VoteFor)
-	voteResultChannel <- reply.VoteFor
+	if ok {
+		voteResultChannel <- reply.VoteFor
+	} else {
+		fmt.Printf("%d: rquest vote %s time out", rf.me, toJSON(args))
+	}
 	return ok
 }
 
@@ -495,7 +504,7 @@ func (rf *Raft) checkHeartBeat() {
 				fmt.Printf("%d: curtime: %d, time out after %d ms\n", rf.me, curTime, randomWaitDur)
 				go rf.poll()
 				fmt.Printf("%d: update timestamp to %d ms\n", rf.me, rf.heartBeatTimestamp)
-				rf.updateTimestamp()
+				rf.updateTimestampWithValue(time.Now().UnixNano()/1e6 + randomWaitDur*3) //candidate time out after 3 roud selection to make sure at least
 				break
 			}
 			time.Sleep(100 * time.Millisecond) //check heart beat every 100ms
@@ -517,7 +526,7 @@ func (rf *Raft) TrackApplyCommitLog() {
 				applyMsg := ApplyMsg{true, rf.log[index].Command, index}
 				rf.applyCh <- applyMsg
 				fmt.Printf("%d: commit msg %s at %d log\n", rf.me, toJSON(applyMsg), index)
-				if rf.role == 1 {
+				if rf.role == 1 { //TODO: need lock
 					rf.UpdateMachine(rf.log[index].Command)
 				}
 			}
@@ -535,10 +544,15 @@ func (rf *Raft) UpdateMachine(Command interface{}) {
 
 // keep track last match index of followers and update commit index
 func (rf *Raft) TrackLastMatchIndex() bool {
-	for !rf.killed() && rf.role == 1 {
+	for !rf.killed() {
+		// rf.mu.Lock()
+		if rf.role != 1 {
+			break
+		}
 		middleMatchIndex := -1
 		intList := make([]int, 0)
 		peersNumber := len(rf.matchIndex) - 1
+		// rf.mu.Unlock()
 		for index, lastMatchIndex := range rf.matchIndex {
 			if index != rf.me {
 				intList = append(intList, lastMatchIndex)
@@ -547,7 +561,7 @@ func (rf *Raft) TrackLastMatchIndex() bool {
 		sort.Ints(intList)
 		fmt.Printf("%d: current match index list %s (not include self)\n", rf.me, toJSON(intList))
 		middleMatchIndex = intList[peersNumber/2]
-		fmt.Printf("%d: middle match index is %d\n", rf.me, middleMatchIndex)
+		fmt.Printf("%d: middle match index is %d, current commit index is %d\n", rf.me, middleMatchIndex, rf.commitIndex)
 		if middleMatchIndex >= 0 && middleMatchIndex > rf.commitIndex && rf.log[middleMatchIndex].Term == rf.currentTerm {
 			fmt.Printf("%d: update current commitLogIndex from %d to %d\n", rf.me, rf.commitIndex, middleMatchIndex)
 			rf.commitIndex = middleMatchIndex
@@ -559,42 +573,47 @@ func (rf *Raft) TrackLastMatchIndex() bool {
 
 //keep track copy log as long as be a leader
 func (rf *Raft) TrackAppendEntries(server int) bool {
-	for !rf.killed() && rf.role == 1 {
+	role := 1
+	for !rf.killed() && role == 1 {
+		rf.mu.Lock()
 		lastLogIndex := len(rf.log) - 1
-		followerLastLogIndex := rf.nextIndex[server]
-		prevLogIndex := followerLastLogIndex - 1
+		followerNextLogIndex := rf.nextIndex[server]
+		prevLogIndex := followerNextLogIndex - 1
 		prevLogTerm := -1
+		role = rf.role
+		rf.mu.Unlock()
 		if prevLogIndex > -1 {
 			prevLogTerm = rf.log[prevLogIndex].Term
 		}
-		if followerLastLogIndex <= lastLogIndex {
-			fmt.Printf("%d: follower %d last log index %d < leader log index %d\n", rf.me, server, followerLastLogIndex, lastLogIndex)
+		if followerNextLogIndex <= lastLogIndex {
+			fmt.Printf("%d: follower %d last log index %d <= leader log index %d\n", rf.me, server, followerNextLogIndex, lastLogIndex)
 			args := AppendLogEntriesArgs{
-				rf.currentTerm, rf.me, prevLogIndex, prevLogTerm, rf.log[followerLastLogIndex : lastLogIndex+1], rf.commitIndex}
+				rf.currentTerm, rf.me, prevLogIndex, prevLogTerm, rf.log[followerNextLogIndex : lastLogIndex+1], rf.commitIndex}
 			reply := AppendLogEntriesReply{}
-			rf.SendAppendEntries(server, &args, &reply)
+			ok, newLeader := rf.SendAppendEntries(server, &args, &reply)
+			if !ok {
+				fmt.Printf("%d: append log request to %d time out!", rf.me, server)
+				time.Sleep(100 * time.Millisecond)
+				continue
+			}
+			if newLeader {
+				rf.updateTimestamp()
+				break
+			}
 			if !reply.Success {
-				if reply.CurrentTerm > rf.currentTerm {
-					//new leader
-					fmt.Printf("%d: %d return with new leader term %d, stop current leadership, back to follower!", rf.me, server, reply.CurrentTerm)
-					rf.role = 0 // turn back because new leader start
-					rf.currentTerm = reply.CurrentTerm
-					rf.updateTimestamp()
-					break
-				}
-				fmt.Printf("%d: log index of server %d back skip from %d to %d\n", rf.me, server, followerLastLogIndex, reply.ConflictTermFirstLogIndex)
+				fmt.Printf("%d: log index of server %d back skip from %d to %d\n", rf.me, server, followerNextLogIndex, reply.ConflictTermFirstLogIndex)
 				rf.nextIndex[server] = reply.ConflictTermFirstLogIndex //skip all conflict term
 				continue
 			} else {
 				//TODO: need lock?
-				fmt.Printf("%d: append log to %d sucessfully range [%d:%d]\n", rf.me, server, followerLastLogIndex, lastLogIndex)
+				fmt.Printf("%d: append log to %d sucessfully range [%d:%d]\n", rf.me, server, followerNextLogIndex, lastLogIndex)
 				rf.nextIndex[server] = lastLogIndex + 1
 				rf.matchIndex[server] = lastLogIndex
-				// fmt.Printf("%d: append log to %d sucessfully range [%d:%d]\n", rf.me, server, followerLastLogIndex, lastLogIndex)
+				// fmt.Printf("%d: append log to %d sucessfully range [%d:%d]\n", rf.me, server, followerNextLogIndex, lastLogIndex)
 			}
 		} else {
-			sleepTime := time.Duration(int64(rand.Intn(50) + 100))
-			time.Sleep(sleepTime * time.Millisecond)
+			// sleepTime := time.Duration(int64(rand.Intn(50) + 100))
+			time.Sleep(20 * time.Millisecond) //track latest msg every 20 millisecond
 		}
 	}
 	return true
@@ -602,11 +621,22 @@ func (rf *Raft) TrackAppendEntries(server int) bool {
 }
 
 // send Append Log
-func (rf *Raft) SendAppendEntries(server int, args *AppendLogEntriesArgs, reply *AppendLogEntriesReply) bool {
+func (rf *Raft) SendAppendEntries(server int, args *AppendLogEntriesArgs, reply *AppendLogEntriesReply) (bool, bool) {
 	fmt.Printf("%d: send entries %s to peer %d\n", rf.me, toJSON(args), server)
 	ok := rf.peers[server].Call("Raft.AppendEntries", args, reply)
 	fmt.Printf("%d: recieve entries reply %s from peer %d\n", rf.me, toJSON(reply), server)
-	return ok
+	newLeader := false
+	if ok && !reply.Success && reply.CurrentTerm > rf.currentTerm {
+		//new leader
+		rf.mu.Lock()
+		fmt.Printf("%d: %d return with new leader term %d, stop current leadership, back to follower!\n", rf.me, server, reply.CurrentTerm)
+		rf.role = 0 // turn back because new leader start
+		rf.currentTerm = reply.CurrentTerm
+		rf.votedFor = reply.VotedFor
+		rf.mu.Unlock()
+		newLeader = true
+	}
+	return ok, newLeader
 }
 
 // AppendLog or Heartbeat or DeclareLeaderShip
@@ -619,6 +649,7 @@ func (rf *Raft) AppendEntries(args *AppendLogEntriesArgs, reply *AppendLogEntrie
 		fmt.Printf("%d: reject because currentTerm %d > %d\n", rf.me, rf.currentTerm, args.CurrentTerm)
 		reply.CurrentTerm = rf.currentTerm
 		reply.Success = false
+		reply.VotedFor = rf.votedFor
 		return
 	}
 	if args.CurrentTerm == rf.currentTerm && args.LeaderId != rf.votedFor {
@@ -651,15 +682,15 @@ func (rf *Raft) AppendEntries(args *AppendLogEntriesArgs, reply *AppendLogEntrie
 				}
 			}
 		} else {
-			fmt.Printf("%d: append log %s starting at %d\n", rf.me, toJSON(args.Entries), args.PrevLogIndex+1)
+			fmt.Printf("%d: append log request from %d starting at %d length is %d \n", rf.me, args.LeaderId, args.PrevLogIndex+1, len(args.Entries))
 			reply.Success = true
-			// fmt.Printf("%d: before append log %s\n", rf.me, toJSON(rf.log))
+			fmt.Printf("%d: before append log length %d\n", rf.me, len(rf.log))
 			if args.PrevLogIndex+1 > 0 {
 				rf.log = rf.log[0:(args.PrevLogIndex + 1)] //cut tail
 			}
 			rf.log = append(rf.log, args.Entries...)
 			rf.commitIndex = min(args.LeaderCommit, len(rf.log)-1) // after append new log may cause commit index update
-			// fmt.Printf("%d: after append log %s\n", rf.me, toJSON(rf.log))
+			fmt.Printf("%d: after append log length %d\n", rf.me, len(rf.log))
 		}
 	}
 	rf.updateTimestamp()
@@ -669,6 +700,12 @@ func (rf *Raft) AppendEntries(args *AppendLogEntriesArgs, reply *AppendLogEntrie
 func (rf *Raft) updateTimestamp() {
 	rf.heartBeatMu.Lock()
 	rf.heartBeatTimestamp = time.Now().UnixNano() / 1e6
+	fmt.Printf("%d: update timestamp to %d ms\n", rf.me, rf.heartBeatTimestamp)
+	rf.heartBeatMu.Unlock()
+}
+func (rf *Raft) updateTimestampWithValue(value int64) {
+	rf.heartBeatMu.Lock()
+	rf.heartBeatTimestamp = value
 	fmt.Printf("%d: update timestamp to %d ms\n", rf.me, rf.heartBeatTimestamp)
 	rf.heartBeatMu.Unlock()
 }
