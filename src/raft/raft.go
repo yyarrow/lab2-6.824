@@ -258,6 +258,7 @@ type RequestVoteArgs struct {
 type RequestVoteReply struct {
 	CurrentTerm int  //server term before adding
 	VoteFor     bool //-1 or not me means reject
+	NotLatest   bool // if reject because not latest, just wait for more time
 	// Your data here (2A).
 }
 
@@ -328,7 +329,7 @@ func (rf *Raft) poll() bool {
 	voteArgs := RequestVoteArgs{voteTerm, rf.me, lastLogIndex, lastLogTerm}
 	voteReply := RequestVoteReply{}
 
-	voteResultChannel := make(chan bool)
+	voteResultChannel := make(chan *RequestVoteReply)
 	voteNumber := 1
 	voteReturnNumber := 1
 	rf.mu.Unlock()
@@ -342,10 +343,14 @@ func (rf *Raft) poll() bool {
 	for result := range voteResultChannel {
 		fmt.Printf("%d: get one result (%v) \n", rf.me, result)
 		voteReturnNumber++
-		if result {
+		if result.VoteFor {
 			if voteReply.VoteFor {
 				voteNumber++
 			}
+		} else if result.NotLatest {
+			//not latest log, wait for more time, 500ms 是经验性的，大概要等于candidate wait的时间
+			fmt.Printf("%d: wait 500ms more time because log not latest\n", rf.me)
+			rf.updateTimestampWithValue(rf.heartBeatTimestamp+500, "VOTE-REJECT")
 		}
 		if rf.role == 0 {
 			fmt.Printf("%d: Turn back to follower, stop vote because new leader\n", rf.me)
@@ -377,7 +382,7 @@ func (rf *Raft) poll() bool {
 	return true
 }
 
-func (rf *Raft) sendRequestVote(server int, args *RequestVoteArgs, reply *RequestVoteReply, voteResultChannel chan bool) bool {
+func (rf *Raft) sendRequestVote(server int, args *RequestVoteArgs, reply *RequestVoteReply, voteResultChannel chan *RequestVoteReply) bool {
 	defer func() {
 		if r := recover(); r != nil {
 			fmt.Println("Recovered in f", r)
@@ -385,10 +390,10 @@ func (rf *Raft) sendRequestVote(server int, args *RequestVoteArgs, reply *Reques
 	}()
 	fmt.Printf("%d: request vote %s to %d\n", rf.me, toJSON(args), server)
 	ok := rf.peers[server].Call("Raft.RequestVote", args, reply)
-	fmt.Printf("%d: reply vote %s from %d\n", rf.me, toJSON(reply), server)
-	fmt.Printf("%d: %v to channel\n", rf.me, reply.VoteFor)
 	if ok {
-		voteResultChannel <- reply.VoteFor
+		voteResultChannel <- reply
+		fmt.Printf("%d: reply vote %s from %d\n", rf.me, toJSON(reply), server)
+		fmt.Printf("%d: %v to channel\n", rf.me, reply.VoteFor)
 	} else {
 		fmt.Printf("%d: rquest vote %s time out", rf.me, toJSON(args))
 	}
@@ -401,15 +406,15 @@ func (rf *Raft) sendRequestVote(server int, args *RequestVoteArgs, reply *Reques
 func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 	// Your code here (2A, 2B).
 	fmt.Printf("%d: receive vote request %s from %d\n", rf.me, toJSON(args), args.Whoimi)
-	rf.updateTimestamp()
 	rf.mu.Lock()
-	defer rf.mu.Unlock()
 
 	if args.CurrentTerm < rf.currentTerm {
 		fmt.Printf("%d: reject for old term\n", rf.me)
 		reply.CurrentTerm = rf.currentTerm
 		reply.VoteFor = false
+		reply.NotLatest = false
 		fmt.Printf("%d: send vote reply %s to %d\n", rf.me, toJSON(reply), args.Whoimi)
+		rf.mu.Unlock()
 		return
 	}
 	if args.CurrentTerm == rf.currentTerm && rf.votedFor != -1 && rf.votedFor != args.Whoimi {
@@ -418,7 +423,9 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 		fmt.Printf("%d: reject for this term because voted\n", rf.me)
 		reply.CurrentTerm = rf.currentTerm
 		reply.VoteFor = false
+		reply.NotLatest = false
 		fmt.Printf("%d: send vote reply %s to %d\n", rf.me, toJSON(reply), args.Whoimi)
+		rf.mu.Unlock()
 		return
 	}
 	//check log latest
@@ -439,13 +446,18 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 		rf.role = 0               //convert to follower as soon as vote for others
 		reply.CurrentTerm = rf.currentTerm
 		reply.VoteFor = true
+		reply.NotLatest = false
 		fmt.Printf("%d: send vote reply %s to %d\n", rf.me, toJSON(reply), args.Whoimi)
+		rf.mu.Unlock()
+		rf.updateTimestamp("VOTE-HANDLER")
 		return
 	} else {
 		fmt.Printf("%d: reject for log not latest\n", rf.me)
 		reply.CurrentTerm = rf.currentTerm
 		reply.VoteFor = false
+		reply.NotLatest = true
 		fmt.Printf("%d: send vote reply %s to %d\n", rf.me, toJSON(reply), args.Whoimi)
+		rf.mu.Unlock()
 		return
 	}
 }
@@ -481,7 +493,7 @@ func (rf *Raft) SendHeartBeat(winTerm int) {
 	for !rf.killed() && rf.role == 1 {
 		args := AppendLogEntriesArgs{winTerm, rf.me, -1, -1, nil, rf.commitIndex}
 		reply := AppendLogEntriesReply{}
-		fmt.Printf("%d: Send heartBeat with term %d, leader index %d, current go routine number %d\n", rf.me, winTerm, rf.commitIndex, runtime.NumGoroutine())
+		fmt.Printf("%d: Send heartBeat with term %d, leader commit index %d, current go routine number %d\n", rf.me, winTerm, rf.commitIndex, runtime.NumGoroutine())
 		for index := range rf.peers {
 			if index != rf.me {
 				go rf.SendAppendEntries(index, &args, &reply)
@@ -501,10 +513,10 @@ func (rf *Raft) checkHeartBeat() {
 			timestamp := rf.heartBeatTimestamp
 			rf.heartBeatMu.RUnlock()
 			if rf.role != 1 && (curTime-timestamp) >= randomWaitDur { //leader will never time out
-				fmt.Printf("%d: curtime: %d, time out after %d ms\n", rf.me, curTime, randomWaitDur)
+				fmt.Printf("%d: curtime: %d, see time stampe: %d, time out after %d ms\n", rf.me, curTime, timestamp, randomWaitDur)
+				rf.updateTimestamp("POLL-START")
+				// rf.updateTimestampWithValue(time.Now().UnixNano()/1e6+randomWaitDur*3, "POLL-START") //candidate time out after 3 roud selection to make sure at least
 				go rf.poll()
-				fmt.Printf("%d: update timestamp to %d ms\n", rf.me, rf.heartBeatTimestamp)
-				rf.updateTimestampWithValue(time.Now().UnixNano()/1e6 + randomWaitDur*3) //candidate time out after 3 roud selection to make sure at least
 				break
 			}
 			time.Sleep(100 * time.Millisecond) //check heart beat every 100ms
@@ -532,7 +544,7 @@ func (rf *Raft) TrackApplyCommitLog() {
 			}
 			rf.lastApplied = rf.commitIndex
 		} else {
-			time.Sleep(100 * time.Millisecond)
+			time.Sleep(20 * time.Millisecond)
 		}
 	}
 }
@@ -574,7 +586,7 @@ func (rf *Raft) TrackLastMatchIndex() bool {
 //keep track copy log as long as be a leader
 func (rf *Raft) TrackAppendEntries(server int) bool {
 	role := 1
-	for !rf.killed() && role == 1 {
+	for !rf.killed() {
 		rf.mu.Lock()
 		lastLogIndex := len(rf.log) - 1
 		followerNextLogIndex := rf.nextIndex[server]
@@ -582,6 +594,9 @@ func (rf *Raft) TrackAppendEntries(server int) bool {
 		prevLogTerm := -1
 		role = rf.role
 		rf.mu.Unlock()
+		if role != 1 {
+			break
+		}
 		if prevLogIndex > -1 {
 			prevLogTerm = rf.log[prevLogIndex].Term
 		}
@@ -592,12 +607,12 @@ func (rf *Raft) TrackAppendEntries(server int) bool {
 			reply := AppendLogEntriesReply{}
 			ok, newLeader := rf.SendAppendEntries(server, &args, &reply)
 			if !ok {
-				fmt.Printf("%d: append log request to %d time out!", rf.me, server)
+				fmt.Printf("%d: append log request to %d time out!\n", rf.me, server)
 				time.Sleep(100 * time.Millisecond)
 				continue
 			}
 			if newLeader {
-				rf.updateTimestamp()
+				rf.updateTimestamp("NEW-LEADER")
 				break
 			}
 			if !reply.Success {
@@ -659,8 +674,14 @@ func (rf *Raft) AppendEntries(args *AppendLogEntriesArgs, reply *AppendLogEntrie
 		fmt.Printf("%d: term jump from %d to %d, leader id is %d, commitIndex is %d\n", rf.me, rf.currentTerm, args.CurrentTerm, args.LeaderId, args.LeaderCommit)
 		rf.role = 0 // Turn back to follower for old leader or candidate
 		rf.currentTerm = args.CurrentTerm
-		rf.votedFor = args.LeaderId                            //vote for new leader
-		rf.commitIndex = min(args.LeaderCommit, len(rf.log)-1) // heart beat or initial cause commit index update
+		rf.votedFor = args.LeaderId //vote for new leader
+		if rf.log[len(rf.log)-1].Term == args.CurrentTerm {
+			//if new leader has been append by this leader term
+			fmt.Printf("%d: update current commitIndex from %d to %d", rf.me, rf.commitIndex, args.LeaderCommit)
+			rf.commitIndex = min(args.LeaderCommit, len(rf.log)-1) // heart beat or initial cause commit index update
+		} else {
+			fmt.Printf("%d: current leader term %d <> last log entry term %d, can't update commitIndex", rf.me, args.CurrentTerm, rf.log[len(rf.log)-1].Term)
+		}
 		reply.CurrentTerm = rf.currentTerm
 		reply.Success = true //TODO maybe false when append log
 	}
@@ -693,20 +714,20 @@ func (rf *Raft) AppendEntries(args *AppendLogEntriesArgs, reply *AppendLogEntrie
 			fmt.Printf("%d: after append log length %d\n", rf.me, len(rf.log))
 		}
 	}
-	rf.updateTimestamp()
+	rf.updateTimestamp("LEADER-HEARTBEAT")
 	fmt.Printf("%d: reply entries %s to peer %d\n", rf.me, toJSON(reply), args.LeaderId)
 }
 
-func (rf *Raft) updateTimestamp() {
+func (rf *Raft) updateTimestamp(reason string) {
 	rf.heartBeatMu.Lock()
 	rf.heartBeatTimestamp = time.Now().UnixNano() / 1e6
-	fmt.Printf("%d: update timestamp to %d ms\n", rf.me, rf.heartBeatTimestamp)
+	fmt.Printf("%d: [%s] update timestamp to %d ms\n", rf.me, reason, rf.heartBeatTimestamp)
 	rf.heartBeatMu.Unlock()
 }
-func (rf *Raft) updateTimestampWithValue(value int64) {
+func (rf *Raft) updateTimestampWithValue(value int64, reason string) {
 	rf.heartBeatMu.Lock()
 	rf.heartBeatTimestamp = value
-	fmt.Printf("%d: update timestamp to %d ms\n", rf.me, rf.heartBeatTimestamp)
+	fmt.Printf("%d: [%s] update timestamp to %d ms\n", rf.me, reason, rf.heartBeatTimestamp)
 	rf.heartBeatMu.Unlock()
 }
 

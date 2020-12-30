@@ -1,0 +1,2420 @@
+Test (2B): agreement despite follower disconnection ...
+1: GetState result, term is 0, isLeader is false
+2: GetState result, term is 0, isLeader is false
+0: GetState result, term is 0, isLeader is false
+sleep 50 ms to retry
+1: GetState result, term is 0, isLeader is false
+2: GetState result, term is 0, isLeader is false
+0: GetState result, term is 0, isLeader is false
+sleep 50 ms to retry
+1: GetState result, term is 0, isLeader is false
+2: GetState result, term is 0, isLeader is false
+0: GetState result, term is 0, isLeader is false
+sleep 50 ms to retry
+1: GetState result, term is 0, isLeader is false
+2: GetState result, term is 0, isLeader is false
+0: GetState result, term is 0, isLeader is false
+sleep 50 ms to retry
+1: GetState result, term is 0, isLeader is false
+2: GetState result, term is 0, isLeader is false
+0: GetState result, term is 0, isLeader is false
+sleep 50 ms to retry
+1: GetState result, term is 0, isLeader is false
+2: GetState result, term is 0, isLeader is false
+0: GetState result, term is 0, isLeader is false
+sleep 50 ms to retry
+2: curtime: 1609235785502, time out after 250 ms
+2: update timestamp to 1609235785191 ms
+2: update timestamp to 1609235786253 ms
+2: start poll 
+2: request vote {"CurrentTerm":1,"Whoimi":2,"LastLogIndex":0,"LastLogTerm":0} to 1
+2: request vote {"CurrentTerm":1,"Whoimi":2,"LastLogIndex":0,"LastLogTerm":0} to 0
+1: GetState result, term is 0, isLeader is false
+2: GetState result, term is 1, isLeader is false
+0: GetState result, term is 0, isLeader is false
+sleep 50 ms to retry
+1: receive vote request {"CurrentTerm":1,"Whoimi":2,"LastLogIndex":0,"LastLogTerm":0} from 2
+1: update timestamp to 1609235785504 ms
+1: accept and vote for 2!
+1: send vote reply {"CurrentTerm":1,"VoteFor":true} to 2
+2: reply vote {"CurrentTerm":1,"VoteFor":true} from 1
+2: true to channel
+2: get one result (true) 
+2: Get marjority vote
+2: initial leader rf log is [{"Command":0,"Term":0}]2: initial leader nextIndex  to [1,1,1] and matchIndex to [0,0,0]
+2: Declare election win to all
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 0
+0: receive vote request {"CurrentTerm":1,"Whoimi":2,"LastLogIndex":0,"LastLogTerm":0} from 2
+0: update timestamp to 1609235785504 ms
+0: accept and vote for 2!
+0: send vote reply {"CurrentTerm":1,"VoteFor":true} to 2
+labgob warning: Decoding into a non-default variable/field CurrentTerm may not work
+2: reply vote {"CurrentTerm":1,"VoteFor":true} from 0
+2: true to channel
+Recovered in f send on closed channel
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":0} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":0} from peer 2
+0: term jump from 1 to 1, leader id is 2, commitIndex is 0
+0: update timestamp to 1609235785505 ms
+0: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":0} to peer 1
+2: Start Send heartBeat
+2: Send heartBeat with term 1, leader index 0, current go routine number 20
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":0} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":0} from peer 2
+1: term jump from 1 to 1, leader id is 2, commitIndex is 0
+1: update timestamp to 1609235785505 ms
+1: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 0
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":0} from peer 2
+1: term jump from 1 to 1, leader id is 2, commitIndex is 0
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":0} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":0} from peer 2
+0: term jump from 1 to 1, leader id is 2, commitIndex is 0
+0: update timestamp to 1609235785505 ms
+0: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+1: update timestamp to 1609235785505 ms
+1: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+1: GetState result, term is 1, isLeader is false
+2: GetState result, term is 1, isLeader is true
+2: append log request from client 101
+Some claimed to be the leader
+0 log value at index 1 is <nil>
+1 log value at index 1 is <nil>
+2 log value at index 1 is <nil>
+nd is 0, cmd1 is <nil>
+2: follower 0 last log index 1 <= leader log index 1
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":0,"PrevLogTerm":0,"Entries":[{"Command":101,"Term":1}],"LeaderCommit":0} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":0,"PrevLogTerm":0,"Entries":[{"Command":101,"Term":1}],"LeaderCommit":0} from peer 2
+0: term jump from 1 to 1, leader id is 2, commitIndex is 0
+0: append log request from 2 starting at 1 length is 1 
+0: before append log length 1
+0: after append log length 2
+0: update timestamp to 1609235785566 ms
+0: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+2: append log to 0 sucessfully range [1:1]
+2: follower 1 last log index 1 <= leader log index 1
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":0,"PrevLogTerm":0,"Entries":[{"Command":101,"Term":1}],"LeaderCommit":0} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":0,"PrevLogTerm":0,"Entries":[{"Command":101,"Term":1}],"LeaderCommit":0} from peer 2
+1: term jump from 1 to 1, leader id is 2, commitIndex is 0
+1: append log request from 2 starting at 1 length is 1 
+1: before append log length 1
+1: after append log length 2
+1: update timestamp to 1609235785566 ms
+1: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: append log to 1 sucessfully range [1:1]
+0 log value at index 1 is <nil>
+1 log value at index 1 is <nil>
+2 log value at index 1 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 1 is <nil>
+1 log value at index 1 is <nil>
+2 log value at index 1 is <nil>
+nd is 0, cmd1 is <nil>
+2: current match index list [1,1] (not include self)
+2: middle match index is 1, current commit index is 0
+2: update current commitLogIndex from 0 to 1
+2: Send heartBeat with term 1, leader index 1, current go routine number 17
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} from peer 2
+1: term jump from 1 to 1, leader id is 2, commitIndex is 1
+1: update timestamp to 1609235785606 ms
+1: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} from peer 2
+0: term jump from 1 to 1, leader id is 2, commitIndex is 1
+0: update timestamp to 1609235785606 ms
+0: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: current match index list [1,1] (not include self)
+2: middle match index is 1, current commit index is 1
+2: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+0 log value at index 1 is <nil>
+1 log value at index 1 is <nil>
+2 log value at index 1 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 1 is <nil>
+1 log value at index 1 is <nil>
+2 log value at index 1 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 1 is <nil>
+1 log value at index 1 is <nil>
+2 log value at index 1 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 1 is <nil>
+1 log value at index 1 is <nil>
+2 log value at index 1 is <nil>
+nd is 0, cmd1 is <nil>
+2: commit msg {"CommandValid":true,"Command":101,"CommandIndex":1} at 1 log
+0: commit msg {"CommandValid":true,"Command":101,"CommandIndex":1} at 1 log
+2: Send heartBeat with term 1, leader index 1, current go routine number 17
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} from peer 2
+1: term jump from 1 to 1, leader id is 2, commitIndex is 1
+1: update timestamp to 1609235785708 ms
+1: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} from peer 2
+0: term jump from 1 to 1, leader id is 2, commitIndex is 1
+0: update timestamp to 1609235785708 ms
+0: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+1: commit msg {"CommandValid":true,"Command":101,"CommandIndex":1} at 1 log
+2: current match index list [1,1] (not include self)
+2: middle match index is 1, current commit index is 1
+2: current match index list [1,1] (not include self)
+2: middle match index is 1, current commit index is 1
+0 log value at index 1 is 101
+1 log value at index 1 is 101
+2 log value at index 1 is 101
+nd is 3, cmd1 is 101
+----------disconnect one follower from the network.----------
+2: Send heartBeat with term 1, leader index 1, current go routine number 17
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} from peer 2
+1: term jump from 1 to 1, leader id is 2, commitIndex is 1
+1: update timestamp to 1609235785808 ms
+1: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} from peer 2
+0: term jump from 1 to 1, leader id is 2, commitIndex is 1
+0: update timestamp to 1609235785809 ms
+0: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+2: current match index list [1,1] (not include self)
+2: middle match index is 1, current commit index is 1
+2: current match index list [1,1] (not include self)
+2: middle match index is 1, current commit index is 1
+2: Send heartBeat with term 1, leader index 1, current go routine number 17
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} from peer 2
+1: term jump from 1 to 1, leader id is 2, commitIndex is 1
+1: update timestamp to 1609235785909 ms
+1: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} from peer 2
+0: term jump from 1 to 1, leader id is 2, commitIndex is 1
+0: update timestamp to 1609235785909 ms
+0: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+2: current match index list [1,1] (not include self)
+2: middle match index is 1, current commit index is 1
+2: current match index list [1,1] (not include self)
+2: middle match index is 1, current commit index is 1
+2: Send heartBeat with term 1, leader index 1, current go routine number 17
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} from peer 2
+1: term jump from 1 to 1, leader id is 2, commitIndex is 1
+1: update timestamp to 1609235786010 ms
+1: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} from peer 2
+0: term jump from 1 to 1, leader id is 2, commitIndex is 1
+0: update timestamp to 1609235786010 ms
+0: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+2: current match index list [1,1] (not include self)
+2: middle match index is 1, current commit index is 1
+2: current match index list [1,1] (not include self)
+2: middle match index is 1, current commit index is 1
+2: Send heartBeat with term 1, leader index 1, current go routine number 17
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} from peer 2
+0: term jump from 1 to 1, leader id is 2, commitIndex is 1
+0: update timestamp to 1609235786111 ms
+0: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} from peer 2
+1: term jump from 1 to 1, leader id is 2, commitIndex is 1
+1: update timestamp to 1609235786111 ms
+1: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: current match index list [1,1] (not include self)
+2: middle match index is 1, current commit index is 1
+2: current match index list [1,1] (not include self)
+2: middle match index is 1, current commit index is 1
+0: GetState result, term is 1, isLeader is false
+1: GetState result, term is 1, isLeader is false
+2: GetState result, term is 1, isLeader is true
+----------the leader and remaining follower should be able to agree despite the disconnected follower.----------
+1: GetState result, term is 1, isLeader is false
+2: GetState result, term is 1, isLeader is true
+2: append log request from client 102
+Some claimed to be the leader
+0 log value at index 2 is <nil>
+1 log value at index 2 is <nil>
+2 log value at index 2 is <nil>
+nd is 0, cmd1 is <nil>
+2: follower 0 last log index 2 <= leader log index 2
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":1,"PrevLogTerm":1,"Entries":[{"Command":102,"Term":1}],"LeaderCommit":1} to peer 0
+2: follower 1 last log index 2 <= leader log index 2
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":1,"PrevLogTerm":1,"Entries":[{"Command":102,"Term":1}],"LeaderCommit":1} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":1,"PrevLogTerm":1,"Entries":[{"Command":102,"Term":1}],"LeaderCommit":1} from peer 2
+1: term jump from 1 to 1, leader id is 2, commitIndex is 1
+1: append log request from 2 starting at 2 length is 1 
+1: before append log length 2
+1: after append log length 3
+1: update timestamp to 1609235786187 ms
+1: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: append log to 1 sucessfully range [2:2]
+0 log value at index 2 is <nil>
+1 log value at index 2 is <nil>
+2 log value at index 2 is <nil>
+nd is 0, cmd1 is <nil>
+2: Send heartBeat with term 1, leader index 1, current go routine number 17
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} from peer 2
+1: term jump from 1 to 1, leader id is 2, commitIndex is 1
+1: update timestamp to 1609235786211 ms
+1: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":1} to peer 0
+0 log value at index 2 is <nil>
+1 log value at index 2 is <nil>
+2 log value at index 2 is <nil>
+nd is 0, cmd1 is <nil>
+2: current match index list [1,2] (not include self)
+2: middle match index is 2, current commit index is 1
+2: update current commitLogIndex from 1 to 2
+2: current match index list [1,2] (not include self)
+2: middle match index is 2, current commit index is 2
+0 log value at index 2 is <nil>
+1 log value at index 2 is <nil>
+2 log value at index 2 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 2 is <nil>
+1 log value at index 2 is <nil>
+2 log value at index 2 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 2 is <nil>
+1 log value at index 2 is <nil>
+2 log value at index 2 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 2 is <nil>
+1 log value at index 2 is <nil>
+2 log value at index 2 is <nil>
+nd is 0, cmd1 is <nil>
+2: commit msg {"CommandValid":true,"Command":102,"CommandIndex":2} at 2 log
+2: Send heartBeat with term 1, leader index 2, current go routine number 18
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":2} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":2} from peer 2
+1: term jump from 1 to 1, leader id is 2, commitIndex is 2
+1: update timestamp to 1609235786313 ms
+1: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":2} to peer 0
+1: commit msg {"CommandValid":true,"Command":102,"CommandIndex":2} at 2 log
+0 log value at index 2 is <nil>
+1 log value at index 2 is 102
+2 log value at index 2 is 102
+nd is 2, cmd1 is 102
+1: GetState result, term is 1, isLeader is false
+2: GetState result, term is 1, isLeader is true
+2: append log request from client 103
+Some claimed to be the leader
+0 log value at index 3 is <nil>
+1 log value at index 3 is <nil>
+2 log value at index 3 is <nil>
+nd is 0, cmd1 is <nil>
+2: current match index list [1,2] (not include self)
+2: middle match index is 2, current commit index is 2
+2: current match index list [1,2] (not include self)
+2: middle match index is 2, current commit index is 2
+2: follower 1 last log index 3 <= leader log index 3
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":2,"PrevLogTerm":1,"Entries":[{"Command":103,"Term":1}],"LeaderCommit":2} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":2,"PrevLogTerm":1,"Entries":[{"Command":103,"Term":1}],"LeaderCommit":2} from peer 2
+1: term jump from 1 to 1, leader id is 2, commitIndex is 2
+1: append log request from 2 starting at 3 length is 1 
+1: before append log length 3
+1: after append log length 4
+1: update timestamp to 1609235786336 ms
+1: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: append log to 1 sucessfully range [3:3]
+0 log value at index 3 is <nil>
+1 log value at index 3 is <nil>
+2 log value at index 3 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 3 is <nil>
+1 log value at index 3 is <nil>
+2 log value at index 3 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 3 is <nil>
+1 log value at index 3 is <nil>
+2 log value at index 3 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 3 is <nil>
+1 log value at index 3 is <nil>
+2 log value at index 3 is <nil>
+nd is 0, cmd1 is <nil>
+2: Send heartBeat with term 1, leader index 2, current go routine number 19
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":2} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":2} from peer 2
+1: term jump from 1 to 1, leader id is 2, commitIndex is 2
+1: update timestamp to 1609235786417 ms
+1: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":2} to peer 0
+2: current match index list [1,3] (not include self)
+2: middle match index is 3, current commit index is 2
+2: update current commitLogIndex from 2 to 3
+2: current match index list [1,3] (not include self)
+2: middle match index is 3, current commit index is 3
+0 log value at index 3 is <nil>
+1 log value at index 3 is <nil>
+2 log value at index 3 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 3 is <nil>
+1 log value at index 3 is <nil>
+2 log value at index 3 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 3 is <nil>
+1 log value at index 3 is <nil>
+2 log value at index 3 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 3 is <nil>
+1 log value at index 3 is <nil>
+2 log value at index 3 is <nil>
+nd is 0, cmd1 is <nil>
+2: Send heartBeat with term 1, leader index 3, current go routine number 20
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":3} to peer 1
+2: commit msg {"CommandValid":true,"Command":103,"CommandIndex":3} at 3 log
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":3} to peer 0
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":3} from peer 2
+1: term jump from 1 to 1, leader id is 2, commitIndex is 3
+1: update timestamp to 1609235786518 ms
+1: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+1: commit msg {"CommandValid":true,"Command":103,"CommandIndex":3} at 3 log
+0 log value at index 3 is <nil>
+1 log value at index 3 is 103
+2 log value at index 3 is 103
+nd is 2, cmd1 is 103
+2: current match index list [1,3] (not include self)
+2: middle match index is 3, current commit index is 3
+2: current match index list [1,3] (not include self)
+2: middle match index is 3, current commit index is 3
+2: Send heartBeat with term 1, leader index 3, current go routine number 21
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":3} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":3} from peer 2
+1: term jump from 1 to 1, leader id is 2, commitIndex is 3
+1: update timestamp to 1609235786619 ms
+1: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":3} to peer 0
+2: current match index list [1,3] (not include self)
+2: middle match index is 3, current commit index is 3
+2: current match index list [1,3] (not include self)
+2: middle match index is 3, current commit index is 3
+0: curtime: 1609235786717, time out after 583 ms
+0: update timestamp to 1609235786111 ms
+0: update timestamp to 1609235788466 ms
+0: start poll 
+0: request vote {"CurrentTerm":2,"Whoimi":0,"LastLogIndex":1,"LastLogTerm":1} to 2
+0: request vote {"CurrentTerm":2,"Whoimi":0,"LastLogIndex":1,"LastLogTerm":1} to 1
+2: Send heartBeat with term 1, leader index 3, current go routine number 25
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":3} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":3} from peer 2
+1: term jump from 1 to 1, leader id is 2, commitIndex is 3
+1: update timestamp to 1609235786723 ms
+1: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":3} to peer 0
+2: current match index list [1,3] (not include self)
+2: middle match index is 3, current commit index is 3
+2: current match index list [1,3] (not include self)
+2: middle match index is 3, current commit index is 3
+2: Send heartBeat with term 1, leader index 3, current go routine number 26
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":3} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":3} from peer 2
+1: term jump from 1 to 1, leader id is 2, commitIndex is 3
+1: update timestamp to 1609235786823 ms
+1: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":3} to peer 0
+2: current match index list [1,3] (not include self)
+2: middle match index is 3, current commit index is 3
+2: current match index list [1,3] (not include self)
+2: middle match index is 3, current commit index is 3
+2: Send heartBeat with term 1, leader index 3, current go routine number 27
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":3} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":3} from peer 2
+1: term jump from 1 to 1, leader id is 2, commitIndex is 3
+1: update timestamp to 1609235786928 ms
+1: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":3} to peer 0
+2: current match index list [1,3] (not include self)
+2: middle match index is 3, current commit index is 3
+2: current match index list [1,3] (not include self)
+2: middle match index is 3, current commit index is 3
+2: Send heartBeat with term 1, leader index 3, current go routine number 28
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":3} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":3} from peer 2
+1: term jump from 1 to 1, leader id is 2, commitIndex is 3
+1: update timestamp to 1609235787028 ms
+1: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":3} to peer 0
+2: current match index list [1,3] (not include self)
+2: middle match index is 3, current commit index is 3
+2: current match index list [1,3] (not include self)
+2: middle match index is 3, current commit index is 3
+2: Send heartBeat with term 1, leader index 3, current go routine number 29
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":3} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":3} from peer 2
+1: term jump from 1 to 1, leader id is 2, commitIndex is 3
+1: update timestamp to 1609235787131 ms
+1: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":3} to peer 0
+2: current match index list [1,3] (not include self)
+2: middle match index is 3, current commit index is 3
+2: current match index list [1,3] (not include self)
+2: middle match index is 3, current commit index is 3
+2: Send heartBeat with term 1, leader index 3, current go routine number 30
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":3} to peer 1
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":3} to peer 0
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":3} from peer 2
+1: term jump from 1 to 1, leader id is 2, commitIndex is 3
+1: update timestamp to 1609235787231 ms
+1: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: current match index list [1,3] (not include self)
+2: middle match index is 3, current commit index is 3
+2: current match index list [1,3] (not include self)
+2: middle match index is 3, current commit index is 3
+2: Send heartBeat with term 1, leader index 3, current go routine number 31
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":3} to peer 0
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":3} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":3} from peer 2
+1: term jump from 1 to 1, leader id is 2, commitIndex is 3
+1: update timestamp to 1609235787334 ms
+1: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: current match index list [1,3] (not include self)
+2: middle match index is 3, current commit index is 3
+2: current match index list [1,3] (not include self)
+2: middle match index is 3, current commit index is 3
+2: Send heartBeat with term 1, leader index 3, current go routine number 32
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":3} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":3} from peer 2
+1: term jump from 1 to 1, leader id is 2, commitIndex is 3
+1: update timestamp to 1609235787434 ms
+1: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":3} to peer 0
+2: current match index list [1,3] (not include self)
+2: middle match index is 3, current commit index is 3
+2: current match index list [1,3] (not include self)
+2: middle match index is 3, current commit index is 3
+1: GetState result, term is 1, isLeader is false
+2: GetState result, term is 1, isLeader is true
+2: append log request from client 104
+Some claimed to be the leader
+0 log value at index 4 is <nil>
+1 log value at index 4 is <nil>
+2 log value at index 4 is <nil>
+nd is 0, cmd1 is <nil>
+2: follower 1 last log index 4 <= leader log index 4
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":3,"PrevLogTerm":1,"Entries":[{"Command":104,"Term":1}],"LeaderCommit":3} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":3,"PrevLogTerm":1,"Entries":[{"Command":104,"Term":1}],"LeaderCommit":3} from peer 2
+1: term jump from 1 to 1, leader id is 2, commitIndex is 3
+1: append log request from 2 starting at 4 length is 1 
+1: before append log length 4
+1: after append log length 5
+1: update timestamp to 1609235787531 ms
+1: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: append log to 1 sucessfully range [4:4]
+2: Send heartBeat with term 1, leader index 3, current go routine number 33
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":3} to peer 0
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":3} to peer 1
+2: current match index list [1,4] (not include self)
+2: middle match index is 4, current commit index is 3
+2: update current commitLogIndex from 3 to 4
+2: current match index list [1,4] (not include self)
+2: middle match index is 4, current commit index is 4
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":3} from peer 2
+1: term jump from 1 to 1, leader id is 2, commitIndex is 3
+1: update timestamp to 1609235787536 ms
+1: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+0 log value at index 4 is <nil>
+1 log value at index 4 is <nil>
+2 log value at index 4 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 4 is <nil>
+1 log value at index 4 is <nil>
+2 log value at index 4 is <nil>
+nd is 0, cmd1 is <nil>
+2: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+0 log value at index 4 is <nil>
+1 log value at index 4 is <nil>
+2 log value at index 4 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 4 is <nil>
+1 log value at index 4 is <nil>
+2 log value at index 4 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 4 is <nil>
+1 log value at index 4 is <nil>
+2 log value at index 4 is <nil>
+nd is 0, cmd1 is <nil>
+2: commit msg {"CommandValid":true,"Command":104,"CommandIndex":4} at 4 log
+2: current match index list [1,4] (not include self)
+2: middle match index is 4, current commit index is 4
+2: current match index list [1,4] (not include self)
+2: middle match index is 4, current commit index is 4
+2: Send heartBeat with term 1, leader index 4, current go routine number 33
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":4} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":4} from peer 2
+1: term jump from 1 to 1, leader id is 2, commitIndex is 4
+1: update timestamp to 1609235787637 ms
+1: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":4} to peer 0
+0 log value at index 4 is <nil>
+1 log value at index 4 is <nil>
+2 log value at index 4 is 104
+nd is 1, cmd1 is 104
+0 log value at index 4 is <nil>
+1 log value at index 4 is <nil>
+2 log value at index 4 is 104
+nd is 1, cmd1 is 104
+0 log value at index 4 is <nil>
+1 log value at index 4 is <nil>
+2 log value at index 4 is 104
+nd is 1, cmd1 is 104
+0 log value at index 4 is <nil>
+1 log value at index 4 is <nil>
+2 log value at index 4 is 104
+nd is 1, cmd1 is 104
+0 log value at index 4 is <nil>
+1 log value at index 4 is <nil>
+2 log value at index 4 is 104
+nd is 1, cmd1 is 104
+1: commit msg {"CommandValid":true,"Command":104,"CommandIndex":4} at 4 log
+2: current match index list [1,4] (not include self)
+2: middle match index is 4, current commit index is 4
+2: current match index list [1,4] (not include self)
+2: middle match index is 4, current commit index is 4
+2: Send heartBeat with term 1, leader index 4, current go routine number 34
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":4} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":4} from peer 2
+1: term jump from 1 to 1, leader id is 2, commitIndex is 4
+1: update timestamp to 1609235787738 ms
+1: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":4} to peer 0
+0 log value at index 4 is <nil>
+1 log value at index 4 is 104
+2 log value at index 4 is 104
+nd is 2, cmd1 is 104
+1: GetState result, term is 1, isLeader is false
+2: GetState result, term is 1, isLeader is true
+2: append log request from client 105
+Some claimed to be the leader
+0 log value at index 5 is <nil>
+1 log value at index 5 is <nil>
+2 log value at index 5 is <nil>
+nd is 0, cmd1 is <nil>
+2: follower 1 last log index 5 <= leader log index 5
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":4,"PrevLogTerm":1,"Entries":[{"Command":105,"Term":1}],"LeaderCommit":4} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":4,"PrevLogTerm":1,"Entries":[{"Command":105,"Term":1}],"LeaderCommit":4} from peer 2
+1: term jump from 1 to 1, leader id is 2, commitIndex is 4
+1: append log request from 2 starting at 5 length is 1 
+1: before append log length 5
+1: after append log length 6
+1: update timestamp to 1609235787756 ms
+1: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: append log to 1 sucessfully range [5:5]
+0 log value at index 5 is <nil>
+1 log value at index 5 is <nil>
+2 log value at index 5 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 5 is <nil>
+1 log value at index 5 is <nil>
+2 log value at index 5 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 5 is <nil>
+1 log value at index 5 is <nil>
+2 log value at index 5 is <nil>
+nd is 0, cmd1 is <nil>
+2: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+2: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+0 log value at index 5 is <nil>
+1 log value at index 5 is <nil>
+2 log value at index 5 is <nil>
+nd is 0, cmd1 is <nil>
+2: current match index list [1,5] (not include self)
+2: middle match index is 5, current commit index is 4
+2: update current commitLogIndex from 4 to 5
+2: current match index list [1,5] (not include self)
+2: middle match index is 5, current commit index is 5
+2: Send heartBeat with term 1, leader index 5, current go routine number 33
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+1: term jump from 1 to 1, leader id is 2, commitIndex is 5
+1: update timestamp to 1609235787840 ms
+1: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 0
+0 log value at index 5 is <nil>
+1 log value at index 5 is <nil>
+2 log value at index 5 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 5 is <nil>
+1 log value at index 5 is <nil>
+2 log value at index 5 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 5 is <nil>
+1 log value at index 5 is <nil>
+2 log value at index 5 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 5 is <nil>
+1 log value at index 5 is <nil>
+2 log value at index 5 is <nil>
+nd is 0, cmd1 is <nil>
+2: commit msg {"CommandValid":true,"Command":105,"CommandIndex":5} at 5 log
+1: commit msg {"CommandValid":true,"Command":105,"CommandIndex":5} at 5 log
+0 log value at index 5 is <nil>
+1 log value at index 5 is 105
+2 log value at index 5 is 105
+nd is 2, cmd1 is 105
+---------- re-connect ----------
+---------- the full set of servers should preserve previous agreements, and be able to agree on new commands.----------
+1: GetState result, term is 1, isLeader is false
+2: GetState result, term is 1, isLeader is true
+2: append log request from client 106
+Some claimed to be the leader
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+2: Send heartBeat with term 1, leader index 5, current go routine number 34
+2: current match index list [1,5] (not include self)
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+0: reject because currentTerm 2 > 1
+2: recieve entries reply {"CurrentTerm":2,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+2: 0 return with new leader term 2, stop current leadership, back to follower!
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+1: term jump from 1 to 1, leader id is 2, commitIndex is 5
+1: update timestamp to 1609235787940 ms
+1: reply entries {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: middle match index is 5, current commit index is 5
+2: current match index list [1,5] (not include self)
+2: middle match index is 5, current commit index is 5
+2: follower 1 last log index 6 <= leader log index 6
+2: send entries {"CurrentTerm":2,"LeaderId":2,"PrevLogIndex":5,"PrevLogTerm":1,"Entries":[{"Command":106,"Term":1}],"LeaderCommit":5} to peer 1
+1: recieve entries {"CurrentTerm":2,"LeaderId":2,"PrevLogIndex":5,"PrevLogTerm":1,"Entries":[{"Command":106,"Term":1}],"LeaderCommit":5} from peer 2
+1: term jump from 1 to 2, leader id is 2, commitIndex is 5
+1: append log request from 2 starting at 6 length is 1 
+1: before append log length 6
+1: after append log length 7
+1: update timestamp to 1609235787943 ms
+1: reply entries {"CurrentTerm":2,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":2,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: append log to 1 sucessfully range [6:6]
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+2: curtime: 1609235788036, time out after 657 ms
+2: update timestamp to 1609235786253 ms
+2: update timestamp to 1609235790007 ms
+2: start poll 
+2: request vote {"CurrentTerm":3,"Whoimi":2,"LastLogIndex":6,"LastLogTerm":1} to 1
+2: request vote {"CurrentTerm":3,"Whoimi":2,"LastLogIndex":6,"LastLogTerm":1} to 0
+1: receive vote request {"CurrentTerm":3,"Whoimi":2,"LastLogIndex":6,"LastLogTerm":1} from 2
+1: update timestamp to 1609235788036 ms
+1: accept and vote for 2!
+1: send vote reply {"CurrentTerm":3,"VoteFor":true} to 2
+2: reply vote {"CurrentTerm":3,"VoteFor":true} from 1
+2: true to channel
+2: get one result (true) 
+2: Get marjority vote
+2: initial leader rf log is [{"Command":0,"Term":0},{"Command":101,"Term":1},{"Command":102,"Term":1},{"Command":103,"Term":1},{"Command":104,"Term":1},{"Command":105,"Term":1},{"Command":106,"Term":1}]2: initial leader nextIndex  to [7,7,7] and matchIndex to [0,0,0]
+2: Declare election win to all
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+0: receive vote request {"CurrentTerm":3,"Whoimi":2,"LastLogIndex":6,"LastLogTerm":1} from 2
+0: update timestamp to 1609235788036 ms
+0: accept and vote for 2!
+0: send vote reply {"CurrentTerm":3,"VoteFor":true} to 2
+2: reply vote {"CurrentTerm":3,"VoteFor":true} from 0
+2: true to channel
+Recovered in f send on closed channel
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 0
+0: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+0: term jump from 3 to 3, leader id is 2, commitIndex is 5
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 1
+1: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+1: term jump from 3 to 3, leader id is 2, commitIndex is 5
+1: update timestamp to 1609235788037 ms
+1: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+0: update timestamp to 1609235788036 ms
+0: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: Start Send heartBeat
+2: Send heartBeat with term 3, leader index 5, current go routine number 38
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 1
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 0
+1: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+1: term jump from 3 to 3, leader id is 2, commitIndex is 5
+1: update timestamp to 1609235788037 ms
+1: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+0: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+0: term jump from 3 to 3, leader id is 2, commitIndex is 5
+0: update timestamp to 1609235788037 ms
+0: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+2: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+2: Send heartBeat with term 1, leader index 5, current go routine number 37
+2: current match index list [0,0] (not include self)
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+0: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 0
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+1: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 1
+2: middle match index is 0, current commit index is 5
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: Send heartBeat with term 3, leader index 5, current go routine number 37
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 1
+1: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+1: term jump from 3 to 3, leader id is 2, commitIndex is 5
+1: update timestamp to 1609235788137 ms
+1: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 0
+0: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+0: term jump from 3 to 3, leader id is 2, commitIndex is 5
+0: update timestamp to 1609235788137 ms
+0: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: Send heartBeat with term 1, leader index 5, current go routine number 37
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 0
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 1
+0: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+0: reject because currentTerm 3 > 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+1: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 0
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 1
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+2: recieve entries reply {"CurrentTerm":0,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+2: append log request to 0 time out!0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: Send heartBeat with term 3, leader index 5, current go routine number 37
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 1
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 0
+1: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+1: term jump from 3 to 3, leader id is 2, commitIndex is 5
+1: update timestamp to 1609235788239 ms
+1: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+0: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+0: term jump from 3 to 3, leader id is 2, commitIndex is 5
+0: update timestamp to 1609235788240 ms
+0: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: Send heartBeat with term 1, leader index 5, current go routine number 37
+2: current match index list [0,0] (not include self)
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+0: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 0
+2: middle match index is 0, current commit index is 5
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+1: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 1
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: Send heartBeat with term 3, leader index 5, current go routine number 37
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 0
+0: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+0: term jump from 3 to 3, leader id is 2, commitIndex is 5
+0: update timestamp to 1609235788338 ms
+0: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 1
+1: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+1: term jump from 3 to 3, leader id is 2, commitIndex is 5
+1: update timestamp to 1609235788338 ms
+1: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: Send heartBeat with term 1, leader index 5, current go routine number 37
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+1: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 1
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+0: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 0
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: Send heartBeat with term 3, leader index 5, current go routine number 37
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 0
+0: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+0: term jump from 3 to 3, leader id is 2, commitIndex is 5
+0: update timestamp to 1609235788438 ms
+0: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 1
+1: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+1: term jump from 3 to 3, leader id is 2, commitIndex is 5
+1: update timestamp to 1609235788439 ms
+1: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: Send heartBeat with term 1, leader index 5, current go routine number 37
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+1: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 1
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+0: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 0
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+2: Send heartBeat with term 3, leader index 5, current go routine number 37
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 0
+0: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+0: term jump from 3 to 3, leader id is 2, commitIndex is 5
+0: update timestamp to 1609235788539 ms
+0: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 1
+1: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+1: term jump from 3 to 3, leader id is 2, commitIndex is 5
+1: update timestamp to 1609235788539 ms
+1: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: Send heartBeat with term 1, leader index 5, current go routine number 37
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+1: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 1
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+0: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 0
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: Send heartBeat with term 3, leader index 5, current go routine number 37
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 0
+0: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+0: term jump from 3 to 3, leader id is 2, commitIndex is 5
+0: update timestamp to 1609235788639 ms
+0: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 1
+1: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+1: term jump from 3 to 3, leader id is 2, commitIndex is 5
+1: update timestamp to 1609235788639 ms
+1: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+2: Send heartBeat with term 1, leader index 5, current go routine number 37
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+1: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 1
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+0: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 0
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: Send heartBeat with term 3, leader index 5, current go routine number 37
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 1
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 0
+1: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+1: term jump from 3 to 3, leader id is 2, commitIndex is 5
+1: update timestamp to 1609235788740 ms
+1: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+0: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+0: term jump from 3 to 3, leader id is 2, commitIndex is 5
+0: update timestamp to 1609235788741 ms
+0: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: Send heartBeat with term 1, leader index 5, current go routine number 37
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 1
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 0
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+1: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 1
+0: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+0: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 0
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+2: Send heartBeat with term 3, leader index 5, current go routine number 37
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 0
+0: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+0: term jump from 3 to 3, leader id is 2, commitIndex is 5
+0: update timestamp to 1609235788840 ms
+0: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 1
+1: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+1: term jump from 3 to 3, leader id is 2, commitIndex is 5
+1: update timestamp to 1609235788840 ms
+1: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: Send heartBeat with term 1, leader index 5, current go routine number 37
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+1: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 1
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+0: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 0
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+2: Send heartBeat with term 3, leader index 5, current go routine number 37
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 1
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 0
+1: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+1: term jump from 3 to 3, leader id is 2, commitIndex is 5
+1: update timestamp to 1609235788942 ms
+1: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+0: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+0: term jump from 3 to 3, leader id is 2, commitIndex is 5
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+0: update timestamp to 1609235788942 ms
+0: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: Send heartBeat with term 1, leader index 5, current go routine number 37
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+1: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 1
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+0: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 0
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+2: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: Send heartBeat with term 3, leader index 5, current go routine number 35
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 1
+1: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+1: term jump from 3 to 3, leader id is 2, commitIndex is 5
+1: update timestamp to 1609235789043 ms
+1: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 0
+0: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+0: term jump from 3 to 3, leader id is 2, commitIndex is 5
+0: update timestamp to 1609235789043 ms
+0: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: Send heartBeat with term 1, leader index 5, current go routine number 35
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 1
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+0: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 0
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+1: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 1
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+2: Send heartBeat with term 3, leader index 5, current go routine number 35
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 0
+0: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+0: term jump from 3 to 3, leader id is 2, commitIndex is 5
+0: update timestamp to 1609235789144 ms
+0: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 1
+1: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+1: term jump from 3 to 3, leader id is 2, commitIndex is 5
+1: update timestamp to 1609235789144 ms
+1: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: Send heartBeat with term 1, leader index 5, current go routine number 35
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+1: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 1
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+0: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 0
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0: reply vote {"CurrentTerm":0,"VoteFor":false} from 1
+0: false to channel
+0: rquest vote {"CurrentTerm":2,"Whoimi":0,"LastLogIndex":1,"LastLogTerm":1} time out0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: Send heartBeat with term 3, leader index 5, current go routine number 34
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 1
+1: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+1: term jump from 3 to 3, leader id is 2, commitIndex is 5
+1: update timestamp to 1609235789244 ms
+1: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 0
+0: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+0: term jump from 3 to 3, leader id is 2, commitIndex is 5
+0: update timestamp to 1609235789244 ms
+0: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: Send heartBeat with term 1, leader index 5, current go routine number 34
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+1: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 1
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+0: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 0
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: Send heartBeat with term 3, leader index 5, current go routine number 34
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 1
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 0
+1: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+1: term jump from 3 to 3, leader id is 2, commitIndex is 5
+1: update timestamp to 1609235789347 ms
+1: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+0: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+0: term jump from 3 to 3, leader id is 2, commitIndex is 5
+0: update timestamp to 1609235789347 ms
+0: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+2: Send heartBeat with term 1, leader index 5, current go routine number 34
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+1: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 1
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+0: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 0
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: Send heartBeat with term 3, leader index 5, current go routine number 34
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 1
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 0
+1: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+1: term jump from 3 to 3, leader id is 2, commitIndex is 5
+1: update timestamp to 1609235789446 ms
+1: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+0: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+0: term jump from 3 to 3, leader id is 2, commitIndex is 5
+0: update timestamp to 1609235789447 ms
+0: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: Send heartBeat with term 1, leader index 5, current go routine number 34
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+1: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 1
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+0: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 0
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+2: Send heartBeat with term 3, leader index 5, current go routine number 34
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 1
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 0
+1: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+1: term jump from 3 to 3, leader id is 2, commitIndex is 5
+1: update timestamp to 1609235789547 ms
+1: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+0: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+0: term jump from 3 to 3, leader id is 2, commitIndex is 5
+0: update timestamp to 1609235789547 ms
+0: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: Send heartBeat with term 1, leader index 5, current go routine number 34
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+1: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 1
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+0: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 0
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+2: Send heartBeat with term 3, leader index 5, current go routine number 34
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 1
+1: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+1: term jump from 3 to 3, leader id is 2, commitIndex is 5
+1: update timestamp to 1609235789647 ms
+1: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 0
+0: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+0: term jump from 3 to 3, leader id is 2, commitIndex is 5
+0: update timestamp to 1609235789648 ms
+0: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: Send heartBeat with term 1, leader index 5, current go routine number 34
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+0: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 0
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+1: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 1
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+2: Send heartBeat with term 3, leader index 5, current go routine number 34
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 1
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 0
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+1: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+1: term jump from 3 to 3, leader id is 2, commitIndex is 5
+1: update timestamp to 1609235789748 ms
+1: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+0: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+0: term jump from 3 to 3, leader id is 2, commitIndex is 5
+0: update timestamp to 1609235789748 ms
+0: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: Send heartBeat with term 1, leader index 5, current go routine number 34
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 1
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 0
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+1: reject because currentTerm 3 > 1
+0: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+0: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 0
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 1
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: Send heartBeat with term 3, leader index 5, current go routine number 34
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 1
+1: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+1: term jump from 3 to 3, leader id is 2, commitIndex is 5
+1: update timestamp to 1609235789848 ms
+1: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 0
+0: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+0: term jump from 3 to 3, leader id is 2, commitIndex is 5
+0: update timestamp to 1609235789849 ms
+0: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+2: Send heartBeat with term 1, leader index 5, current go routine number 34
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+1: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 1
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+0: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 0
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 6 is <nil>
+1 log value at index 6 is <nil>
+2 log value at index 6 is <nil>
+nd is 0, cmd1 is <nil>
+0: GetState result, term is 3, isLeader is false
+1: GetState result, term is 3, isLeader is false
+2: GetState result, term is 3, isLeader is true
+2: append log request from client 106
+Some claimed to be the leader
+0 log value at index 7 is <nil>
+1 log value at index 7 is <nil>
+2 log value at index 7 is <nil>
+nd is 0, cmd1 is <nil>
+2: Send heartBeat with term 3, leader index 5, current go routine number 34
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 0
+0: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+0: term jump from 3 to 3, leader id is 2, commitIndex is 5
+0: update timestamp to 1609235789949 ms
+0: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 1
+1: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+1: term jump from 3 to 3, leader id is 2, commitIndex is 5
+1: update timestamp to 1609235789949 ms
+1: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: Send heartBeat with term 1, leader index 5, current go routine number 34
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+1: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 1
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+0: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 0
+2: current match index list [0,0] (not include self)
+2: middle match index is 0, current commit index is 5
+2: follower 1 last log index 7 <= leader log index 7
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":6,"PrevLogTerm":1,"Entries":[{"Command":106,"Term":3}],"LeaderCommit":5} to peer 1
+2: follower 0 last log index 7 <= leader log index 7
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":6,"PrevLogTerm":1,"Entries":[{"Command":106,"Term":3}],"LeaderCommit":5} to peer 0
+0: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":6,"PrevLogTerm":1,"Entries":[{"Command":106,"Term":3}],"LeaderCommit":5} from peer 2
+0: term jump from 3 to 3, leader id is 2, commitIndex is 5
+0: reject because prevLogIndex 6 bigger then current log index 1
+0: update timestamp to 1609235789960 ms
+0: reply entries {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":2,"ConflictTermLogTerm":-1,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":2,"ConflictTermLogTerm":-1,"VotedFor":0} from peer 0
+2: log index of server 0 back skip from 7 to 2
+2: follower 0 last log index 2 <= leader log index 7
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":1,"PrevLogTerm":1,"Entries":[{"Command":102,"Term":1},{"Command":103,"Term":1},{"Command":104,"Term":1},{"Command":105,"Term":1},{"Command":106,"Term":1},{"Command":106,"Term":3}],"LeaderCommit":5} to peer 0
+0: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":1,"PrevLogTerm":1,"Entries":[{"Command":102,"Term":1},{"Command":103,"Term":1},{"Command":104,"Term":1},{"Command":105,"Term":1},{"Command":106,"Term":1},{"Command":106,"Term":3}],"LeaderCommit":5} from peer 2
+0: term jump from 3 to 3, leader id is 2, commitIndex is 5
+0: append log request from 2 starting at 2 length is 6 
+0: before append log length 2
+0: after append log length 8
+0: update timestamp to 1609235789960 ms
+0: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+2: append log to 0 sucessfully range [2:7]
+1: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":6,"PrevLogTerm":1,"Entries":[{"Command":106,"Term":3}],"LeaderCommit":5} from peer 2
+1: term jump from 3 to 3, leader id is 2, commitIndex is 5
+1: append log request from 2 starting at 7 length is 1 
+1: before append log length 7
+1: after append log length 8
+1: update timestamp to 1609235789960 ms
+1: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: append log to 1 sucessfully range [7:7]
+0 log value at index 7 is <nil>
+1 log value at index 7 is <nil>
+2 log value at index 7 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 7 is <nil>
+1 log value at index 7 is <nil>
+2 log value at index 7 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 7 is <nil>
+1 log value at index 7 is <nil>
+2 log value at index 7 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 7 is <nil>
+1 log value at index 7 is <nil>
+2 log value at index 7 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 7 is <nil>
+1 log value at index 7 is <nil>
+2 log value at index 7 is <nil>
+nd is 0, cmd1 is <nil>
+0: commit msg {"CommandValid":true,"Command":102,"CommandIndex":2} at 2 log
+0: commit msg {"CommandValid":true,"Command":103,"CommandIndex":3} at 3 log
+0: commit msg {"CommandValid":true,"Command":104,"CommandIndex":4} at 4 log
+0: commit msg {"CommandValid":true,"Command":105,"CommandIndex":5} at 5 log
+2: Send heartBeat with term 3, leader index 5, current go routine number 34
+2: current match index list [7,7] (not include self)
+2: middle match index is 7, current commit index is 5
+2: update current commitLogIndex from 5 to 7
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 0
+0: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+0: term jump from 3 to 3, leader id is 2, commitIndex is 5
+0: update timestamp to 1609235790049 ms
+0: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} to peer 1
+1: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":5} from peer 2
+1: term jump from 3 to 3, leader id is 2, commitIndex is 5
+1: update timestamp to 1609235790049 ms
+1: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: current match index list [7,7] (not include self)
+2: middle match index is 7, current commit index is 7
+2: Send heartBeat with term 1, leader index 7, current go routine number 34
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} from peer 2
+1: reject because currentTerm 3 > 1
+2: current match index list [7,7] (not include self)
+2: middle match index is 7, current commit index is 7
+2: current match index list [7,7] (not include self)
+2: middle match index is 7, current commit index is 7
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} to peer 0
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 1
+0: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} from peer 2
+0: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 0
+0 log value at index 7 is <nil>
+1 log value at index 7 is <nil>
+2 log value at index 7 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 7 is <nil>
+1 log value at index 7 is <nil>
+2 log value at index 7 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 7 is <nil>
+1 log value at index 7 is <nil>
+2 log value at index 7 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 7 is <nil>
+1 log value at index 7 is <nil>
+2 log value at index 7 is <nil>
+nd is 0, cmd1 is <nil>
+2: commit msg {"CommandValid":true,"Command":106,"CommandIndex":6} at 6 log
+2: commit msg {"CommandValid":true,"Command":106,"CommandIndex":7} at 7 log
+2: Send heartBeat with term 3, leader index 7, current go routine number 34
+2: current match index list [7,7] (not include self)
+2: middle match index is 7, current commit index is 7
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} to peer 1
+1: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} from peer 2
+1: term jump from 3 to 3, leader id is 2, commitIndex is 7
+1: update timestamp to 1609235790150 ms
+1: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} to peer 0
+0: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} from peer 2
+0: term jump from 3 to 3, leader id is 2, commitIndex is 7
+0: update timestamp to 1609235790150 ms
+0: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+0 log value at index 7 is <nil>
+1 log value at index 7 is <nil>
+2 log value at index 7 is 106
+nd is 1, cmd1 is 106
+2: current match index list [7,7] (not include self)
+2: middle match index is 7, current commit index is 7
+2: Send heartBeat with term 1, leader index 7, current go routine number 34
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} to peer 1
+2: current match index list [7,7] (not include self)
+2: middle match index is 7, current commit index is 7
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} to peer 0
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} from peer 2
+1: reject because currentTerm 3 > 1
+0: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} from peer 2
+0: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 0
+2: current match index list [7,7] (not include self)
+2: middle match index is 7, current commit index is 7
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 1
+2: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+0 log value at index 7 is <nil>
+1 log value at index 7 is <nil>
+2 log value at index 7 is 106
+nd is 1, cmd1 is 106
+0 log value at index 7 is <nil>
+1 log value at index 7 is <nil>
+2 log value at index 7 is 106
+nd is 1, cmd1 is 106
+0 log value at index 7 is <nil>
+1 log value at index 7 is <nil>
+2 log value at index 7 is 106
+nd is 1, cmd1 is 106
+0 log value at index 7 is <nil>
+1 log value at index 7 is <nil>
+2 log value at index 7 is 106
+nd is 1, cmd1 is 106
+1: commit msg {"CommandValid":true,"Command":106,"CommandIndex":6} at 6 log
+1: commit msg {"CommandValid":true,"Command":106,"CommandIndex":7} at 7 log
+0: commit msg {"CommandValid":true,"Command":106,"CommandIndex":6} at 6 log
+0: commit msg {"CommandValid":true,"Command":106,"CommandIndex":7} at 7 log
+2: Send heartBeat with term 3, leader index 7, current go routine number 33
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} to peer 1
+2: current match index list [7,7] (not include self)
+2: middle match index is 7, current commit index is 7
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} to peer 0
+1: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} from peer 2
+1: term jump from 3 to 3, leader id is 2, commitIndex is 7
+1: update timestamp to 1609235790251 ms
+1: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+0: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} from peer 2
+0: term jump from 3 to 3, leader id is 2, commitIndex is 7
+0: update timestamp to 1609235790251 ms
+0: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+2: current match index list [7,7] (not include self)
+2: middle match index is 7, current commit index is 7
+2: Send heartBeat with term 1, leader index 7, current go routine number 33
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} to peer 1
+2: current match index list [7,7] (not include self)
+2: middle match index is 7, current commit index is 7
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} from peer 2
+0: reject because currentTerm 3 > 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} from peer 2
+1: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 1
+0 log value at index 7 is 106
+1 log value at index 7 is 106
+2 log value at index 7 is 106
+nd is 3, cmd1 is 106
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 0
+2: current match index list [7,7] (not include self)
+2: middle match index is 7, current commit index is 7
+2: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+2: current match index list [7,7] (not include self)
+2: middle match index is 7, current commit index is 7
+2: Send heartBeat with term 3, leader index 7, current go routine number 32
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} to peer 1
+1: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} from peer 2
+1: term jump from 3 to 3, leader id is 2, commitIndex is 7
+1: update timestamp to 1609235790359 ms
+1: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} to peer 0
+0: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} from peer 2
+0: term jump from 3 to 3, leader id is 2, commitIndex is 7
+0: update timestamp to 1609235790359 ms
+0: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+2: current match index list [7,7] (not include self)
+2: middle match index is 7, current commit index is 7
+2: Send heartBeat with term 1, leader index 7, current go routine number 32
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} from peer 2
+1: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 1
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} from peer 2
+0: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 0
+2: current match index list [7,7] (not include self)
+2: middle match index is 7, current commit index is 7
+2: current match index list [7,7] (not include self)
+2: middle match index is 7, current commit index is 7
+2: Send heartBeat with term 3, leader index 7, current go routine number 32
+2: current match index list [7,7] (not include self)
+2: middle match index is 7, current commit index is 7
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} to peer 0
+0: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} from peer 2
+0: term jump from 3 to 3, leader id is 2, commitIndex is 7
+0: update timestamp to 1609235790460 ms
+0: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} to peer 1
+1: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} from peer 2
+1: term jump from 3 to 3, leader id is 2, commitIndex is 7
+1: update timestamp to 1609235790460 ms
+1: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: current match index list [7,7] (not include self)
+2: middle match index is 7, current commit index is 7
+2: Send heartBeat with term 1, leader index 7, current go routine number 32
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} to peer 0
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} to peer 1
+0: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} from peer 2
+0: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 0
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} from peer 2
+1: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 1
+2: current match index list [7,7] (not include self)
+2: middle match index is 7, current commit index is 7
+2: current match index list [7,7] (not include self)
+2: middle match index is 7, current commit index is 7
+2: recieve entries reply {"CurrentTerm":1,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+2: Send heartBeat with term 3, leader index 7, current go routine number 31
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} to peer 1
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} to peer 0
+1: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} from peer 2
+0: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} from peer 2
+0: term jump from 3 to 3, leader id is 2, commitIndex is 7
+0: update timestamp to 1609235790560 ms
+0: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+1: term jump from 3 to 3, leader id is 2, commitIndex is 7
+1: update timestamp to 1609235790561 ms
+1: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: current match index list [7,7] (not include self)
+2: middle match index is 7, current commit index is 7
+2: current match index list [7,7] (not include self)
+2: middle match index is 7, current commit index is 7
+2: Send heartBeat with term 1, leader index 7, current go routine number 31
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} to peer 1
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} to peer 0
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} from peer 2
+1: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 1
+0: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} from peer 2
+0: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 0
+2: current match index list [7,7] (not include self)
+2: middle match index is 7, current commit index is 7
+2: current match index list [7,7] (not include self)
+2: middle match index is 7, current commit index is 7
+2: current match index list [7,7] (not include self)
+2: middle match index is 7, current commit index is 7
+2: current match index list [7,7] (not include self)
+2: middle match index is 7, current commit index is 7
+2: Send heartBeat with term 1, leader index 7, current go routine number 31
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} from peer 2
+1: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 1
+2: Send heartBeat with term 3, leader index 7, current go routine number 33
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} to peer 0
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} to peer 1
+1: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} from peer 2
+1: term jump from 3 to 3, leader id is 2, commitIndex is 7
+1: update timestamp to 1609235790662 ms
+1: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+0: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} from peer 2
+0: reject because currentTerm 3 > 1
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} to peer 0
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 0
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+0: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} from peer 2
+0: term jump from 3 to 3, leader id is 2, commitIndex is 7
+2: current match index list [7,7] (not include self)
+2: middle match index is 7, current commit index is 7
+2: current match index list [7,7] (not include self)
+2: middle match index is 7, current commit index is 7
+0: update timestamp to 1609235790663 ms
+0: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+2: current match index list [7,7] (not include self)
+2: middle match index is 7, current commit index is 7
+2: current match index list [7,7] (not include self)
+2: middle match index is 7, current commit index is 7
+2: current match index list [7,7] (not include self)
+2: middle match index is 7, current commit index is 7
+2: Send heartBeat with term 1, leader index 7, current go routine number 31
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} from peer 2
+1: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 1
+2: current match index list [7,7] (not include self)
+2: middle match index is 7, current commit index is 7
+2: Send heartBeat with term 3, leader index 7, current go routine number 31
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} to peer 1
+1: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} from peer 2
+1: term jump from 3 to 3, leader id is 2, commitIndex is 7
+1: update timestamp to 1609235790763 ms
+1: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} from peer 2
+0: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 0
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} to peer 0
+0: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} from peer 2
+0: term jump from 3 to 3, leader id is 2, commitIndex is 7
+0: update timestamp to 1609235790764 ms
+0: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+2: current match index list [7,7] (not include self)
+2: middle match index is 7, current commit index is 7
+2: Send heartBeat with term 1, leader index 7, current go routine number 31
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} to peer 1
+2: current match index list [7,7] (not include self)
+2: middle match index is 7, current commit index is 7
+2: Send heartBeat with term 3, leader index 7, current go routine number 31
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} from peer 2
+1: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 1
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} to peer 0
+0: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} from peer 2
+0: term jump from 3 to 3, leader id is 2, commitIndex is 7
+0: update timestamp to 1609235790865 ms
+0: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} to peer 0
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+2: current match index list [7,7] (not include self)
+2: middle match index is 7, current commit index is 7
+1: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} from peer 2
+1: term jump from 3 to 3, leader id is 2, commitIndex is 7
+1: update timestamp to 1609235790865 ms
+1: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+0: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} from peer 2
+0: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: current match index list [7,7] (not include self)
+2: middle match index is 7, current commit index is 7
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 0
+2: Send heartBeat with term 1, leader index 7, current go routine number 31
+2: current match index list [7,7] (not include self)
+2: middle match index is 7, current commit index is 7
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} from peer 2
+0: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 0
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} from peer 2
+1: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 1
+2: current match index list [7,7] (not include self)
+2: middle match index is 7, current commit index is 7
+2: current match index list [7,7] (not include self)
+2: middle match index is 7, current commit index is 7
+2: Send heartBeat with term 3, leader index 7, current go routine number 31
+2: current match index list [7,7] (not include self)
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} to peer 0
+0: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} from peer 2
+0: term jump from 3 to 3, leader id is 2, commitIndex is 7
+0: update timestamp to 1609235790966 ms
+0: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+2: middle match index is 7, current commit index is 7
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} to peer 1
+1: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} from peer 2
+1: term jump from 3 to 3, leader id is 2, commitIndex is 7
+1: update timestamp to 1609235790966 ms
+1: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: Send heartBeat with term 1, leader index 7, current go routine number 31
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} to peer 1
+2: current match index list [7,7] (not include self)
+2: middle match index is 7, current commit index is 7
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} to peer 0
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} from peer 2
+1: reject because currentTerm 3 > 1
+0: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} from peer 2
+0: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 0
+2: Send heartBeat with term 3, leader index 7, current go routine number 31
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} to peer 1
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} to peer 0
+2: current match index list [7,7] (not include self)
+2: middle match index is 7, current commit index is 7
+2: current match index list [7,7] (not include self)
+1: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} from peer 2
+1: term jump from 3 to 3, leader id is 2, commitIndex is 7
+1: update timestamp to 1609235791066 ms
+1: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: current match index list [7,7] (not include self)
+2: middle match index is 7, current commit index is 7
+2: middle match index is 7, current commit index is 7
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+0: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} from peer 2
+0: term jump from 3 to 3, leader id is 2, commitIndex is 7
+0: update timestamp to 1609235791066 ms
+0: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+2: Send heartBeat with term 1, leader index 7, current go routine number 31
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} to peer 1
+2: current match index list [7,7] (not include self)
+2: middle match index is 7, current commit index is 7
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} to peer 0
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} from peer 2
+1: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 1
+2: Send heartBeat with term 3, leader index 7, current go routine number 31
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} to peer 1
+1: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} from peer 2
+1: term jump from 3 to 3, leader id is 2, commitIndex is 7
+1: update timestamp to 1609235791167 ms
+1: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: current match index list [7,7] (not include self)
+2: middle match index is 7, current commit index is 7
+0: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} from peer 2
+0: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 0
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} to peer 0
+2: current match index list [7,7] (not include self)
+2: middle match index is 7, current commit index is 7
+2: current match index list [7,7] (not include self)
+2: middle match index is 7, current commit index is 7
+0: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} from peer 2
+0: term jump from 3 to 3, leader id is 2, commitIndex is 7
+0: update timestamp to 1609235791167 ms
+0: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+0: reply vote {"CurrentTerm":0,"VoteFor":false} from 2
+0: false to channel
+0: rquest vote {"CurrentTerm":2,"Whoimi":0,"LastLogIndex":1,"LastLogTerm":1} time out1: GetState result, term is 3, isLeader is false
+2: GetState result, term is 3, isLeader is true
+2: append log request from client 107
+Some claimed to be the leader
+0 log value at index 8 is <nil>
+1 log value at index 8 is <nil>
+2 log value at index 8 is <nil>
+nd is 0, cmd1 is <nil>
+2: follower 0 last log index 8 <= leader log index 8
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":7,"PrevLogTerm":3,"Entries":[{"Command":107,"Term":3}],"LeaderCommit":7} to peer 0
+0: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":7,"PrevLogTerm":3,"Entries":[{"Command":107,"Term":3}],"LeaderCommit":7} from peer 2
+0: term jump from 3 to 3, leader id is 2, commitIndex is 7
+0: append log request from 2 starting at 8 length is 1 
+0: before append log length 8
+0: after append log length 9
+0: update timestamp to 1609235791266 ms
+0: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+2: append log to 0 sucessfully range [8:8]
+2: follower 0 last log index 8 <= leader log index 8
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":7,"PrevLogTerm":3,"Entries":[{"Command":107,"Term":3}],"LeaderCommit":7} to peer 0
+0: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":7,"PrevLogTerm":3,"Entries":[{"Command":107,"Term":3}],"LeaderCommit":7} from peer 2
+0: term jump from 3 to 3, leader id is 2, commitIndex is 7
+0: append log request from 2 starting at 8 length is 1 
+0: before append log length 9
+0: after append log length 9
+0: update timestamp to 1609235791266 ms
+0: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+2: append log to 0 sucessfully range [8:8]
+2: current match index list [7,8] (not include self)
+2: middle match index is 8, current commit index is 7
+2: update current commitLogIndex from 7 to 8
+2: current match index list [7,8] (not include self)
+2: middle match index is 8, current commit index is 8
+2: current match index list [7,8] (not include self)
+2: middle match index is 8, current commit index is 8
+2: Send heartBeat with term 1, leader index 7, current go routine number 30
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} to peer 1
+2: current match index list [7,8] (not include self)
+2: middle match index is 8, current commit index is 8
+2: Send heartBeat with term 3, leader index 7, current go routine number 30
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} to peer 1
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} to peer 0
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} from peer 2
+1: reject because currentTerm 3 > 1
+1: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} from peer 2
+1: term jump from 3 to 3, leader id is 2, commitIndex is 7
+1: update timestamp to 1609235791268 ms
+1: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 1
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} to peer 0
+0: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} from peer 2
+0: term jump from 3 to 3, leader id is 2, commitIndex is 7
+0: update timestamp to 1609235791268 ms
+0: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+0: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":7} from peer 2
+0: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 0
+2: follower 1 last log index 8 <= leader log index 8
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":7,"PrevLogTerm":3,"Entries":[{"Command":107,"Term":3}],"LeaderCommit":8} to peer 1
+1: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":7,"PrevLogTerm":3,"Entries":[{"Command":107,"Term":3}],"LeaderCommit":8} from peer 2
+1: term jump from 3 to 3, leader id is 2, commitIndex is 8
+1: append log request from 2 starting at 8 length is 1 
+1: before append log length 8
+1: after append log length 9
+1: update timestamp to 1609235791271 ms
+1: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+2: append log to 1 sucessfully range [8:8]
+0 log value at index 8 is <nil>
+1 log value at index 8 is <nil>
+2 log value at index 8 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 8 is <nil>
+1 log value at index 8 is <nil>
+2 log value at index 8 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 8 is <nil>
+1 log value at index 8 is <nil>
+2 log value at index 8 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 8 is <nil>
+1 log value at index 8 is <nil>
+2 log value at index 8 is <nil>
+nd is 0, cmd1 is <nil>
+0 log value at index 8 is <nil>
+1 log value at index 8 is <nil>
+2 log value at index 8 is <nil>
+nd is 0, cmd1 is <nil>
+1: commit msg {"CommandValid":true,"Command":107,"CommandIndex":8} at 8 log
+2: commit msg {"CommandValid":true,"Command":107,"CommandIndex":8} at 8 log
+2: Send heartBeat with term 1, leader index 8, current go routine number 30
+2: current match index list [8,8] (not include self)
+2: middle match index is 8, current commit index is 8
+2: current match index list [8,8] (not include self)
+2: middle match index is 8, current commit index is 8
+2: current match index list [8,8] (not include self)
+2: middle match index is 8, current commit index is 8
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":8} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":8} from peer 2
+0: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 0
+2: current match index list [8,8] (not include self)
+2: middle match index is 8, current commit index is 8
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":8} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":8} from peer 2
+1: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 1
+2: Send heartBeat with term 3, leader index 8, current go routine number 30
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":8} to peer 1
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":8} to peer 0
+0: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":8} from peer 2
+0: term jump from 3 to 3, leader id is 2, commitIndex is 8
+0: update timestamp to 1609235791369 ms
+0: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+1: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":8} from peer 2
+1: term jump from 3 to 3, leader id is 2, commitIndex is 8
+1: update timestamp to 1609235791369 ms
+1: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+0 log value at index 8 is <nil>
+1 log value at index 8 is 107
+2 log value at index 8 is 107
+nd is 2, cmd1 is 107
+0 log value at index 8 is <nil>
+1 log value at index 8 is 107
+2 log value at index 8 is 107
+nd is 2, cmd1 is 107
+0 log value at index 8 is <nil>
+1 log value at index 8 is 107
+2 log value at index 8 is 107
+nd is 2, cmd1 is 107
+0 log value at index 8 is <nil>
+1 log value at index 8 is 107
+2 log value at index 8 is 107
+nd is 2, cmd1 is 107
+0 log value at index 8 is <nil>
+1 log value at index 8 is 107
+2 log value at index 8 is 107
+nd is 2, cmd1 is 107
+2: current match index list [8,8] (not include self)
+2: middle match index is 8, current commit index is 8
+2: current match index list [8,8] (not include self)
+2: middle match index is 8, current commit index is 8
+2: Send heartBeat with term 1, leader index 8, current go routine number 30
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":8} to peer 1
+1: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":8} from peer 2
+1: reject because currentTerm 3 > 1
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 1
+2: current match index list [8,8] (not include self)
+2: middle match index is 8, current commit index is 8
+2: send entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":8} to peer 0
+0: recieve entries {"CurrentTerm":1,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":8} from peer 2
+0: reject because currentTerm 3 > 1
+2: Send heartBeat with term 3, leader index 8, current go routine number 33
+0: commit msg {"CommandValid":true,"Command":107,"CommandIndex":8} at 8 log
+2: current match index list [8,8] (not include self)
+2: middle match index is 8, current commit index is 8
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":8} to peer 0
+0: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":8} from peer 2
+0: term jump from 3 to 3, leader id is 2, commitIndex is 8
+0: update timestamp to 1609235791469 ms
+0: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 0
+2: recieve entries reply {"CurrentTerm":3,"Success":false,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":2} from peer 0
+2: send entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":8} to peer 1
+1: recieve entries {"CurrentTerm":3,"LeaderId":2,"PrevLogIndex":-1,"PrevLogTerm":-1,"Entries":null,"LeaderCommit":8} from peer 2
+1: term jump from 3 to 3, leader id is 2, commitIndex is 8
+1: update timestamp to 1609235791469 ms
+1: reply entries {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} to peer 2
+2: recieve entries reply {"CurrentTerm":3,"Success":true,"ConflictTermFirstLogIndex":0,"ConflictTermLogTerm":0,"VotedFor":0} from peer 1
+0 log value at index 8 is 107
+1 log value at index 8 is 107
+2 log value at index 8 is 107
+nd is 3, cmd1 is 107
+  ... Passed --   6.3  3  214   72651    8
+PASS
+ok  	_/mnt/e/Work/Go/lab2/6.824/src/raft	6.298s

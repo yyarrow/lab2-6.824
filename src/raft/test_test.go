@@ -120,7 +120,7 @@ func TestBasicAgree2B(t *testing.T) {
 // check, based on counting bytes of RPCs, that
 // each command is sent to each peer just once.
 //
-func TestRPCBytes2B(t *testing.T) {
+func TestRPCBytes2B(t *testing.T) { //easy to fail
 	servers := 3
 	cfg := make_config(t, servers, false)
 	defer cfg.cleanup()
@@ -151,7 +151,7 @@ func TestRPCBytes2B(t *testing.T) {
 	cfg.end()
 }
 
-func TestFailAgree2B(t *testing.T) {
+func TestFailAgree2B(t *testing.T) { //easy to fail
 	servers := 3
 	cfg := make_config(t, servers, false)
 	defer cfg.cleanup()
@@ -348,27 +348,33 @@ func TestRejoin2B(t *testing.T) {
 	cfg.one(101, servers, true)
 
 	// leader network failure
+	fmt.Printf("-------leader network failure-------\n")
 	leader1 := cfg.checkOneLeader()
 	cfg.disconnect(leader1)
 
 	// make old leader try to agree on some entries
+	fmt.Printf("-------make old leader try to agree on some entries-------\n")
 	cfg.rafts[leader1].Start(102)
 	cfg.rafts[leader1].Start(103)
 	cfg.rafts[leader1].Start(104)
 
 	// new leader commits, also for index=2
+	fmt.Printf("-------new leader commits, also for index=2-------\n")
 	cfg.one(103, 2, true)
 
 	// new leader network failure
+	fmt.Printf("-------new leader network failure-------\n")
 	leader2 := cfg.checkOneLeader()
 	cfg.disconnect(leader2)
 
 	// old leader connected again
+	fmt.Printf("-------old leader connected again-------\n")
 	cfg.connect(leader1)
 
 	cfg.one(104, 2, true)
 
 	// all together now
+	fmt.Printf("-------all together now-------\n")
 	cfg.connect(leader2)
 
 	cfg.one(105, servers, true)
