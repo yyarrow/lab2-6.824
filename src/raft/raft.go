@@ -18,6 +18,7 @@ package raft
 //
 
 import (
+	"bytes"
 	"encoding/json"
 	"fmt"
 	"math/rand"
@@ -26,6 +27,7 @@ import (
 	"sync/atomic"
 	"time"
 
+	"../labgob"
 	"../labrpc"
 )
 
@@ -117,6 +119,7 @@ func (rf *Raft) GetState() (int, bool) {
 //
 func (rf *Raft) Start(command interface{}) (int, int, bool) {
 	// Your code here (2B).
+	defer rf.persist()
 	rf.mu.Lock()
 	defer rf.mu.Unlock()
 
@@ -208,12 +211,15 @@ func Make(peers []*labrpc.ClientEnd, me int,
 func (rf *Raft) persist() {
 	// Your code here (2C).
 	// Example:
-	// w := new(bytes.Buffer)
-	// e := labgob.NewEncoder(w)
-	// e.Encode(rf.xxx)
-	// e.Encode(rf.yyy)
-	// data := w.Bytes()
-	// rf.persister.SaveRaftState(data)
+	w := new(bytes.Buffer)
+	e := labgob.NewEncoder(w)
+	rf.mu.Lock()
+	e.Encode(rf.currentTerm)
+	e.Encode(rf.votedFor)
+	e.Encode(rf.log)
+	rf.mu.Unlock()
+	data := w.Bytes()
+	rf.persister.SaveRaftState(data)
 }
 
 //
@@ -225,17 +231,20 @@ func (rf *Raft) readPersist(data []byte) {
 	}
 	// Your code here (2C).
 	// Example:
-	// r := bytes.NewBuffer(data)
-	// d := labgob.NewDecoder(r)
-	// var xxx
-	// var yyy
-	// if d.Decode(&xxx) != nil ||
-	//    d.Decode(&yyy) != nil {
-	//   error...
-	// } else {
-	//   rf.xxx = xxx
-	//   rf.yyy = yyy
-	// }
+	r := bytes.NewBuffer(data)
+	d := labgob.NewDecoder(r)
+	var currentTerm int
+	var votedFor int
+	var log []LogEntry
+	if d.Decode(&currentTerm) != nil ||
+		d.Decode(&votedFor) != nil ||
+		d.Decode(&log) != nil {
+		//fmt.Printf("Error: unpersist erro")
+	} else {
+		rf.currentTerm = currentTerm
+		rf.votedFor = votedFor
+		rf.log = log
+	}
 }
 
 //
@@ -424,6 +433,7 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 		reply.VotedForCandidate = rf.votedFor
 		//fmt.Printf("%d: send vote reply %s to %d\n", rf.me, toJSON(reply), args.Whoimi)
 		rf.mu.Unlock()
+		rf.persist()
 		return
 	}
 	if args.CurrentTerm == rf.currentTerm && rf.votedFor != -1 && rf.votedFor != args.Whoimi {
@@ -436,6 +446,7 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 		reply.VotedForCandidate = rf.votedFor
 		//fmt.Printf("%d: send vote reply %s to %d\n", rf.me, toJSON(reply), args.Whoimi)
 		rf.mu.Unlock()
+		rf.persist()
 		return
 	}
 	//bug fix
@@ -468,6 +479,7 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 		//fmt.Printf("%d: send vote reply %s to %d\n", rf.me, toJSON(reply), args.Whoimi)
 		rf.mu.Unlock()
 		rf.updateTimestamp("VOTE-HANDLER")
+		rf.persist()
 		return
 	} else {
 		//fmt.Printf("%d: reject for log not latest\n", rf.me)
@@ -477,6 +489,7 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 		reply.VotedForCandidate = rf.votedFor
 		//fmt.Printf("%d: send vote reply %s to %d\n", rf.me, toJSON(reply), args.Whoimi)
 		rf.mu.Unlock()
+		rf.persist()
 		return
 	}
 }
@@ -676,6 +689,7 @@ func (rf *Raft) SendAppendEntries(server int, args *AppendLogEntriesArgs, reply 
 // AppendLog or Heartbeat or DeclareLeaderShip
 func (rf *Raft) AppendEntries(args *AppendLogEntriesArgs, reply *AppendLogEntriesReply) {
 	//fmt.Printf("%d: recieve entries %s from peer %d\n", rf.me, toJSON(args), args.LeaderId)
+	defer rf.persist()
 	rf.mu.Lock()
 	defer rf.mu.Unlock()
 	if args.CurrentTerm < rf.currentTerm {
