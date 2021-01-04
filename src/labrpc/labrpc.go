@@ -49,15 +49,19 @@ package labrpc
 //   pass svc to srv.AddService()
 //
 
-import "../labgob"
-import "bytes"
-import "reflect"
-import "sync"
-import "log"
-import "strings"
-import "math/rand"
-import "time"
-import "sync/atomic"
+import (
+	"bytes"
+	"fmt"
+	"log"
+	"math/rand"
+	"reflect"
+	"strings"
+	"sync"
+	"sync/atomic"
+	"time"
+
+	"../labgob"
+)
 
 type reqMsg struct {
 	endname  interface{} // name of sending ClientEnd
@@ -114,6 +118,7 @@ func (e *ClientEnd) Call(svcMeth string, args interface{}, reply interface{}) bo
 		if err := rd.Decode(reply); err != nil {
 			log.Fatalf("ClientEnd.Call(): decode reply: %v\n", err)
 		}
+		fmt.Printf("reply is %v", reply)
 		return true
 	} else {
 		return false

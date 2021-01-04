@@ -256,9 +256,10 @@ type RequestVoteArgs struct {
 // field names must start with capital letters!
 //
 type RequestVoteReply struct {
-	CurrentTerm int  //server term before adding
-	VoteFor     bool //-1 or not me means reject
-	NotLatest   bool // if reject because not latest, just wait for more time
+	CurrentTerm       int  //server term before adding
+	VoteFor           bool //-1 or not me means reject
+	NotLatest         bool // if reject because not latest, just wait for more time
+	VotedForCandidate int  //indicate which candidate current term vote for
 	// Your data here (2A).
 }
 
@@ -327,7 +328,6 @@ func (rf *Raft) poll() bool {
 	voteTerm := rf.currentTerm
 	voteCommitIndex := rf.commitIndex
 	voteArgs := RequestVoteArgs{voteTerm, rf.me, lastLogIndex, lastLogTerm}
-	voteReply := RequestVoteReply{}
 
 	voteResultChannel := make(chan *RequestVoteReply)
 	voteNumber := 1
@@ -335,18 +335,17 @@ func (rf *Raft) poll() bool {
 	rf.mu.Unlock()
 
 	for index := range rf.peers {
+		voteReply := RequestVoteReply{}
 		if index != rf.me {
 			go rf.sendRequestVote(index, &voteArgs, &voteReply, voteResultChannel)
 		}
 	}
 
 	for result := range voteResultChannel {
-		fmt.Printf("%d: get one result (%v) \n", rf.me, result)
+		fmt.Printf("%d: get one result (%s) \n", rf.me, toJSON(result))
 		voteReturnNumber++
 		if result.VoteFor {
-			if voteReply.VoteFor {
-				voteNumber++
-			}
+			voteNumber++
 		} else if result.NotLatest {
 			//not latest log, wait for more time, 500ms 是经验性的，大概要等于candidate wait的时间
 			fmt.Printf("%d: wait 500ms more time because log not latest\n", rf.me)
@@ -357,7 +356,7 @@ func (rf *Raft) poll() bool {
 			return false
 		}
 		if voteNumber > len(rf.peers)/2 {
-			fmt.Printf("%d: Get marjority vote\n", rf.me)
+			fmt.Printf("%d: Get majority vote %d of %d servers\n", rf.me, voteNumber, len(rf.peers))
 			break //declare self as leader as soon as get majority vote
 		}
 		if voteReturnNumber == len(rf.peers) {
@@ -391,9 +390,19 @@ func (rf *Raft) sendRequestVote(server int, args *RequestVoteArgs, reply *Reques
 	fmt.Printf("%d: request vote %s to %d\n", rf.me, toJSON(args), server)
 	ok := rf.peers[server].Call("Raft.RequestVote", args, reply)
 	if ok {
-		voteResultChannel <- reply
 		fmt.Printf("%d: reply vote %s from %d\n", rf.me, toJSON(reply), server)
-		fmt.Printf("%d: %v to channel\n", rf.me, reply.VoteFor)
+		rf.mu.Lock()
+		if !reply.VoteFor && reply.CurrentTerm > rf.currentTerm {
+			//new leader
+			fmt.Printf("%d: %d return with new leader term %d, stop current leadership, back to follower!\n", rf.me, server, reply.CurrentTerm)
+			rf.role = 0 // turn back because new leader start
+			//bug fix
+			rf.currentTerm = reply.CurrentTerm
+			rf.votedFor = reply.VotedForCandidate
+		}
+		rf.mu.Unlock()
+		voteResultChannel <- reply
+		// fmt.Printf("%d: %d send %v to channel\n", rf.me, server, reply.VoteFor)
 	} else {
 		fmt.Printf("%d: rquest vote %s time out", rf.me, toJSON(args))
 	}
@@ -413,6 +422,7 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 		reply.CurrentTerm = rf.currentTerm
 		reply.VoteFor = false
 		reply.NotLatest = false
+		reply.VotedForCandidate = rf.votedFor
 		fmt.Printf("%d: send vote reply %s to %d\n", rf.me, toJSON(reply), args.Whoimi)
 		rf.mu.Unlock()
 		return
@@ -424,9 +434,17 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 		reply.CurrentTerm = rf.currentTerm
 		reply.VoteFor = false
 		reply.NotLatest = false
+		reply.VotedForCandidate = rf.votedFor
 		fmt.Printf("%d: send vote reply %s to %d\n", rf.me, toJSON(reply), args.Whoimi)
 		rf.mu.Unlock()
 		return
+	}
+	//bug fix
+	if args.CurrentTerm > rf.currentTerm {
+		fmt.Printf("%d: no matter what happen, always turn to bigger from %d to %d!\n", rf.me, rf.currentTerm, args.CurrentTerm)
+		rf.currentTerm = args.CurrentTerm
+		rf.role = 0
+		rf.votedFor = args.Whoimi
 	}
 	//check log latest
 	var lastLogTerm int
@@ -447,6 +465,7 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 		reply.CurrentTerm = rf.currentTerm
 		reply.VoteFor = true
 		reply.NotLatest = false
+		reply.VotedForCandidate = rf.votedFor
 		fmt.Printf("%d: send vote reply %s to %d\n", rf.me, toJSON(reply), args.Whoimi)
 		rf.mu.Unlock()
 		rf.updateTimestamp("VOTE-HANDLER")
@@ -456,6 +475,7 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 		reply.CurrentTerm = rf.currentTerm
 		reply.VoteFor = false
 		reply.NotLatest = true
+		reply.VotedForCandidate = rf.votedFor
 		fmt.Printf("%d: send vote reply %s to %d\n", rf.me, toJSON(reply), args.Whoimi)
 		rf.mu.Unlock()
 		return
@@ -466,8 +486,8 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 func (rf *Raft) SendInitialLeader(winTerm int, winCommitIndex int) {
 	fmt.Printf("%d: Declare election win to all\n", rf.me)
 	args := AppendLogEntriesArgs{winTerm, rf.me, -1, -1, nil, winCommitIndex}
-	reply := AppendLogEntriesReply{}
 	for index := range rf.peers {
+		reply := AppendLogEntriesReply{}
 		if rf.role == 1 {
 			if index != rf.me {
 				go rf.SendAppendEntries(index, &args, &reply)
@@ -492,9 +512,9 @@ func (rf *Raft) SendHeartBeat(winTerm int) {
 	fmt.Printf("%d: Start Send heartBeat\n", rf.me)
 	for !rf.killed() && rf.role == 1 {
 		args := AppendLogEntriesArgs{winTerm, rf.me, -1, -1, nil, rf.commitIndex}
-		reply := AppendLogEntriesReply{}
 		fmt.Printf("%d: Send heartBeat with term %d, leader commit index %d, current go routine number %d\n", rf.me, winTerm, rf.commitIndex, runtime.NumGoroutine())
 		for index := range rf.peers {
+			reply := AppendLogEntriesReply{}
 			if index != rf.me {
 				go rf.SendAppendEntries(index, &args, &reply)
 			}
@@ -620,14 +640,11 @@ func (rf *Raft) TrackAppendEntries(server int) bool {
 				rf.nextIndex[server] = reply.ConflictTermFirstLogIndex //skip all conflict term
 				continue
 			} else {
-				//TODO: need lock?
 				fmt.Printf("%d: append log to %d sucessfully range [%d:%d]\n", rf.me, server, followerNextLogIndex, lastLogIndex)
 				rf.nextIndex[server] = lastLogIndex + 1
 				rf.matchIndex[server] = lastLogIndex
-				// fmt.Printf("%d: append log to %d sucessfully range [%d:%d]\n", rf.me, server, followerNextLogIndex, lastLogIndex)
 			}
 		} else {
-			// sleepTime := time.Duration(int64(rand.Intn(50) + 100))
 			time.Sleep(20 * time.Millisecond) //track latest msg every 20 millisecond
 		}
 	}
@@ -641,15 +658,18 @@ func (rf *Raft) SendAppendEntries(server int, args *AppendLogEntriesArgs, reply 
 	ok := rf.peers[server].Call("Raft.AppendEntries", args, reply)
 	fmt.Printf("%d: recieve entries reply %s from peer %d\n", rf.me, toJSON(reply), server)
 	newLeader := false
-	if ok && !reply.Success && reply.CurrentTerm > rf.currentTerm {
-		//new leader
+	if ok {
+		fmt.Printf("%d: recieve entries reply %s from peer %d\n", rf.me, toJSON(reply), server)
 		rf.mu.Lock()
-		fmt.Printf("%d: %d return with new leader term %d, stop current leadership, back to follower!\n", rf.me, server, reply.CurrentTerm)
-		rf.role = 0 // turn back because new leader start
-		rf.currentTerm = reply.CurrentTerm
-		rf.votedFor = reply.VotedFor
+		if !reply.Success && reply.CurrentTerm > rf.currentTerm {
+			//new leader
+			fmt.Printf("%d: %d return with new leader term %d, stop current leadership, back to follower!\n", rf.me, server, reply.CurrentTerm)
+			rf.role = 0 // turn back because new leader start
+			rf.currentTerm = reply.CurrentTerm
+			rf.votedFor = reply.VotedFor
+			newLeader = true
+		}
 		rf.mu.Unlock()
-		newLeader = true
 	}
 	return ok, newLeader
 }
@@ -680,10 +700,10 @@ func (rf *Raft) AppendEntries(args *AppendLogEntriesArgs, reply *AppendLogEntrie
 			fmt.Printf("%d: update current commitIndex from %d to %d", rf.me, rf.commitIndex, args.LeaderCommit)
 			rf.commitIndex = min(args.LeaderCommit, len(rf.log)-1) // heart beat or initial cause commit index update
 		} else {
-			fmt.Printf("%d: current leader term %d <> last log entry term %d, can't update commitIndex", rf.me, args.CurrentTerm, rf.log[len(rf.log)-1].Term)
+			fmt.Printf("%d: current leader term %d <> last log entry term %d, can't update commitIndex\n", rf.me, args.CurrentTerm, rf.log[len(rf.log)-1].Term)
 		}
 		reply.CurrentTerm = rf.currentTerm
-		reply.Success = true //TODO maybe false when append log
+		reply.Success = true //maybe false when append log
 	}
 	//do sth appendEntries
 	if args.Entries != nil {
