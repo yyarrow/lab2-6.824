@@ -20,7 +20,6 @@ package raft
 import (
 	"bytes"
 	"encoding/json"
-	"fmt"
 	"math/rand"
 	"sort"
 	"sync"
@@ -392,7 +391,7 @@ func (rf *Raft) poll() bool {
 func (rf *Raft) sendRequestVote(server int, args *RequestVoteArgs, reply *RequestVoteReply, voteResultChannel chan *RequestVoteReply) bool {
 	defer func() {
 		if r := recover(); r != nil {
-			fmt.Println("Recovered in f", r)
+			// fmt.Println("Recovered in f", r)
 		}
 	}()
 	//fmt.Printf("%d: request vote %s to %d\n", rf.me, toJSON(args), server)
