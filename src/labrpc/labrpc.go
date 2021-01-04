@@ -51,7 +51,6 @@ package labrpc
 
 import (
 	"bytes"
-	"fmt"
 	"log"
 	"math/rand"
 	"reflect"
@@ -118,7 +117,7 @@ func (e *ClientEnd) Call(svcMeth string, args interface{}, reply interface{}) bo
 		if err := rd.Decode(reply); err != nil {
 			log.Fatalf("ClientEnd.Call(): decode reply: %v\n", err)
 		}
-		fmt.Printf("reply is %v", reply)
+		// fmt.Printf("reply is %v", reply)
 		return true
 	} else {
 		return false

@@ -21,7 +21,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"math/rand"
-	"runtime"
 	"sort"
 	"sync"
 	"sync/atomic"
@@ -98,7 +97,7 @@ func (rf *Raft) GetState() (int, bool) {
 	// Your code here (2A).
 	term = rf.currentTerm
 	isleader = (rf.role == 1)
-	fmt.Printf("%d: GetState result, term is %d, isLeader is %v\n", rf.me, term, isleader)
+	//fmt.Printf("%d: GetState result, term is %d, isLeader is %v\n", rf.me, term, isleader)
 	return term, isleader
 }
 
@@ -124,7 +123,7 @@ func (rf *Raft) Start(command interface{}) (int, int, bool) {
 	term, isLeader := rf.GetState()
 	index := len(rf.log)
 	if isLeader {
-		fmt.Printf("%d: append log request from client %s\n", rf.me, toJSON(command))
+		//fmt.Printf("%d: append log request from client %s\n", rf.me, toJSON(command))
 		rf.log = append(rf.log, LogEntry{command, rf.currentTerm})
 	}
 
@@ -310,7 +309,7 @@ type AppendLogEntriesReply struct {
 // the struct itself.
 //
 func (rf *Raft) poll() bool {
-	fmt.Printf("%d: start poll \n", rf.me)
+	//fmt.Printf("%d: start poll \n", rf.me)
 	rf.mu.Lock()
 	rf.currentTerm = rf.currentTerm + 1
 	rf.votedFor = rf.me
@@ -342,25 +341,25 @@ func (rf *Raft) poll() bool {
 	}
 
 	for result := range voteResultChannel {
-		fmt.Printf("%d: get one result (%s) \n", rf.me, toJSON(result))
+		//fmt.Printf("%d: get one result (%s) \n", rf.me, toJSON(result))
 		voteReturnNumber++
 		if result.VoteFor {
 			voteNumber++
 		} else if result.NotLatest {
 			//not latest log, wait for more time, 500ms 是经验性的，大概要等于candidate wait的时间
-			fmt.Printf("%d: wait 500ms more time because log not latest\n", rf.me)
+			//fmt.Printf("%d: wait 500ms more time because log not latest\n", rf.me)
 			rf.updateTimestampWithValue(rf.heartBeatTimestamp+500, "VOTE-REJECT")
 		}
 		if rf.role == 0 {
-			fmt.Printf("%d: Turn back to follower, stop vote because new leader\n", rf.me)
+			//fmt.Printf("%d: Turn back to follower, stop vote because new leader\n", rf.me)
 			return false
 		}
 		if voteNumber > len(rf.peers)/2 {
-			fmt.Printf("%d: Get majority vote %d of %d servers\n", rf.me, voteNumber, len(rf.peers))
+			//fmt.Printf("%d: Get majority vote %d of %d servers\n", rf.me, voteNumber, len(rf.peers))
 			break //declare self as leader as soon as get majority vote
 		}
 		if voteReturnNumber == len(rf.peers) {
-			fmt.Printf("%d: Already been return from all server\n", rf.me)
+			//fmt.Printf("%d: Already been return from all server\n", rf.me)
 			break
 		}
 	}
@@ -373,8 +372,8 @@ func (rf *Raft) poll() bool {
 			rf.nextIndex[i] = lastLogIndex + 1
 			rf.matchIndex[i] = 0
 		}
-		fmt.Printf("%d: initial leader rf log is %s", rf.me, toJSON(rf.log))
-		fmt.Printf("%d: initial leader nextIndex  to %s and matchIndex to %s\n", rf.me, toJSON(rf.nextIndex), toJSON(rf.matchIndex))
+		//fmt.Printf("%d: initial leader rf log is %s", rf.me, toJSON(rf.log))
+		//fmt.Printf("%d: initial leader nextIndex  to %s and matchIndex to %s\n", rf.me, toJSON(rf.nextIndex), toJSON(rf.matchIndex))
 		rf.mu.Unlock()
 		rf.SendInitialLeader(voteTerm, voteCommitIndex)
 	}
@@ -387,14 +386,14 @@ func (rf *Raft) sendRequestVote(server int, args *RequestVoteArgs, reply *Reques
 			fmt.Println("Recovered in f", r)
 		}
 	}()
-	fmt.Printf("%d: request vote %s to %d\n", rf.me, toJSON(args), server)
+	//fmt.Printf("%d: request vote %s to %d\n", rf.me, toJSON(args), server)
 	ok := rf.peers[server].Call("Raft.RequestVote", args, reply)
 	if ok {
-		fmt.Printf("%d: reply vote %s from %d\n", rf.me, toJSON(reply), server)
+		//fmt.Printf("%d: reply vote %s from %d\n", rf.me, toJSON(reply), server)
 		rf.mu.Lock()
 		if !reply.VoteFor && reply.CurrentTerm > rf.currentTerm {
 			//new leader
-			fmt.Printf("%d: %d return with new leader term %d, stop current leadership, back to follower!\n", rf.me, server, reply.CurrentTerm)
+			//fmt.Printf("%d: %d return with new leader term %d, stop current leadership, back to follower!\n", rf.me, server, reply.CurrentTerm)
 			rf.role = 0 // turn back because new leader start
 			//bug fix
 			rf.currentTerm = reply.CurrentTerm
@@ -402,9 +401,9 @@ func (rf *Raft) sendRequestVote(server int, args *RequestVoteArgs, reply *Reques
 		}
 		rf.mu.Unlock()
 		voteResultChannel <- reply
-		// fmt.Printf("%d: %d send %v to channel\n", rf.me, server, reply.VoteFor)
+		// //fmt.Printf("%d: %d send %v to channel\n", rf.me, server, reply.VoteFor)
 	} else {
-		fmt.Printf("%d: rquest vote %s time out", rf.me, toJSON(args))
+		//fmt.Printf("%d: rquest vote %s time out", rf.me, toJSON(args))
 	}
 	return ok
 }
@@ -414,34 +413,34 @@ func (rf *Raft) sendRequestVote(server int, args *RequestVoteArgs, reply *Reques
 //
 func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 	// Your code here (2A, 2B).
-	fmt.Printf("%d: receive vote request %s from %d\n", rf.me, toJSON(args), args.Whoimi)
+	//fmt.Printf("%d: receive vote request %s from %d\n", rf.me, toJSON(args), args.Whoimi)
 	rf.mu.Lock()
 
 	if args.CurrentTerm < rf.currentTerm {
-		fmt.Printf("%d: reject for old term\n", rf.me)
+		//fmt.Printf("%d: reject for old term\n", rf.me)
 		reply.CurrentTerm = rf.currentTerm
 		reply.VoteFor = false
 		reply.NotLatest = false
 		reply.VotedForCandidate = rf.votedFor
-		fmt.Printf("%d: send vote reply %s to %d\n", rf.me, toJSON(reply), args.Whoimi)
+		//fmt.Printf("%d: send vote reply %s to %d\n", rf.me, toJSON(reply), args.Whoimi)
 		rf.mu.Unlock()
 		return
 	}
 	if args.CurrentTerm == rf.currentTerm && rf.votedFor != -1 && rf.votedFor != args.Whoimi {
 		//if vote == -1, means first election, will vote
 		//else if vote != -1 && currentTerm = this.currentTerm, means this already follow one leader, rf.votedFor != whoimi means already vote for others, reject
-		fmt.Printf("%d: reject for this term because voted\n", rf.me)
+		//fmt.Printf("%d: reject for this term because voted\n", rf.me)
 		reply.CurrentTerm = rf.currentTerm
 		reply.VoteFor = false
 		reply.NotLatest = false
 		reply.VotedForCandidate = rf.votedFor
-		fmt.Printf("%d: send vote reply %s to %d\n", rf.me, toJSON(reply), args.Whoimi)
+		//fmt.Printf("%d: send vote reply %s to %d\n", rf.me, toJSON(reply), args.Whoimi)
 		rf.mu.Unlock()
 		return
 	}
 	//bug fix
 	if args.CurrentTerm > rf.currentTerm {
-		fmt.Printf("%d: no matter what happen, always turn to bigger from %d to %d!\n", rf.me, rf.currentTerm, args.CurrentTerm)
+		//fmt.Printf("%d: no matter what happen, always turn to bigger from %d to %d!\n", rf.me, rf.currentTerm, args.CurrentTerm)
 		rf.currentTerm = args.CurrentTerm
 		rf.role = 0
 		rf.votedFor = args.Whoimi
@@ -458,7 +457,7 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 	}
 
 	if (args.LastLogTerm > lastLogTerm) || (args.LastLogTerm == lastLogTerm && lastLogIndex <= args.LastLogIndex) {
-		fmt.Printf("%d: accept and vote for %d!\n", rf.me, args.Whoimi)
+		//fmt.Printf("%d: accept and vote for %d!\n", rf.me, args.Whoimi)
 		rf.currentTerm = args.CurrentTerm
 		rf.votedFor = args.Whoimi //update votedFor and currentTerm
 		rf.role = 0               //convert to follower as soon as vote for others
@@ -466,17 +465,17 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 		reply.VoteFor = true
 		reply.NotLatest = false
 		reply.VotedForCandidate = rf.votedFor
-		fmt.Printf("%d: send vote reply %s to %d\n", rf.me, toJSON(reply), args.Whoimi)
+		//fmt.Printf("%d: send vote reply %s to %d\n", rf.me, toJSON(reply), args.Whoimi)
 		rf.mu.Unlock()
 		rf.updateTimestamp("VOTE-HANDLER")
 		return
 	} else {
-		fmt.Printf("%d: reject for log not latest\n", rf.me)
+		//fmt.Printf("%d: reject for log not latest\n", rf.me)
 		reply.CurrentTerm = rf.currentTerm
 		reply.VoteFor = false
 		reply.NotLatest = true
 		reply.VotedForCandidate = rf.votedFor
-		fmt.Printf("%d: send vote reply %s to %d\n", rf.me, toJSON(reply), args.Whoimi)
+		//fmt.Printf("%d: send vote reply %s to %d\n", rf.me, toJSON(reply), args.Whoimi)
 		rf.mu.Unlock()
 		return
 	}
@@ -484,7 +483,7 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 
 // do leader initial
 func (rf *Raft) SendInitialLeader(winTerm int, winCommitIndex int) {
-	fmt.Printf("%d: Declare election win to all\n", rf.me)
+	//fmt.Printf("%d: Declare election win to all\n", rf.me)
 	args := AppendLogEntriesArgs{winTerm, rf.me, -1, -1, nil, winCommitIndex}
 	for index := range rf.peers {
 		reply := AppendLogEntriesReply{}
@@ -509,10 +508,10 @@ func (rf *Raft) SendInitialLeader(winTerm int, winCommitIndex int) {
 
 // do leader heartBeat
 func (rf *Raft) SendHeartBeat(winTerm int) {
-	fmt.Printf("%d: Start Send heartBeat\n", rf.me)
+	//fmt.Printf("%d: Start Send heartBeat\n", rf.me)
 	for !rf.killed() && rf.role == 1 {
 		args := AppendLogEntriesArgs{winTerm, rf.me, -1, -1, nil, rf.commitIndex}
-		fmt.Printf("%d: Send heartBeat with term %d, leader commit index %d, current go routine number %d\n", rf.me, winTerm, rf.commitIndex, runtime.NumGoroutine())
+		//fmt.Printf("%d: Send heartBeat with term %d, leader commit index %d, current go routine number %d\n", rf.me, winTerm, rf.commitIndex, runtime.NumGoroutine())
 		for index := range rf.peers {
 			reply := AppendLogEntriesReply{}
 			if index != rf.me {
@@ -533,7 +532,7 @@ func (rf *Raft) checkHeartBeat() {
 			timestamp := rf.heartBeatTimestamp
 			rf.heartBeatMu.RUnlock()
 			if rf.role != 1 && (curTime-timestamp) >= randomWaitDur { //leader will never time out
-				fmt.Printf("%d: curtime: %d, see time stampe: %d, time out after %d ms\n", rf.me, curTime, timestamp, randomWaitDur)
+				//fmt.Printf("%d: curtime: %d, see time stampe: %d, time out after %d ms\n", rf.me, curTime, timestamp, randomWaitDur)
 				rf.updateTimestamp("POLL-START")
 				// rf.updateTimestampWithValue(time.Now().UnixNano()/1e6+randomWaitDur*3, "POLL-START") //candidate time out after 3 roud selection to make sure at least
 				go rf.poll()
@@ -549,7 +548,7 @@ func (rf *Raft) checkHeartBeat() {
 //
 // do commit log
 func (rf *Raft) TrackApplyCommitLog() {
-	// fmt.Printf("%d: Commit log\n", rf.me)
+	// //fmt.Printf("%d: Commit log\n", rf.me)
 	// rf.mu.Lock()
 	// defer rf.mu.Unlock()
 	for !rf.killed() {
@@ -557,7 +556,7 @@ func (rf *Raft) TrackApplyCommitLog() {
 			for index := rf.lastApplied + 1; index < len(rf.log) && index <= rf.commitIndex; index++ {
 				applyMsg := ApplyMsg{true, rf.log[index].Command, index}
 				rf.applyCh <- applyMsg
-				fmt.Printf("%d: commit msg %s at %d log\n", rf.me, toJSON(applyMsg), index)
+				//fmt.Printf("%d: commit msg %s at %d log\n", rf.me, toJSON(applyMsg), index)
 				if rf.role == 1 { //TODO: need lock
 					rf.UpdateMachine(rf.log[index].Command)
 				}
@@ -591,11 +590,11 @@ func (rf *Raft) TrackLastMatchIndex() bool {
 			}
 		}
 		sort.Ints(intList)
-		fmt.Printf("%d: current match index list %s (not include self)\n", rf.me, toJSON(intList))
+		//fmt.Printf("%d: current match index list %s (not include self)\n", rf.me, toJSON(intList))
 		middleMatchIndex = intList[peersNumber/2]
-		fmt.Printf("%d: middle match index is %d, current commit index is %d\n", rf.me, middleMatchIndex, rf.commitIndex)
+		//fmt.Printf("%d: middle match index is %d, current commit index is %d\n", rf.me, middleMatchIndex, rf.commitIndex)
 		if middleMatchIndex >= 0 && middleMatchIndex > rf.commitIndex && rf.log[middleMatchIndex].Term == rf.currentTerm {
-			fmt.Printf("%d: update current commitLogIndex from %d to %d\n", rf.me, rf.commitIndex, middleMatchIndex)
+			//fmt.Printf("%d: update current commitLogIndex from %d to %d\n", rf.me, rf.commitIndex, middleMatchIndex)
 			rf.commitIndex = middleMatchIndex
 		}
 		time.Sleep(100 * time.Millisecond)
@@ -621,13 +620,13 @@ func (rf *Raft) TrackAppendEntries(server int) bool {
 			prevLogTerm = rf.log[prevLogIndex].Term
 		}
 		if followerNextLogIndex <= lastLogIndex {
-			fmt.Printf("%d: follower %d last log index %d <= leader log index %d\n", rf.me, server, followerNextLogIndex, lastLogIndex)
+			//fmt.Printf("%d: follower %d last log index %d <= leader log index %d\n", rf.me, server, followerNextLogIndex, lastLogIndex)
 			args := AppendLogEntriesArgs{
 				rf.currentTerm, rf.me, prevLogIndex, prevLogTerm, rf.log[followerNextLogIndex : lastLogIndex+1], rf.commitIndex}
 			reply := AppendLogEntriesReply{}
 			ok, newLeader := rf.SendAppendEntries(server, &args, &reply)
 			if !ok {
-				fmt.Printf("%d: append log request to %d time out!\n", rf.me, server)
+				//fmt.Printf("%d: append log request to %d time out!\n", rf.me, server)
 				time.Sleep(100 * time.Millisecond)
 				continue
 			}
@@ -636,11 +635,11 @@ func (rf *Raft) TrackAppendEntries(server int) bool {
 				break
 			}
 			if !reply.Success {
-				fmt.Printf("%d: log index of server %d back skip from %d to %d\n", rf.me, server, followerNextLogIndex, reply.ConflictTermFirstLogIndex)
+				//fmt.Printf("%d: log index of server %d back skip from %d to %d\n", rf.me, server, followerNextLogIndex, reply.ConflictTermFirstLogIndex)
 				rf.nextIndex[server] = reply.ConflictTermFirstLogIndex //skip all conflict term
 				continue
 			} else {
-				fmt.Printf("%d: append log to %d sucessfully range [%d:%d]\n", rf.me, server, followerNextLogIndex, lastLogIndex)
+				//fmt.Printf("%d: append log to %d sucessfully range [%d:%d]\n", rf.me, server, followerNextLogIndex, lastLogIndex)
 				rf.nextIndex[server] = lastLogIndex + 1
 				rf.matchIndex[server] = lastLogIndex
 			}
@@ -649,21 +648,21 @@ func (rf *Raft) TrackAppendEntries(server int) bool {
 		}
 	}
 	return true
-	// fmt.Printf("%d: try append log %s to %d\n", rf.me, toJSON(args))
+	// //fmt.Printf("%d: try append log %s to %d\n", rf.me, toJSON(args))
 }
 
 // send Append Log
 func (rf *Raft) SendAppendEntries(server int, args *AppendLogEntriesArgs, reply *AppendLogEntriesReply) (bool, bool) {
-	fmt.Printf("%d: send entries %s to peer %d\n", rf.me, toJSON(args), server)
+	//fmt.Printf("%d: send entries %s to peer %d\n", rf.me, toJSON(args), server)
 	ok := rf.peers[server].Call("Raft.AppendEntries", args, reply)
-	fmt.Printf("%d: recieve entries reply %s from peer %d\n", rf.me, toJSON(reply), server)
+	//fmt.Printf("%d: recieve entries reply %s from peer %d\n", rf.me, toJSON(reply), server)
 	newLeader := false
 	if ok {
-		fmt.Printf("%d: recieve entries reply %s from peer %d\n", rf.me, toJSON(reply), server)
+		//fmt.Printf("%d: recieve entries reply %s from peer %d\n", rf.me, toJSON(reply), server)
 		rf.mu.Lock()
 		if !reply.Success && reply.CurrentTerm > rf.currentTerm {
 			//new leader
-			fmt.Printf("%d: %d return with new leader term %d, stop current leadership, back to follower!\n", rf.me, server, reply.CurrentTerm)
+			//fmt.Printf("%d: %d return with new leader term %d, stop current leadership, back to follower!\n", rf.me, server, reply.CurrentTerm)
 			rf.role = 0 // turn back because new leader start
 			rf.currentTerm = reply.CurrentTerm
 			rf.votedFor = reply.VotedFor
@@ -676,31 +675,31 @@ func (rf *Raft) SendAppendEntries(server int, args *AppendLogEntriesArgs, reply 
 
 // AppendLog or Heartbeat or DeclareLeaderShip
 func (rf *Raft) AppendEntries(args *AppendLogEntriesArgs, reply *AppendLogEntriesReply) {
-	fmt.Printf("%d: recieve entries %s from peer %d\n", rf.me, toJSON(args), args.LeaderId)
+	//fmt.Printf("%d: recieve entries %s from peer %d\n", rf.me, toJSON(args), args.LeaderId)
 	rf.mu.Lock()
 	defer rf.mu.Unlock()
 	if args.CurrentTerm < rf.currentTerm {
 		//reject
-		fmt.Printf("%d: reject because currentTerm %d > %d\n", rf.me, rf.currentTerm, args.CurrentTerm)
+		//fmt.Printf("%d: reject because currentTerm %d > %d\n", rf.me, rf.currentTerm, args.CurrentTerm)
 		reply.CurrentTerm = rf.currentTerm
 		reply.Success = false
 		reply.VotedFor = rf.votedFor
 		return
 	}
 	if args.CurrentTerm == rf.currentTerm && args.LeaderId != rf.votedFor {
-		fmt.Printf("%d: warn: may be double leader in a term. my vote is: %d, leader id is: %d\n", rf.me, rf.votedFor, args.LeaderId)
+		//fmt.Printf("%d: warn: may be double leader in a term. my vote is: %d, leader id is: %d\n", rf.me, rf.votedFor, args.LeaderId)
 	}
 	if args.CurrentTerm >= rf.currentTerm {
-		fmt.Printf("%d: term jump from %d to %d, leader id is %d, commitIndex is %d\n", rf.me, rf.currentTerm, args.CurrentTerm, args.LeaderId, args.LeaderCommit)
+		//fmt.Printf("%d: term jump from %d to %d, leader id is %d, commitIndex is %d\n", rf.me, rf.currentTerm, args.CurrentTerm, args.LeaderId, args.LeaderCommit)
 		rf.role = 0 // Turn back to follower for old leader or candidate
 		rf.currentTerm = args.CurrentTerm
 		rf.votedFor = args.LeaderId //vote for new leader
 		if rf.log[len(rf.log)-1].Term == args.CurrentTerm {
 			//if new leader has been append by this leader term
-			fmt.Printf("%d: update current commitIndex from %d to %d", rf.me, rf.commitIndex, args.LeaderCommit)
+			//fmt.Printf("%d: update current commitIndex from %d to %d", rf.me, rf.commitIndex, args.LeaderCommit)
 			rf.commitIndex = min(args.LeaderCommit, len(rf.log)-1) // heart beat or initial cause commit index update
 		} else {
-			fmt.Printf("%d: current leader term %d <> last log entry term %d, can't update commitIndex\n", rf.me, args.CurrentTerm, rf.log[len(rf.log)-1].Term)
+			//fmt.Printf("%d: current leader term %d <> last log entry term %d, can't update commitIndex\n", rf.me, args.CurrentTerm, rf.log[len(rf.log)-1].Term)
 		}
 		reply.CurrentTerm = rf.currentTerm
 		reply.Success = true //maybe false when append log
@@ -708,7 +707,7 @@ func (rf *Raft) AppendEntries(args *AppendLogEntriesArgs, reply *AppendLogEntrie
 	//do sth appendEntries
 	if args.Entries != nil {
 		if args.PrevLogIndex >= len(rf.log) {
-			fmt.Printf("%d: reject because prevLogIndex %d bigger then current log index %d\n", rf.me, args.PrevLogIndex, len(rf.log)-1)
+			//fmt.Printf("%d: reject because prevLogIndex %d bigger then current log index %d\n", rf.me, args.PrevLogIndex, len(rf.log)-1)
 			reply.Success = false
 			reply.ConflictTermFirstLogIndex = len(rf.log)
 			reply.ConflictTermLogTerm = -1
@@ -718,36 +717,36 @@ func (rf *Raft) AppendEntries(args *AppendLogEntriesArgs, reply *AppendLogEntrie
 				if index == 0 || rf.log[index-1].Term != rf.log[index].Term {
 					reply.ConflictTermFirstLogIndex = index
 					reply.ConflictTermLogTerm = rf.log[index].Term
-					fmt.Printf("%d: reject because find conflict term %d at range [%d:%d]\n", rf.me, reply.ConflictTermLogTerm, index, args.PrevLogIndex)
+					//fmt.Printf("%d: reject because find conflict term %d at range [%d:%d]\n", rf.me, reply.ConflictTermLogTerm, index, args.PrevLogIndex)
 					break
 				}
 			}
 		} else {
-			fmt.Printf("%d: append log request from %d starting at %d length is %d \n", rf.me, args.LeaderId, args.PrevLogIndex+1, len(args.Entries))
+			//fmt.Printf("%d: append log request from %d starting at %d length is %d \n", rf.me, args.LeaderId, args.PrevLogIndex+1, len(args.Entries))
 			reply.Success = true
-			fmt.Printf("%d: before append log length %d\n", rf.me, len(rf.log))
+			//fmt.Printf("%d: before append log length %d\n", rf.me, len(rf.log))
 			if args.PrevLogIndex+1 > 0 {
 				rf.log = rf.log[0:(args.PrevLogIndex + 1)] //cut tail
 			}
 			rf.log = append(rf.log, args.Entries...)
 			rf.commitIndex = min(args.LeaderCommit, len(rf.log)-1) // after append new log may cause commit index update
-			fmt.Printf("%d: after append log length %d\n", rf.me, len(rf.log))
+			//fmt.Printf("%d: after append log length %d\n", rf.me, len(rf.log))
 		}
 	}
 	rf.updateTimestamp("LEADER-HEARTBEAT")
-	fmt.Printf("%d: reply entries %s to peer %d\n", rf.me, toJSON(reply), args.LeaderId)
+	//fmt.Printf("%d: reply entries %s to peer %d\n", rf.me, toJSON(reply), args.LeaderId)
 }
 
 func (rf *Raft) updateTimestamp(reason string) {
 	rf.heartBeatMu.Lock()
 	rf.heartBeatTimestamp = time.Now().UnixNano() / 1e6
-	fmt.Printf("%d: [%s] update timestamp to %d ms\n", rf.me, reason, rf.heartBeatTimestamp)
+	//fmt.Printf("%d: [%s] update timestamp to %d ms\n", rf.me, reason, rf.heartBeatTimestamp)
 	rf.heartBeatMu.Unlock()
 }
 func (rf *Raft) updateTimestampWithValue(value int64, reason string) {
 	rf.heartBeatMu.Lock()
 	rf.heartBeatTimestamp = value
-	fmt.Printf("%d: [%s] update timestamp to %d ms\n", rf.me, reason, rf.heartBeatTimestamp)
+	//fmt.Printf("%d: [%s] update timestamp to %d ms\n", rf.me, reason, rf.heartBeatTimestamp)
 	rf.heartBeatMu.Unlock()
 }
 
