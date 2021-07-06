@@ -78,7 +78,6 @@ type Raft struct {
 
 	// Look at the paper's Figure 2 for a description of what
 	// state a Raft server must maintain.
-
 	currentTerm int
 	votedFor    int
 	log         []LogEntry
@@ -570,7 +569,7 @@ func (rf *Raft) TrackApplyCommitLog() {
 				rf.applyCh <- applyMsg
 				//fmt.Printf("%d: commit msg %s at %d log\n", rf.me, toJSON(applyMsg), index)
 				if rf.role == 1 { //TODO: need lock
-					rf.UpdateMachine(rf.log[index].Command)
+					rf.UpdateStateMachine(rf.log[index].Command)
 				}
 			}
 			rf.lastApplied = rf.commitIndex
@@ -580,8 +579,8 @@ func (rf *Raft) TrackApplyCommitLog() {
 	}
 }
 
-// do update mechine state
-func (rf *Raft) UpdateMachine(Command interface{}) {
+// do update machine state
+func (rf *Raft) UpdateStateMachine(Command interface{}) {
 
 }
 
